@@ -1,0 +1,193 @@
+article {
+  padding-top: 1em;
+  font-family: "ff-tisa-web-pro",serif;
+  font-weight: 400;
+  font-size: 22px;
+
+  a { @extend .force-wrap; }
+
+  header {
+    position: relative;
+    padding-top: 2em;
+    margin-bottom: 1em;
+    padding-bottom: 10px;
+    overflow: hidden;
+
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid #CCC;
+
+    h1 {
+      font-weight: bold;
+      font-size: 2.4em;
+      margin: 0;
+      a { text-decoration: none;
+        &:hover { text-decoration: underline; } }
+    }
+
+    p {
+      font-size: .9em;
+      color: $text-color-light;
+      margin: 0;
+
+    }
+
+    .meta {
+      float: left;
+
+      time {
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+    }
+
+    .sharing {
+      float: right;
+    }
+  }
+
+
+  footer {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  figure {
+    text-align: center;
+
+    img {
+      width: 100%;
+      max-width: 1000px;
+      height: auto !important;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 1000px;
+      height: auto !important;
+      min-height: 500px;
+      margin-bottom: 30px;
+    }
+  }
+
+  ul {
+    margin-bottom: 30px;
+
+    li {
+      margin-left: 30px;
+      margin-bottom: 18px;
+    }
+  }
+
+  p, h1, h2, h3, blockquote, ul {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p {
+    font-family: "droid-sans",sans-serif;
+    font-size: 18px;
+    color: #4A4235;
+    margin: 30px auto;
+    margin-bottom: 1.5em;
+
+  }
+
+  h2 {
+    line-height: 1.45;
+  }
+
+  .feature {
+    padding-top: .5em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    background: $img-border bottom left repeat-x;
+    font-size: 2.0em; font-style: italic;
+    line-height: 1.3em;
+  }
+  img, video, .flash-video {
+    @extend .flex-content;
+    @extend .basic-alignment;
+    @include shadow-box;
+  }
+
+  > footer {
+    padding-bottom: 2.5em;
+    margin-top: 2em;
+    @extend .sans;
+    p.meta {
+      margin-bottom: .8em;
+      font-size: .85em;
+      clear: both;
+      overflow: hidden;
+    }
+    .byline + time:before, time +time:before, .comments:before, .byline ~ .categories:before {
+      @extend .separator;
+    }
+  }
+
+}
+article + article {
+  .blog-index & {
+    background: $img-border top left repeat-x;
+  }
+}
+#content .blog-index {
+
+  article header { background: none; padding-bottom: 0; }
+
+  article h1 {
+    font-size: 2.2em;
+  }
+
+  a[rel=full-article] {
+    background: darken($main-bg, 5);
+    display: inline-block;
+    padding: .4em .8em;
+    margin-right: .5em;
+    text-decoration: none;
+    color: mix($text-color, $text-color-light);
+    @extend .serif;
+    @include transition(background-color .5s);
+
+    &:hover {
+      text-shadow: none;
+      color: $main-bg;
+    }
+  }
+  footer {
+    @extend .sans;
+    margin-top: 1em;
+  }
+}
+
+.separator {
+  content: "\2022 ";
+  padding: 0 .4em 0 .2em;
+  display: inline-block;
+}
+
+#content div.pagination {
+  text-align: center;
+  font-size: .95em;
+  position: relative;
+  background: $img-border top left repeat-x;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: {top: 1.5em; bottom: 1.5em;}
+
+
+  a {
+    text-decoration: none;
+    color: $text-color-light;
+    &.prev { position: absolute; left: 0; }
+    &.next { position: absolute; right: 0; }
+    &[href*=archive] {
+      &:before, &:after { content: '\2014'; padding: 0 .3em; }
+    }
+  }
+}
