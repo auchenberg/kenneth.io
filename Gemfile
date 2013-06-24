@@ -26,6 +26,7 @@ gem 'rackables'
 
 gem 'rack-jekyll'
 gem 'rack-subdomain'
+gem 'jekyll-assets'
 gem 'unicorn'
 
 
