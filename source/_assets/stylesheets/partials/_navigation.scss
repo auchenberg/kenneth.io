@@ -10,10 +10,11 @@ nav {
   zoom: 1;
 
   ul {
-    text-align: center;
-    margin: 0;
+    text-align: left;
+    margin: 0 auto;
     padding: 0;
     width: 100%;
+    max-width: 800px;
 
 
     li {

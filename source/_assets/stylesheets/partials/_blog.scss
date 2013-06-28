@@ -110,8 +110,6 @@ article {
   }
   img, video, .flash-video {
     @extend .flex-content;
-    @extend .basic-alignment;
-    @include shadow-box;
   }
 
   > footer {
