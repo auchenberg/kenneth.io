@@ -33,5 +33,6 @@ gem 'unicorn'
 group :development do
   gem 'rb-fsevent'
   gem 'heroku'
+  gem 'debugger'
 end
 
