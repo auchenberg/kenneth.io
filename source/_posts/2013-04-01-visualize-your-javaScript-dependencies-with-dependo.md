@@ -28,7 +28,7 @@ It's all wrapped up as a simple node-module, available on [NPM](https://npmjs.or
 Enough talk. The best way to show something is by example, so here I generated a graph of the official RequireJS [multipage](https://github.com/requirejs/example-multipage) example:
 
 <div class="slides-embed" style="margin-bottom: -165px;">
-  <iframe src="1http://auchenberg.github.com/dependo/example/"></iframe>
+  <iframe src="http://auchenberg.github.com/dependo/example/"></iframe>
 </div>
 
 It's still early days, but I think this tool will help developers getting a better overview of modules and their dependencies. I really hope you like this tool too.
