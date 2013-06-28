@@ -75,3 +75,8 @@ assets:
     css:  sass
     js:   uglifier
 
+  sources:
+    - _assets/
+    - _assets/javascripts
+    - _assets/stylesheets
+
