@@ -24,7 +24,7 @@ module Jekyll
     def initialize(tag_name, markup, tokens)
       attributes = ['class', 'src', 'width', 'height', 'title']
 
-      if markup =~ /(?<class>\S.*\s+)?(?<src>(?:https?:\/\/|\/|\S+\/)\S+)(?:\s+(?<width>\d+))?(?:\s+(?<height>\d+))?(?<title>\s+.+)?/i
+      if markup =~ /(?<class>\S.*\s+)?(?<src>\S+)(?:\s+(?<width>\d+))?(?:\s+(?<height>\d+))?(?<title>\s+.+)?/i
         @img = attributes.reduce({}) { |img, attr| img[attr] = $~[attr].strip if $~[attr]; img }
         if /(?:"|')(?<title>[^"']+)?(?:"|')\s+(?:"|')(?<alt>[^"']+)?(?:"|')/ =~ @img['title']
           @img['title']  = title
@@ -32,13 +32,17 @@ module Jekyll
         else
           @img['alt']    = @img['title'].gsub!(/"/, '&#34;') if @img['title']
         end
+
         @img['class'].gsub!(/"/, '') if @img['class']
       end
       super
     end
 
+
     def render(context)
+
       if @img
+        @img['src'] = context.registers[:site].asset_path(@img['src'])
         "<figure>\n<img #{@img.collect {|k,v| "#{k}=\"#{v}\"" if v}.join(" ")}>\n</figure>"
       else
         "Error processing input, expected syntax: {% img [class name(s)] [http[s]:/]/path/to/image [width [height]] [title text | \"title text\" [\"alt text\"]] %}"
