@@ -29,7 +29,7 @@ Let's I take a quick walk down memorylane to recap where we are coming from with
 
 Back in the good old IE days, Microsoft [released](http://betanews.com/2005/09/19/microsoft-issues-ie-developer-toolbar/) a wonderful tool called ["IE Developer Toolbar"](https://www.google.dk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CCwQFjAA&url=http%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fdownload%2Fdetails.aspx%3Fid%3D18359&ei=oBCVUd73NOiligL-qoGIDQ&usg=AFQjCNGPJOmdDZBHBQ7bnEO1tIGapmZzEQ&sig2=WVwUTewSiA50I6noi2Ay5g&bvm=bv.46471029,d.cGE). This toolbar enabled us, developers, to inspect the HTML and find the related CSS directly from the browser. The toolbar even had a script-debugger for those writing crazy DHTML. The toolbar was an add-on to IE, and was simply implemented via the IE's toolbar API, so it wasn't fully integrated within the browser - It was slow, but it did the job.
 
-{% img /images/ie-developer-toolbar.jpg %}
+{% img images/ie-developer-toolbar.jpg %}
 
 Take a look the toolbar. Does it look familiar to you? I should, because if you look at any web developer tool today it's heavily inspired by the layout the IE-team did, more than 5 years ago.
 
@@ -41,7 +41,7 @@ After the innovation stopped with IE6, came Mozilla with Firefox, and soon after
 
 Conceptually Firebug is still based on the same assumptions as the IE Developer toolbar. It's a tool designed to "inspect" the document, show the DOM, and highlight the applied styles.
 
-{% img /images/firebug.jpg %}
+{% img images/firebug.jpg %}
 
 I think the success of Firefox is highly related to Firebug. I believe Firebug was the main argument for many developers choose Firefox as their standard browser.
 
@@ -49,7 +49,7 @@ I think the success of Firefox is highly related to Firebug. I believe Firebug w
 
 A few years later Google came around with their [Chromium project](http://www.chromium.org/). First came Chrome on Windows, and then later followed OSX and Linux. Chrome had a fresh minimalistic UI, a revolutionary ([V8](https://code.google.com/p/v8/)) JavaScript engine, and for the first time brought [WebKit](http://www.webkit.org/) to all major platforms. From a tooling perspective Chrome started out by inheriting the default WebKit web developer tools, but not long after the Chrome team began investing in the tooling.
 
-{% img /images/chrome_developer_tools.jpg %}
+{% img images/chrome_developer_tools.jpg %}
 
 From my perspective the investment into the tooling, and the innovations made in [WebKit](http://www.webkit.org/) and [V8](https://code.google.com/p/v8/), are the main reasons why Chrome quickly became the standard browser for many developers.
 
@@ -65,19 +65,19 @@ While the way we build web applications has changed completely, our web develope
 
 In the following chart I have tried to sketch out a typical bug-fixing workflow for web developer:
 
-{% img /images/todays-frontend-flow.png %}
+{% img images/todays-frontend-flow.png %}
 
 ## Fixing the symptoms with more tools.
 
 Many small tools have been created to fix the symptoms we are seeing in this broken workflow. The main problem with these tools is that they actually made the overall workflow even more complicated.  They have added additional workflows that all requires more tools and processes to be needs to be maintained and started.
 
-{% img /images/terminals.png %}
+{% img images/terminals.png %}
 
 Admitted. I've been one of those people. A few years back I wrote [CSS Reloader](http://blog.kenneth.io/blog/2010/03/21/css-reloader-an-extension-for-firefox-and-chrome/) for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/css-reloader/) and then later [Chrome](https://chrome.google.com/webstore/detail/css-reloader/dnfpcpfijpdhabaoieccoclghgplmpbd?hl=en). CSS Reloader allowed you to force a reload of the stylesheets, which hopefully made it much easier to do pixel pushing.
 
 Today tools like [LiveReload](http://livereload.com/) is a part of our frontend-stack, but when you think about it, it's quite weird, and overly complex to have a local file-watcher running and connected to the browser.
 
-{% img /images/livereload-flow.png %}
+{% img images/livereload-flow.png %}
 
 We have manged to combine many cool technologies as work arounds - to fix the symptoms; not the fundemental problem.
 
@@ -113,7 +113,7 @@ What if you could edit a file in your editor, and have the changes reflected dir
 
 Maybe it could work like this:
 
-{% img /images/editor_workflow.png %}
+{% img images/editor_workflow.png %}
 
 Why? First of all I do believe all developers has chosen their editor for good reasons. There are a million editors out there, and each developer has carefully selected his/her editor by a variety of criteria. Maybe it's the refactoring-functionality, the themes or the plugins? It's all individual, each made their trade-offs and its's perfectly fine.
 
@@ -177,7 +177,7 @@ Browser-vendors, this is the kind of problems I want to you look into. They are 
 
 We can build on top of our already awesome editors. Take a look at innovation [Adobe](http://adobe.com) did with [Brackets](http://brackets.io/). They did a innovative contextual css-editor that allows you to edit the related CSS directly from your HTML-editor.
 
-{% img /images/brackets-quick-edit-2.png %}
+{% img images/brackets-quick-edit-2.png %}
 
 Imagine if we could bring contextual information from the browser directly into the editor. I'm thinking computed-styles, dimensions, rendering previews on hover. Lets try to think outside of the box, like Adobe did with Brackets.
 

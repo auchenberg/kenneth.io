@@ -9,7 +9,7 @@ categories:
 
 A few months back I was setting in [Jacob Bøtter](http://heutedenkenmorgenfertig.com/)'s kitchen discusing what it would take to disrupt postal services and ultimately eradicate letters for good.
 
-{% img /images/helpmate.jpg 700 513 Helpmate %}
+{% img images/helpmate.jpg %}
 
 <!--more-->
 
@@ -19,4 +19,4 @@ So how about an iPhone app, where you just could snap a picture of what's needed
 
 We sketched out the concept, and created a little website with an introduction video. We are starting out in Copenhagen, and if enough people signup, we will make it happen.
 
-We call the it [Helpmate](http://helpmateapp.com/) (in danish).
+We call the it [Helpmate](http://helpmate.dk/) (in danish).
