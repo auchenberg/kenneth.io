@@ -1,13 +1,13 @@
 body > header {
 
-  padding: 20px 0;
+  padding: 20px 0 20px 0;
   background-color: #333;
 
   .inner {
-position: relative;
-    position: relative;
-    max-width: 800px;
+    max-width: $max-width;
     margin: 0 auto;
+    width: 95%;
+    position: relative;
   }
 
   h1 {
@@ -26,6 +26,7 @@ position: relative;
       text-decoration: none;
     }
   }
+
   h2 {
     font-weight: 400;
     margin: .2em 0 0;
@@ -40,12 +41,13 @@ position: relative;
     top: 10px;
   }
 
+}
+
 
 @media screen and (max-width: 768px) {
 
   .follow {
     display: none;
   }
-}
 
 }

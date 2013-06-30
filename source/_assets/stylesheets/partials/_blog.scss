@@ -13,24 +13,17 @@ article {
     padding-bottom: 10px;
     overflow: hidden;
 
-    max-width: 800px;
+    max-width: $max-width;
     margin-left: auto;
     margin-right: auto;
     border-bottom: 1px solid #CCC;
 
-    h1 {
-      font-weight: bold;
-      font-size: 2.4em;
-      margin: 0;
-      a { text-decoration: none;
-        &:hover { text-decoration: underline; } }
-    }
+    width: 95%;
 
     p {
       font-size: .9em;
       color: $text-color-light;
       margin: 0;
-
     }
 
     .meta {
@@ -47,58 +40,10 @@ article {
     }
   }
 
-
   footer {
-    max-width: 800px;
+    max-width: $max-width;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  figure {
-    text-align: center;
-
-    img {
-      width: 100%;
-      max-width: 1000px;
-      height: auto !important;
-      -ms-interpolation-mode: bicubic;
-    }
-
-    iframe {
-      width: 100%;
-      max-width: 1000px;
-      height: auto !important;
-      min-height: 500px;
-      margin-bottom: 30px;
-    }
-  }
-
-  ul {
-    margin-bottom: 30px;
-
-    li {
-      margin-left: 30px;
-      margin-bottom: 18px;
-    }
-  }
-
-  p, h1, h2, h3, blockquote, ul {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  p {
-    font-family: "droid-sans",sans-serif;
-    font-size: 18px;
-    color: #4A4235;
-    margin: 30px auto;
-    margin-bottom: 1.5em;
-
-  }
-
-  h2 {
-    line-height: 1.45;
   }
 
   .feature {
@@ -108,8 +53,10 @@ article {
     font-size: 2.0em; font-style: italic;
     line-height: 1.3em;
   }
+
   img, video, .flash-video {
-    @extend .flex-content;
+    max-width: 100%;
+    height: auto;
   }
 
   > footer {
@@ -129,7 +76,7 @@ article {
 
 }
 
-#content .blog-index {
+.blog-index {
 
   article header { background: none; padding-bottom: 0; }
 
@@ -164,22 +111,45 @@ article {
   display: inline-block;
 }
 
-#content div.pagination {
-  text-align: center;
+.pagination {
   font-size: .95em;
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: {top: 1.5em; bottom: 1.5em;}
-
+  max-width: $max-width;
+  margin: 1em auto 0 auto;
+  overflow: hidden;
 
   a {
     text-decoration: none;
-    color: $text-color-light;
-    &.prev { position: absolute; left: 0; }
-    &.next { position: absolute; right: 0; }
-    &[href*=archive] {
-      &:before, &:after { content: '\2014'; padding: 0 .3em; }
+    background: #F2F2F2;
+    display: inline-block;
+    padding: .4em .8em;
+
+    &.prev {
+      float: left;
     }
+
+    &.next {
+      float: right;
+    }
+
+    &[href*=archive] {
+      &:before, &:after {
+        content: '\2014';
+        padding: 0 .3em;
+      }
+    }
+
   }
+}
+
+@media screen and (max-width: 768px) {
+
+  article {
+
+    > header {
+      padding-top: 0;
+    }
+
+
+  }
+
 }
