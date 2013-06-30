@@ -16,20 +16,10 @@
     }
   }
 
-  h1 {
+  h2 {
     color: $text-color;
     margin-bottom: .3em;
-  }
 
-  h2 {
-    border-bottom: 1px solid #CCC;
-    font-size: 2em;
-    line-height: 2em;
-    margin-bottom: 0;
-    color: #000;
-  }
-
-  h1 {
     font-size: 1.5em;
     a {
       @include hover-link;

@@ -1,145 +1,77 @@
-article {
-  padding-top: 1em;
-  font-family: "ff-tisa-web-pro",serif;
-  font-weight: 400;
-  font-size: 22px;
+.post {
 
-  a { @extend .force-wrap; }
+  article {
+    padding-top: 1em;
+    font-family: "ff-tisa-web-pro",serif;
+    font-weight: 400;
+    font-size: 22px;
 
-  header {
-    position: relative;
-    padding-top: 2em;
-    margin-bottom: 1em;
-    padding-bottom: 10px;
-    overflow: hidden;
+    a { @extend .force-wrap; }
 
-    max-width: $max-width;
-    margin-left: auto;
-    margin-right: auto;
-    border-bottom: 1px solid #CCC;
-
-    width: 95%;
-
-    p {
-      font-size: .9em;
-      color: $text-color-light;
-      margin: 0;
+    p, h2, h3, blockquote, ul {
+      width: 95%;
     }
 
-    .meta {
-      float: left;
-
-      time {
-        font-size: 14px;
-        text-transform: uppercase;
-      }
-    }
-
-    .sharing {
-      float: right;
-    }
-  }
-
-  footer {
-    max-width: $max-width;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .feature {
-    padding-top: .5em;
-    margin-bottom: 1em;
-    padding-bottom: 1em;
-    font-size: 2.0em; font-style: italic;
-    line-height: 1.3em;
-  }
-
-  img, video, .flash-video {
-    max-width: 100%;
-    height: auto;
-  }
-
-  > footer {
-    padding-bottom: 2.5em;
-    margin-top: 2em;
-    @extend .sans;
-    p.meta {
-      margin-bottom: .8em;
-      font-size: .85em;
-      clear: both;
+    > header {
+      position: relative;
+      padding-top: 2em;
+      margin-bottom: 1em;
+      padding-bottom: 10px;
       overflow: hidden;
-    }
-    .byline + time:before, time +time:before, .comments:before, .byline ~ .categories:before {
-      @extend .separator;
-    }
-  }
 
-}
+      max-width: $max-width;
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: 1px solid #CCC;
 
-.blog-index {
+      width: 95%;
 
-  article header { background: none; padding-bottom: 0; }
+      p {
+        font-size: .9em;
+        color: $text-color-light;
+        margin: 0;
+        width: auto;
+      }
 
-  article h1 {
-    font-size: 2.2em;
-  }
+      .meta {
+        float: left;
 
-  a[rel=full-article] {
-    background: darken($main-bg, 5);
-    display: inline-block;
-    padding: .4em .8em;
-    margin-right: .5em;
-    text-decoration: none;
-    color: mix($text-color, $text-color-light);
-    @extend .serif;
-    @include transition(background-color .5s);
+        time {
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+      }
 
-    &:hover {
-      text-shadow: none;
-      color: $main-bg;
-    }
-  }
-  footer {
-    @extend .sans;
-    margin-top: 1em;
-  }
-}
-
-.separator {
-  content: "\2022 ";
-  padding: 0 .4em 0 .2em;
-  display: inline-block;
-}
-
-.pagination {
-  font-size: .95em;
-  max-width: $max-width;
-  margin: 1em auto 0 auto;
-  overflow: hidden;
-
-  a {
-    text-decoration: none;
-    background: #F2F2F2;
-    display: inline-block;
-    padding: .4em .8em;
-
-    &.prev {
-      float: left;
+      .sharing {
+        float: right;
+      }
     }
 
-    &.next {
-      float: right;
-    }
+    > footer {
+      margin-top: 2em;
+      width: 100%;
+      padding: 10px 0;
+      background: #F5F5F5;
+      margin-bottom: 1em;
 
-    &[href*=archive] {
-      &:before, &:after {
-        content: '\2014';
-        padding: 0 .3em;
+      border-top: 1px solid #CCC;
+      border-bottom: 1px solid #CCC;
+
+      p {
+        max-width: $max-width;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .byline + time:before, time +time:before, .comments:before, .byline ~ .categories:before {
+        @extend .separator;
       }
     }
 
   }
+
 }
+
 
 @media screen and (max-width: 768px) {
 

@@ -2,7 +2,7 @@ section {
 
   h1 {
     font-weight: bold;
-    font-size: 2.4em;
+    font-size: 2em;
     margin: 0;
 
     a {
@@ -45,18 +45,42 @@ section {
     }
   }
 
-  p, h1, h2, h3, blockquote, ul {
+  p, h2, h3, blockquote, ul {
     max-width: $max-width;
     margin-left: auto;
     margin-right: auto;
   }
 
-  p {
+  p, li, blockquote {
     font-family: "droid-sans",sans-serif;
     font-size: 18px;
     color: #4A4235;
+  }
+
+  p {
     margin: 30px auto;
     margin-bottom: 1.5em;
+  }
+
+  blockquote {
+    font-style: italic;
+    position: relative;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    padding-left: 1em;
+    border-left: 6px solid rgba($text-color-light, .5);
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    -moz-hyphens: auto;
+
+    &.big {
+      p {
+        margin: 30px 0 30px 0;
+        font-size: 30px;
+        line-height: 46px;
+      }
+    }
+
   }
 
   h2 {
