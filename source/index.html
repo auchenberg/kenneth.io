@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="blog-index">
+<section class="blog-index">
   {% assign index = true %}
   {% for post in paginator.posts %}
   {% assign content = post.content %}
@@ -10,7 +10,7 @@ layout: default
       {% include article.html %}
     </article>
   {% endfor %}
-  <div class="pagination">
+  <footer class="pagination">
     {% if paginator.previous_page %}
     <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
     {% endif %}
@@ -18,5 +18,5 @@ layout: default
     {% if paginator.next_page %}
       <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
     {% endif %}
-  </div>
-</div>
+  </footer>
+</section>
