@@ -63,8 +63,8 @@ twitter_user: auchenberg
 twitter_tweet_button: true
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: blog-kenneth-io
+disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id:

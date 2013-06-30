@@ -2,8 +2,7 @@
 layout: default
 ---
 
-
-<section class="page content">
+<section class="page">
   {% if page.header %}
   <header>
     <h1 class="entry-title">{% if site.titlecase %}{{ page.header | titlecase }}{% else %}{{ page.header }}{% endif %}</h1>
@@ -22,10 +21,3 @@ layout: default
     </footer>
   {% endunless %}
 </section>
-
-{% if site.disqus_short_name and page.comments == true %}
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
-  </section>
-{% endif %}
