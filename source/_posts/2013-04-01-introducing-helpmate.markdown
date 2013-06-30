@@ -2,14 +2,13 @@
 layout: post
 title: Introducing Helpmate.
 date: 2013-04-01 21:32
-published: false
 comments: true
 categories:
 ---
 
-A few months back I was setting in [Jacob Bøtter](http://heutedenkenmorgenfertig.com/)'s kitchen discusing what it would take to disrupt postal services and ultimately eradicate letters for good.
+A few months back I was sitting in [Jacob Bøtter](http://heutedenkenmorgenfertig.com/)'s kitchen discusing what it would take to disrupt postal services and ultimately eradicate letters for good.
 
-{% img images/helpmate.jpg %}
+{% img /images/helpmate.jpg %}
 
 <!--more-->
 
