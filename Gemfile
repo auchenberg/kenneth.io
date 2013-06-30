@@ -24,6 +24,7 @@ gem 'pygmentize'
 
 gem 'rackables'
 
+gem 'uglifier'
 gem 'rack-jekyll'
 gem 'rack-subdomain'
 gem 'jekyll-assets'
