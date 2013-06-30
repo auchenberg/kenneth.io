@@ -1,0 +1,35 @@
+.blog-index {
+
+  a[rel=full-article] {
+    background: darken($main-bg, 5);
+    display: inline-block;
+    padding: .4em .8em;
+    margin-right: .5em;
+    text-decoration: none;
+    color: mix($text-color, $text-color-light);
+    @extend .serif;
+    @include transition(background-color .5s);
+
+    &:hover {
+      text-shadow: none;
+      color: $main-bg;
+    }
+  }
+
+  article {
+    padding: 0;
+
+    > header {
+      background: none;
+      padding-bottom: 0;
+    }
+
+    > footer {
+      background: none;
+      border: none;
+      max-width: $max-width;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
