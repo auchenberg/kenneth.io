@@ -1,52 +1,49 @@
-# Title: Simple Image tag for Jekyll
-# Authors: Brandon Mathis http://brandonmathis.com
-#          Felix Schäfer, Frederic Hemberger
-# Description: Easily output images with optional class names, width, height, title and alt attributes
-#
-# Syntax {% img [class name(s)] [http[s]:/]/path/to/image [width [height]] [title text | "title text" ["alt text"]] %}
-#
-# Examples:
-# {% img /images/ninja.png Ninja Attack! %}
-# {% img left half http://site.com/images/ninja.png Ninja Attack! %}
-# {% img left half http://site.com/images/ninja.png 150 150 "Ninja Attack!" "Ninja in attack posture" %}
-#
-# Output:
-# <img src="/images/ninja.png">
-# <img class="left half" src="http://site.com/images/ninja.png" title="Ninja Attack!" alt="Ninja Attack!">
-# <img class="left half" src="http://site.com/images/ninja.png" width="150" height="150" title="Ninja Attack!" alt="Ninja in attack posture">
-#
+# From http://blog.stwrt.ca/2012/11/04/jekyll-images
 
 module Jekyll
-
   class ImageTag < Liquid::Tag
-    @img = nil
+    @url = nil
+    @caption = nil
+    @class = nil
+
+    IMAGE_URL_WITH_CLASS_AND_CAPTION = /(\w+)(\s+)((https?:\/\/|\/)(\S+))(\s+)"(.*?)"/i
+    IMAGE_URL_WITH_CAPTION = /((https?:\/\/|\/)(\S+))(\s+)"(.*?)"/i
+    IMAGE_URL_WITH_CLASS = /(\w+)(\s+)((https?:\/\/|\/)(\S+))/i
+    IMAGE_URL = /((https?:\/\/|\/)(\S+))/i
 
     def initialize(tag_name, markup, tokens)
-      attributes = ['class', 'src', 'width', 'height', 'title']
-
-      if markup =~ /(?<class>\S.*\s+)?(?<src>\S+)(?:\s+(?<width>\d+))?(?:\s+(?<height>\d+))?(?<title>\s+.+)?/i
-        @img = attributes.reduce({}) { |img, attr| img[attr] = $~[attr].strip if $~[attr]; img }
-        if /(?:"|')(?<title>[^"']+)?(?:"|')\s+(?:"|')(?<alt>[^"']+)?(?:"|')/ =~ @img['title']
-          @img['title']  = title
-          @img['alt']    = alt
-        else
-          @img['alt']    = @img['title'].gsub!(/"/, '&#34;') if @img['title']
-        end
-
-        @img['class'].gsub!(/"/, '') if @img['class']
-      end
       super
+
+      if markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION
+        @class   = $1
+        @url     = $3
+        @caption = $7
+      elsif markup =~ IMAGE_URL_WITH_CAPTION
+        @url     = $1
+        @caption = $5
+      elsif markup =~ IMAGE_URL_WITH_CLASS
+        @class = $1
+        @url   = $3
+      elsif markup =~ IMAGE_URL
+        @url = $1
+      end
     end
 
-
     def render(context)
-
-      if @img
-        @img['src'] = context.registers[:site].asset_path(@img['src'])
-        "<figure>\n<img #{@img.collect {|k,v| "#{k}=\"#{v}\"" if v}.join(" ")}>\n</figure>"
+      if @class
+        source = "<figure class='#{@class}'>"
       else
-        "Error processing input, expected syntax: {% img [class name(s)] [http[s]:/]/path/to/image [width [height]] [title text | \"title text\" [\"alt text\"]] %}"
+        source = "<figure>"
       end
+
+      @url.gsub!(/^\//, "")
+
+      @url = context.registers[:site].asset_path(@url)
+      source += "<img src=\"#{@url}\">"
+      source += "<figcaption>#{@caption}</figcaption>" if @caption
+      source += "</figure>"
+
+      source
     end
   end
 end
