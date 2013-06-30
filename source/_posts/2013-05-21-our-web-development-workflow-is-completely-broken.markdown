@@ -21,7 +21,9 @@ This shift hasn't only happened at [Podio](http://podio.com), but is happening e
 
 But we have a problem.
 
-> Our tools are still based on the assumption that we are inspecting simple documents that have formatting on top, and a few lines of JavaScript on the side.
+<blockquote class="big">
+  <p>Our tools are still based on the assumption that we are inspecting simple documents that have formatting on top, and a few lines of JavaScript on the side.</p>
+</blockquote>
 
 Let's I take a quick walk down memorylane to recap where we are coming from with our web developer tooling.
 
@@ -29,7 +31,7 @@ Let's I take a quick walk down memorylane to recap where we are coming from with
 
 Back in the good old IE days, Microsoft [released](http://betanews.com/2005/09/19/microsoft-issues-ie-developer-toolbar/) a wonderful tool called ["IE Developer Toolbar"](https://www.google.dk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CCwQFjAA&url=http%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fdownload%2Fdetails.aspx%3Fid%3D18359&ei=oBCVUd73NOiligL-qoGIDQ&usg=AFQjCNGPJOmdDZBHBQ7bnEO1tIGapmZzEQ&sig2=WVwUTewSiA50I6noi2Ay5g&bvm=bv.46471029,d.cGE). This toolbar enabled us, developers, to inspect the HTML and find the related CSS directly from the browser. The toolbar even had a script-debugger for those writing crazy DHTML. The toolbar was an add-on to IE, and was simply implemented via the IE's toolbar API, so it wasn't fully integrated within the browser - It was slow, but it did the job.
 
-{% img /images/ie-developer-toolbar.jpg %}
+{% img /images/ie-developer-toolbar.png %}
 
 Take a look the toolbar. Does it look familiar to you? I should, because if you look at any web developer tool today it's heavily inspired by the layout the IE-team did, more than 5 years ago.
 
@@ -41,7 +43,7 @@ After the innovation stopped with IE6, came Mozilla with Firefox, and soon after
 
 Conceptually Firebug is still based on the same assumptions as the IE Developer toolbar. It's a tool designed to "inspect" the document, show the DOM, and highlight the applied styles.
 
-{% img /images/firebug.jpg %}
+{% img /images/firebug.png %}
 
 I think the success of Firefox is highly related to Firebug. I believe Firebug was the main argument for many developers choose Firefox as their standard browser.
 
@@ -99,7 +101,9 @@ In addition to the mapping-problem, using the developer tools as the code-editor
 - Why should I consider replacing my existing editor? Why new brings it to the table?
 - What about server-side code editing? Is that covered too?
 
-> Does this mean that the browser vendors are on their way to compete with the editor vendors?
+<blockquote class="big">
+  <p>Does this mean that the browser vendors are on their way to compete with the editor vendors?</p>
+</blockquote>
 
 It's also important to realize that the reality for a frontend developer: The application needs to be able to run in multiple browsers.
 
@@ -121,13 +125,15 @@ Secondly, by turning the browser developer tools into an editor, the browser-ven
 
 Thirdly, what I want to browser-vendors to focus on is to innovate on the platform , instead re-inventing stuff that we already have. Today I consider my browser my application runtime. Actually I have multiple runtimes (IE, Firefox, Chromium, Safari) to support, and it's not making my life easier, if each of them turns into separate editors.
 
-> I think deep integration between our editors and browsers is the key to better a webplatform.
+<blockquote class="big">
+  <p>I think deep integration between our editors and browsers is the key to better a webplatform.</p>
+</blockquote>
 
 One thing I noted here at I/O, during the keynote was the big applause from all the Android guys, when the Android Studio was announced. One key feature that was highlighted was the feature get an instant preview of the application layout, as they changed it.
 
 We need the same for the webplatform, but our world is a bit more complicated. We got multiple runtimes, many languages, web servers, frameworks and editors, so how about integrating the pieces we already got?
 
-### Remote-debugging protocols and standardization.
+## Remote-debugging protocols and standardization.
 
 We actually already have a way to integrate our editors with our browsers, and it's called remote-debugging protocols. An API to the browser. An alternative interface, and it's available in both Chrome and Firefox.
 
@@ -139,7 +145,9 @@ Mozilla Firefox also got a [remote debugging protocol](https://wiki.mozilla.org/
 
 The remote debugging protocols are incompatible with each other, and each has a different features.
 
-> It's nearly impossible to make a sane integration with these API's.
+<blockquote class="big">
+  <p>It's nearly impossible to make a sane integration with these API's.</p>
+</blockquote>
 
 This is the main reason why we haven't seen that many integrations using these remote debugging protocols. It's simply not worth adding tooling support for experimental features into the editors.
 
@@ -149,7 +157,7 @@ Going forward I think a unified remote debugging protocol is a new key functiona
 
 We can achieve the consistent interface through standardization, and we already got the organizations in place for this.
 
-### What integrations could look like.
+## What integrations could look like.
 
 We already have seen exciting experiments from [JetBrains](http://jetbrains.com) with [WebStorm LiveEdit](http://blog.jetbrains.com/webide/2012/08/liveedit-plugin-features-in-detail/) and [Stanislav](https://github.com/sokolovstas)'s [Sublime Web Inspector](https://github.com/sokolovstas/SublimeWebInspector), which integrates WebStorm and Sublime Text 2 with Chrome using the remote debugging protocol. Check out these videos:
 
@@ -161,7 +169,7 @@ We already have seen exciting experiments from [JetBrains](http://jetbrains.com)
   <iframe src="http://www.youtube.com/embed/LaH_43N34Jg" frameborder="0" allowfullscreen></iframe>
 </figure>
 
-### Missing pieces in our web platform.
+## Missing pieces in our web platform.
 
 In order to make deep integrations possible, we also need some extra pieces from the web platform. Essentially we need to be able to re-replay and re-do every single step in a page-load. We need to able to reload assets in a clever way, so when the editor is changing line 28 in a stylesheet, we can update that specific line, and trigger a reflow/repaint.
 
@@ -171,17 +179,19 @@ More importantly we need to be able to do realtime JavaScript editing "edit-and-
 
 Lastly we also need to figure out how we handle the DOM, and ensure that the already rendered DOM-three somehow is synchronized with our application code we are editing. Maybe WebComponents will make this easier going forward? Who knows? Who are looking into this?
 
-### What about the big picture?
+## What about the big picture?
 
 Browser-vendors, this is the kind of problems I want to you look into. They are important to our platform. You already have the resources, so please stop using them to re-implement our editors. Focus on our platform and the big picture. Talk to the editor-vendors, work together and build integrations to bring the ecosystems together.
 
 We can build on top of our already awesome editors. Take a look at innovation [Adobe](http://adobe.com) did with [Brackets](http://brackets.io/). They did a innovative contextual css-editor that allows you to edit the related CSS directly from your HTML-editor.
 
-{% img /images/brackets-quick-edit-2.png %}
+{% img /images/brackets_quick_editor.png %}
 
 Imagine if we could bring contextual information from the browser directly into the editor. I'm thinking computed-styles, dimensions, rendering previews on hover. Lets try to think outside of the box, like Adobe did with Brackets.
 
-> Visual debugging could get a whole new meaning, and we could finally show the right information in the right context.
+<blockquote class="big">
+ <p>Visual debugging could get a whole new meaning, and we could finally show the right information in the right context.</p>
+</blockquote>
 
 I want to make these kinds of integrations happen. I want to make our web development easier, more productive and most importantly **more fun**.
 

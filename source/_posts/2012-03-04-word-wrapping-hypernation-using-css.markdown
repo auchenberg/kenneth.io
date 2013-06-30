@@ -34,7 +34,7 @@ As you can see in this example, the long word isn't wrapped into multiple lines,
 In my research I found a lot of proposals on how to fix this issue. Most of them was a suggestion to add a fixed width to the element. Sometimes you need the dynamic width, like when you use the media-block from [OOCSS](http://oocss.org/), so what's the alternative?
 
 
-### &lt;WBR&gt; and &amp;#8203; tags
+## &lt;WBR&gt; and &amp;#8203; tags
 The past years I've been using &lt;WBR&gt; and &amp;#8203; tags to insert optional line breaks into long paragrahs of text. This solution became quite made popular after [Quirksmode](http://www.quirksmode.org/oddsandends/wbr.html), made documented it.
 
 This technique is is widely used around the web, including places like Facebook. And there seem to be wbr-encode implementation for all major languages functions, but they all have one common problem. As soon you are outputting markup, and want to break up long words within tags it starts to get messy. To overcome this, it ends up in a lot of regex nightmare, and ultimately, a slow HTML parser, to ensure proper breaking.
@@ -61,7 +61,7 @@ It seems like the *word-break* declaration is prefixed in Internet Explorer 8 st
 
 But what about Firefox? The Mozilla guys has chosen not to implement *word-break* support into Gecko. Instead they focused on supporting something new and exciting, the [CSS3 Hyphenation](http://www.w3.org/TR/css3-text/#hyphenation) specification.
 
-### CSS3 Hyphenation
+## CSS3 Hyphenation
 Hyphenation is the better word-break. It's locale aware, and inserts the [hyphen](http://en.wikipedia.org/wiki/Hyphen) character at the correct place, when breaking the words.
 
 The support of [CSS3 Hyphenation](https://developer.mozilla.org/en/CSS/hyphens) has started in Firefox 6 for the english languages, and several other langugages was added in Firefox 8.
@@ -76,7 +76,7 @@ To support hyphenation in Safari, Firefox (and future Chrome versions), you will
        -moz-hyphens: auto;
             hyphens: auto;
 
-### Webkit and mystic "word-break: break-word"
+## Webkit and mystic "word-break: break-word"
 
 When using the *word-break: break-all;*  property, is has the sideeffect, that words are being broken up at weird positions, because the *break-all*, means all words needs to be broken up.
 
@@ -118,7 +118,7 @@ The end result is simpler markup, and faster rendering, since we don't need enco
 Goodbye &lt;WBR&gt;, I don't need you anymore.
 
 
-#### Updates
+### Updates
 
 I updated the article to include a section about *word-break: break-word* in WebKit. Added proper references to *word-break: break-all;*, and highlighted that CSS3 Hyphenation isn't supported in Chrome. Thanks goes to [Mads Kristensen](http://twitter.com/mkristensen) and [Baldur Bjarnason](http://twitter.com/fakebaldur)
 
