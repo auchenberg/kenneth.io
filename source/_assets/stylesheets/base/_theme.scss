@@ -40,14 +40,9 @@ $page-border-bottom: darken($footer-bg, 5) !default;
 
 a {
 
-  &:link,
-  &:visited {
+  &:link {
     color: #333332;
     text-decoration: underline;
-  }
-
-  &:hover {
-
   }
 
 }

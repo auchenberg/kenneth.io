@@ -52,4 +52,12 @@
     margin-bottom: 1em;
   }
 
+  a {
+    &:link,
+    &:visited {
+      color: #333332;
+      text-decoration: none;
+    }
+  }
+
 }

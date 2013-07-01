@@ -1,12 +1,38 @@
 section {
 
+  h1, h2, h3 {
+     -ms-word-break: break-all;
+         word-break: break-all;
+
+         // Non standard for webkit
+         word-break: break-word;
+
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+            hyphens: auto;
+  }
+
   h1 {
     font-weight: bold;
     font-size: 2em;
-    margin: 0;
+    margin: 0 0 20px 0;
 
     a {
+      @include transition(color .3s);
       text-decoration: none;
+
+      &:link {
+        color: #333332;
+      }
+
+      &:visited {
+        color: #333332;
+      }
+
+      &:focus {
+        color: #0181eb;
+      }
+
       &:hover {
         text-decoration: underline;
       }
@@ -16,6 +42,24 @@ section {
   figure {
     text-align: center;
 
+    &.codepen {
+
+      iframe {
+        max-width: 800px;
+        height: auto !important;
+        min-height: 0;
+        border: 1px solid #ccc !important;
+      }
+    }
+
+    &.slides {
+
+      iframe {
+        width: 1024px;
+        height: 730px !important;
+      }
+    }
+
     img {
       width: 100%;
       max-width: 1000px;
@@ -24,11 +68,9 @@ section {
     }
 
     iframe {
-      width: 100%;
       max-width: 1000px;
-      height: auto !important;
+      width: 100%;
       min-height: 500px;
-      margin-bottom: 30px;
     }
 
     figcaption {
@@ -60,6 +102,14 @@ section {
   p {
     margin: 30px auto;
     margin-bottom: 1.5em;
+  }
+
+  a:link {
+    color: #1863A1;
+  }
+
+  a:visited {
+    color: #751590;
   }
 
   blockquote {
@@ -96,6 +146,20 @@ section {
   header,
   footer {
     margin: 0 auto;
+  }
+
+  .update-box {
+    max-width: $max-width;
+    background-color: rgba(255, 251, 198, 0.5);
+    border: 1px solid #F7ED64;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 13px;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
   }
 
 

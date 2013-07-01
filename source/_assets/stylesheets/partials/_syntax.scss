@@ -75,17 +75,26 @@ html .gist .gist-file {
     }
   }
 }
+
 pre {
   @include border-radius(.4em);
   @extend .mono;
+  background: #002B36;
   border: 1px solid $pre-border;
   line-height: 1.45em;
   font-size: 13px;
+  margin: 0 auto;
   margin-bottom: 2.1em;
   padding: .8em 1em;
   color: $pre-color;
   overflow: auto;
+
+  max-width: 800px;
+  width: 100%;
+  display: block;
+
 }
+
 h3.filename {
   @extend .code-title;
   + pre { @include border-top-radius(0px); }

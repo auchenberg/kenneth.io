@@ -23,15 +23,21 @@ When you have an element with a dynamic width *word-wrap: break-word*, isn't hav
 
 In this example I used a generic layout for a two column layout, using table-cell and floats.
 
-<iframe style="width: 100%; height: 75px" src="http://dabblet.com/result/gist/2005717/cf490aaea4cf071cbfbd3817db4e480b4852dbca" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/FH7U5/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
 
-As you can see in this example, the long word isn't wrapped into multiple lines, it breaks the layout. So how do we make it look more like this?
+As you can see in this example, the long word isn't wrapped into multiple lines, it breaks the layout.
 
-<iframe style="width: 100%; height: 60px" src="http://dabblet.com/result/gist/2005732/eeb3dad8e9a6da7df148ad317ba55ebd22cb1718" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+So how do we make it look more like this?
 
-## So what are the options?
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/U67jj/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
 
-In my research I found a lot of proposals on how to fix this issue. Most of them was a suggestion to add a fixed width to the element. Sometimes you need the dynamic width, like when you use the media-block from [OOCSS](http://oocss.org/), so what's the alternative?
+## Our options with HTML and CSS
+
+In my research I found a lot of proposals on how to fix this issue. Most of them was a suggestion to add a fixed width to the element. Sometimes you need the dynamic width, like when you use the media-block from [OOCSS](http://oocss.org/), so what's the alternatives?
 
 
 ## &lt;WBR&gt; and &amp;#8203; tags
@@ -41,14 +47,17 @@ This technique is is widely used around the web, including places like Facebook.
 
 This slows down rendering dramatically.
 
-### What about CSS?
+## What about CSS?
+
 Wouldn't it be better, if the browser could do the work?
 
 In my search for a working CSS declaration, I found *[word-wrap](https://developer.mozilla.org/en/CSS/word-wrap)*, which isnt working with a dynamic width, so I continued and found a new CSS3 declaration *[word-break](http://www.w3.org/TR/css3-text/#word-break)*, which is described as: "This property specifies line break opportunities within words."
 
 Great, so let's try it out in a WebKIt-based browser:
 
-<iframe style="width: 100%; height:60px" src="http://dabblet.com/result/gist/2005744/451bf1129dce046f2409a2603078d683a13ed9a6" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/5C6GG/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
 
 Bamn, we got it. *word-break: break-all;* is the way to go for WebKit..
 
@@ -82,18 +91,21 @@ When using the *word-break: break-all;*  property, is has the sideeffect, that w
 
 An example of this looks like this:
 
-<iframe style="width: 100%; height: 350px" src="http://dabblet.com/result/gist/2005773/2a7c5c434776f83a433e689594c0744274b22ce4" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/a8hBp/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
 
 To fix this, I discovered, that you can use *word-break: break-word;* which seems to be an undocumented and non-standard property value in WebKit. This makes the word wrapping behave like  *word-wrap: break-word*, but works with dynamic widths.
 
-<iframe style="width: 100%; height: 350px" src="http://dabblet.com/result/gist/2005779/35b11ae662be71f19220fcbdfa0fbc0450425ac2" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/zJ4BL/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
 
 As you can see in the above example, the word wrapping looks much better using  *word-break: break-word;*. This leaves us behind with IE, which still would wrap the words at weird positions.
 
 Luckely CSS Hyphenation is supported in IE10.
 
-# The solution
+## The solution
 
 So the cross browser solution for doing word wrapping using CSS only is a combiation of *word-break*, *word-break: break-word;* and *hyphens*:
 
@@ -109,20 +121,16 @@ So the cross browser solution for doing word wrapping using CSS only is a combia
 
 This is working in Internet Explorer 8+, Firefox 6+, iOS 4.2, Safari 5.1+ and Chrome 13+.
 
-<iframe style="width: 100%; height: 60px" src="http://dabblet.com/result/gist/2005732/eeb3dad8e9a6da7df148ad317ba55ebd22cb1718" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/Hd393/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
 
 The end result is simpler markup, and faster rendering, since we don't need encode our strings with &lt;WBR&gt; and &amp;#8203;.
 
 Goodbye &lt;WBR&gt;, I don't need you anymore.
 
 
-### Updates
-
-I updated the article to include a section about *word-break: break-word* in WebKit. Added proper references to *word-break: break-all;*, and highlighted that CSS3 Hyphenation isn't supported in Chrome. Thanks goes to [Mads Kristensen](http://twitter.com/mkristensen) and [Baldur Bjarnason](http://twitter.com/fakebaldur)
-
-
-
-
+<div class="update-box">
+  <p><strong>Update:</strong> I updated the article to include a section about *word-break: break-word* in WebKit. Added proper references to *word-break: break-all;*, and highlighted that CSS3 Hyphenation isn't supported in Chrome. Thanks goes to [Mads Kristensen](http://twitter.com/mkristensen) and [Baldur Bjarnason](http://twitter.com/fakebaldur)</p>
+</div>
 

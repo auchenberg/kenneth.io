@@ -71,6 +71,8 @@ google_analytics_tracking_id:
 
 
 assets:
+  cachebust: none
+  cache_assets: false
   compress:
     css:  sass
     js:   uglifier
