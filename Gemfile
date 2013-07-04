@@ -1,4 +1,5 @@
 source "http://rubygems.org"
+ruby '1.9.3'
 
 gem 'rake'
 gem 'rack'
@@ -13,7 +14,6 @@ gem 'liquid'
 gem 'sinatra'
 gem 'thin'
 
-gem 'fleakr', github: 'himynameisjonas/fleakr'
 gem 'dalli'
 
 gem 'babosa'
