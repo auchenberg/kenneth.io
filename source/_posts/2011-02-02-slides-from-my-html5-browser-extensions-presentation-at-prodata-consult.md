@@ -16,6 +16,12 @@ The advantage of coding my slides is really obvious in my presentation where I s
 
 Normally I embed the presentation into the blog-post, using an embedded <a href="http://www.slideshare.net/auchenberg" target="_blank">SlideShare</a> presentation that is using flash, which allows resizing. But because I this time hardcoded the layout in HTML/CSS, then I'm not able to embed a resized version of my slides.
 
+<figure class="slides">
+  <iframe src="http://auchenberg-html5.heroku.com/#1"></iframe>
+</figure>
+
+
 To see my slides (which is hosted on <a href="http://auchenberg-html5.heroku.com/#1">Heroku</a>), just click the thumbnail below:
 
-<a href="http://auchenberg-html5.heroku.com/#1" target="_blank"><img class="alignnone size-full wp-image-203" title="html5_presentation" src="http://blog.kenneth.io/wp-content/uploads/2011/02/html5_presentation.png" alt="" width="600" height="449" /></a>
+
+
