@@ -11,12 +11,14 @@ layout: default
     </article>
   {% endfor %}
   <footer class="pagination">
-    {% if paginator.previous_page %}
-    <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
-    {% endif %}
+    <div class="inner">
+      {% if paginator.previous_page %}
+      <a class="next" href="{{paginator.previous_page}}">Newer Posts &rarr;</a>
+      {% endif %}
 
-    {% if paginator.next_page %}
-      <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
-    {% endif %}
+      {% if paginator.next_page %}
+        <a class="prev" href="{{paginator.next_page}}">&larr; Older Posts</a>
+      {% endif %}
+    </div>
   </footer>
 </section>
