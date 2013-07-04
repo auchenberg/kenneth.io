@@ -16,7 +16,9 @@ $(function() {
     }
   }
 
-  $(window).scroll(_.debounce(onWindowScroll, 10));
+  if(elmComments.length) {
+    elmWindow.scroll(_.debounce(onWindowScroll, 10));
+  }
 
 
 });
