@@ -166,3 +166,30 @@ section {
 
 
 }
+
+@media only screen and (max-width: 768px) {
+
+  section {
+
+    h1 {
+      font-size: 1.7rem;
+    }
+
+    h2, h3 {
+      font-size: 1.4rem;
+    }
+
+    blockquote {
+      &.big {
+
+        p {
+          font-size: 1.4rem;
+          line-height: 1.6rem;
+        }
+
+      }
+    }
+
+  }
+
+}
