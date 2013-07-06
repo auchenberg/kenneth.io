@@ -1,5 +1,5 @@
 source "http://rubygems.org"
-ruby '1.9.3'
+ruby '2.0.0'
 
 gem 'rake'
 gem 'rack'
@@ -12,9 +12,6 @@ gem 'rubypants'
 gem 'stringex'
 gem 'liquid'
 gem 'sinatra'
-gem 'thin'
-
-gem 'dalli'
 
 gem 'babosa'
 
@@ -29,7 +26,6 @@ gem 'rack-jekyll'
 gem 'rack-subdomain'
 gem 'jekyll-assets'
 gem 'unicorn'
-
 
 group :development do
   gem 'rb-fsevent'
