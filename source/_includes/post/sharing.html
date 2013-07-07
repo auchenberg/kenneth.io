@@ -2,7 +2,7 @@
 
   {% if site.twitter_tweet_button %}
     {% if index %}
-      <a href="http://twitter.com/share" class="twitter-share-button" data-text="{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}" data-url="{{ site.url }}{{ page.url }}" data-via="{{ site.twitter_user }}" data-counturl="blog.kenneth.io{{ root_url }}{{ post.url }}" >Tweet</a>
+      <a href="http://twitter.com/share" class="twitter-share-button" data-text="{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}" data-url="{{ site.url }}{{ post.url }}" data-via="{{ site.twitter_user }}" data-counturl="blog.kenneth.io{{ root_url }}{{ post.url }}" >Tweet</a>
     {% else %}
       <a href="http://twitter.com/share" class="twitter-share-button" data-text="{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}"  data-url="{{ site.url }}{{ page.url }}" data-via="{{ site.twitter_user }}" data-counturl="blog.kenneth.io{{ root_url }}{{ page.url }}" >Tweet</a>
     {% endif %}
