@@ -10,7 +10,6 @@ posts_dir       = "_posts"    # directory for blog files
 new_post_ext    = "markdown"  # default new post file extension when using the new_post task
 server_port     = "4000"      # port for preview server eg. localhost:4000
 
-
 #######################
 # Working with Jekyll #
 #######################
@@ -24,16 +23,14 @@ end
 desc "preview the site in a web browser"
 task :preview do
 
-  puts "Starting to watch source with Jekyll. Starting Rack on port #{server_port}"
-  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll --auto")
-  rackupPid = Process.spawn("rackup --port #{server_port}")
+  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll --auto --server")
 
   trap("INT") {
-    [jekyllPid, rackupPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
+    [jekyllPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
     exit 0
   }
 
-  [jekyllPid, rackupPid].each { |pid| Process.wait(pid) }
+  [jekyllPid].each { |pid| Process.wait(pid) }
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
