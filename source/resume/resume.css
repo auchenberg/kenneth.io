@@ -1,0 +1,195 @@
+header {
+  position: relative;
+  margin: 2.5em 0 3em 0;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid #ccc
+}
+
+header h1 {
+  font-size: 56px;
+  font-weight: bold;
+}
+
+header .contact-info {
+  position: absolute;
+  right: 0;
+  top: 15px;
+  font-size: 10px;
+}
+
+/*Headers*/
+h2 {
+  font-size: 152%;
+  font-weight:normal;
+}
+
+h3,
+h4 {
+  font-size: 122%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #333;
+}
+
+p {
+  font-size: 100%;
+  line-height: 18px;
+  padding-right: 3em;
+}
+
+a {
+  color: #990003
+}
+
+dt {
+  float:left;
+  clear: left;
+  font-weight: bold;
+  width: 100px;
+  text-align: right;
+}
+
+dt:after {
+    content: ":";
+}
+
+dd {
+   margin: 0 0 0 140px;
+   padding: 0 0 0.5em 0;
+}
+
+a:hover { text-decoration: none; }
+strong { font-weight: bold; }
+
+.contact-info { margin-top: 7px; }
+
+html,
+body {
+  background: #f5f5f5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #201f2d;
+  font-size: 12px;
+}
+
+body {
+  margin: 80px 0;
+}
+
+main {
+  display: block;
+  width: 62em;
+  margin: auto;
+  text-align: left;
+  padding: 10px 80px;
+
+  background: #fff;
+  border: 1px solid #666;
+}
+
+.intro {
+  position: relative;
+  padding-left: 200px;
+}
+
+.intro p {
+  font-size: 144%;
+  line-height: 24px;
+  padding: 0;
+}
+
+.intro img {
+  position: absolute;
+  top: 5px;
+  left: 0;
+
+  width: 160px;
+}
+
+.personal .content {
+  width: 100%;
+  float: none;
+  margin-left: 50px;
+}
+
+/* //-- section styles -- */
+
+section {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #CCC;
+}
+
+section:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+section .content {
+  width: 74.2%;
+  float: right;
+}
+
+section > h2 {
+  clear: both;
+  font-weight:bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+
+}
+
+section p {
+  margin: 0.75em 0 1em 0;
+}
+
+section img {
+  position: absolute;
+  left: -140px;
+  top: 0px;
+}
+
+section ul li {
+  line-height: 24px;
+
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+
+  position: relative;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+
+section ul li:last-child {
+  border: 0;
+}
+
+section ul li h4 {
+  position: absolute;
+  top: 0;
+  right: 0
+}
+
+ul.highlights {
+  margin: 1em 1.5em;
+}
+
+ul.highlights li {
+  margin-bottom: 0.1em;
+  list-style-type:disc;
+  border:none;
+}
+
+ul.narrow li {
+  width: 32%;
+  float: left;
+  margin-bottom: 10px;
+  padding: 0;
+  border: 0;
+}
