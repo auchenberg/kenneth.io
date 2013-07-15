@@ -66,12 +66,12 @@ Below is the IDL for the standardized API. Here it's important to notice the sta
 
 ## Chrome and it's faulty implementation.
 
-The reason why I'm highlighting the static accessor ```permission``` is because it's problematic in Chrome. In the screenshot below I'm inspecting the ```Notification``` in Chrome 27's DevTools.
+The reason why I'm highlighting the static accessor ```permission``` is because it's problematic in Chrome. In the screenshot below I'm inspecting ```Notification``` in Chrome 27's DevTools.
 {% img "" /images/chrome_web_notifications.png "" %}
 
-As you can see, the ```permission``` attribute is simply missing from the ```Notification```, which makes it impossible to get the current permission state in Chrome.
+As you can see, the ```permission``` attribute is simply missing from ```Notification```, which makes it impossible to get the current permission state in Chrome.
 
-Luckily since Chrome still keeps the [non-standard webkit-prefixed API](http://www.chromium.org/developers/design-documents/desktop-notifications/api-specification) around, we can to fallback to it, but it's has a completely different return signature than the standard. Sigh.
+Luckily since Chrome still keeps the [non-standard webkit-prefixed API](http://www.chromium.org/developers/design-documents/desktop-notifications/api-specification) around, we can fallback to, but it's has a completely different return signature than the standard. Sigh.
 
 The webkit-specific API is exposed on ```webkitNotifications```, webkit-prefixed and in plural. To get the current permission-state you have to call ```checkPermission``` which returns an ```integer```, and not a ```string``` as defined in the standard.
 
@@ -118,7 +118,7 @@ Simply construct ```Notification``` and it returns an instance of a ```Notificat
 	<iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/sFE4Q/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </figure>
 
-[WebNotification.js](https://github.com/auchenberg/WebNotification.js) evens-out the fauly implementation in Chrmoe and enables you to show notifications in Chrome 27+, Safari 6+, and Firefox (as of version 22) all using the standardized API.
+[WebNotification.js](https://github.com/auchenberg/WebNotification.js) fixes the fauly implementation in Chrmoe and enables you to show notifications in Chrome 27+, Safari 6+, and Firefox (as of version 22) all using the standardized API.
 
 
 ## Going forward in Blink and Webkit.
@@ -131,7 +131,7 @@ This explains why the implementation in Chrome is the way it is, but this probab
 
 ## Chrome Rich Notifications
 
-In the meanwhile the Chrome team has been doing some interesting things for their packaged apps, with the [recent release of Rich Notifications](blog.chromium.org/2013/05/rich-notifications-in-chrome.html), that brings a full notification system into the core of Chrome.
+In the meantime the Chrome team has been doing some interesting things for their packaged apps, with the [recent release of Rich Notifications](blog.chromium.org/2013/05/rich-notifications-in-chrome.html), that brings a full notification system into the core of Chrome.
 
 {% img "" /images/chrome_rich_notifications.png "Source: http://blog.chromium.org/2013/05/rich-notifications-in-chrome.html" %}
 
