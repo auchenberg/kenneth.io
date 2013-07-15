@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "The messy world of Web Notifications in Chrome, Safari, Blink and Webkit"
-date: 2013-07-09 01:00
+title: "The messy state of Web Notifications in Chrome's Blink, and Safari's Webkit"
+date: 2013-07-15 19:21
 published: true
 comments: true
 categories:
 ---
 
-Lately I've been working with the [Web Notifications API](http://notifications.spec.whatwg.org/), and while working I realized that Chrome ins't following the specification. In this post I will take you through the messy world of Web Notifications.
+Lately I've been working with the [Web Notifications API](http://notifications.spec.whatwg.org/), and while working I realized that Chrome ins't following the specification. In this post I will take you through the messy state of Web Notifications.
 
 Showing desktop notifications from the web, was a web-dream for many frontend-developers, until [Fluid](http://fluidapp.com/) enabled it via an [Growl](http://growl.info/) integration in OSX and exposed it as JavaScript API in Fluid. It became quite popular, and many web2.0 cool cats like [Basecamp](http://37signals.com/svn/posts/797-fluid-wrap-your-favorite-web-apps-in-their-own-browser) integrated with it, either themselves or in user scripts by their users.
 
-Soon after followed WebKit-based browsers via it's own notification system, and exposed as an webkit-prefixed API. The Webkit notifications was available on all major platforms, but never became popular. Most likely because the of each notification wasn't pretty.
+Soon after followed WebKit-based browsers via it's own notification system, and exposed as an webkit-prefixed API. The Webkit notifications was available on all major platforms, but never became popular. Most likely because the of each notification wasn't what I could call pretty.
 
 {% img "" /images/webkit_notification.png "Source: http://www.neowin.net/news/chrome-gets-desktop-notifications-through-webkit" %}
 
@@ -27,7 +27,7 @@ This is where the mess began.
 
 The W3C Web Notifications specification (now referred as the "the standard") is quite simplistic, and exposes  a ```Notification``` object to represent a single notification.
 
-Below is the IDL for the standardized API. Here it's important to notice the two static attributes used to request and get permission state.
+Below is the IDL for the standardized API. Here it's important to notice the static attribute ```permission``` which is get the current permission state.
 
 	[Constructor(DOMString title, optional NotificationOptions options)]
 	interface Notification : EventTarget {
@@ -66,14 +66,14 @@ Below is the IDL for the standardized API. Here it's important to notice the two
 
 ## Chrome and it's faulty implementation.
 
-The reason why I'm highlighting the two static attributes ```permission``` and  ```requestPermission```, is because they simply are missing in Chrome.
-
-Below is a screenshot of me inspecting the ```Notification``` object's prototype in Chrome 27's DevTools.
+The reason why I'm highlighting the static accessor ```permission``` is because it's problematic in Chrome. In the screenshot below I'm inspecting the ```Notification``` in Chrome 27's DevTools.
 {% img "" /images/chrome_web_notifications.png "" %}
 
-This makes it impossible to request or get the current permission state in Chrome when trying to follow the standard. Since Chrome still keeps the [non-standard webkit-prefixed API](http://www.chromium.org/developers/design-documents/desktop-notifications/api-specification) around, you have to fallback to that, which is completely different then the standard.
+As you can see, the ```permission``` attribute is simply missing from the ```Notification```, which makes it impossible to get the current permission state in Chrome.
 
-The webkit-specific API is exposed on ```webkitNotifications```, webkit-prefixed and in plural. The method ```requestPermission``` has the same signature as the standard, but to get the permission-state you have to call ```checkPermission``` which returns an ```integer```, and not a ```string``` as in the standard.
+Luckily since Chrome still keeps the [non-standard webkit-prefixed API](http://www.chromium.org/developers/design-documents/desktop-notifications/api-specification) around, we can to fallback to it, but it's has a completely different return signature than the standard. Sigh.
+
+The webkit-specific API is exposed on ```webkitNotifications```, webkit-prefixed and in plural. To get the current permission-state you have to call ```checkPermission``` which returns an ```integer```, and not a ```string``` as defined in the standard.
 
 This is messy, but it gets worse.
 
@@ -92,7 +92,7 @@ When Safari 6 was released, the Web Notifications specification was modeled afte
 	    attribute DOMString[] privilegedFeatures;
 	};
 
-This means we have WebKit builds out there, where you need to call the function ```permissionLevel``` to get the current permisssion state. So even with a standard in place, we need to handle the different versions of the standard.
+This means we got WebKit builds out there, where you need to call the function ```permissionLevel``` to get the current permisssion state. So even with a standard in place, we need to handle the different versions of the standard.
 
 That's messy!
 
@@ -102,7 +102,9 @@ To make keep things sane, an engineer from Apple, committed a [change in Webkit]
 
 So wouldn't it be nice if all these messy parts were abstracted away, so you as a front-end developer, just could show those nice notifications?
 
-We already a bunch of library out there like [notify.js](http://notifyjs.com/), to help even out the browser differences, but I haven't been able to find a library that caters for these specific problems in Safari and Chrome. Existing libraries also provides an new API, which isn't what I want, since I quite like the API defined in the specification. I'm not interesting in emulating the API if Web Notifications isn't available The aim is to fix the faulty implementation.
+We already a bunch of library out there like [notify.js](http://notifyjs.com/), to help even out the browser differences, but I haven't been able to find a library that caters for these specific problems in Safari and Chrome. Existing libraries also provides an new API, which isn't what I want, since I quite like the API defined in the specification.
+
+I'm not interesting in emulating the API if Web Notifications isn't available The aim is to fix the faulty implementation.
 
 What we need is a kind of polyfil, to even out the messy implementations within Webkit and Blink, used by Chrome and Safari.
 
@@ -110,9 +112,14 @@ What we need is a kind of polyfil, to even out the messy implementations within 
 
 Let me introduce [WebNotification.js](https://github.com/auchenberg/WebNotification.js), a polyfil for ```Notification```, that makes Chrome and other webkit-based browsers standards-compliant.
 
-Simply construct ```Notification``` and it returns an instance of a ```Notification```, like you would expect. When requesting permissions, it follows the specification(s), and fallsback to the prefixed webkit API, if available.
+Simply construct ```Notification``` and it returns an instance of a ```Notification```, like you would expect. When requesting permissions, it follows the specification(s), and fallsback to the prefixed webkit API, when available. To demonstrate the need WebNotification.js I did a small JsFiddle with a little demo where you can request permissions and show a simple notification.
 
-This should even out the browser differences and make it possible for you to show notifications in Firefox (as of version 22), Chrome 27+, and Safari 6+, when using the standardized API.
+<figure>
+	<iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/sFE4Q/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
+
+[WebNotification.js](https://github.com/auchenberg/WebNotification.js) evens-out the fauly implementation in Chrmoe and enables you to show notifications in Chrome 27+, Safari 6+, and Firefox (as of version 22) all using the standardized API.
+
 
 ## Going forward in Blink and Webkit.
 
@@ -132,7 +139,7 @@ Rich Notifications is really exciting from an experience perspective, and provid
 
 From a standardization perspective  Rich Notifications is a bit worrying, as it's available as a chrome-specific API, which potentially makes the future of Web Notifications even more messy.
 
-I hope we sometime in the future can take the learnings from Rich Notifications in Chrome, and bring them to the Web Notifications specification.
+I hope we sometime in the future can take the learnings from Rich Notifications in Chrome, and bring them to the Web Notifications specification, now when we have the Web Notifications API supported in Chrome, Safari and Firefox (as of Firefox 22).
 
-May the best notification win!
+Until then, enjoy the now fully working Web Notifiations in Chrome.
 
