@@ -141,5 +141,5 @@ From a standardization perspective  Rich Notifications is a bit worrying, as it'
 
 I hope we sometime in the future can take the learnings from Rich Notifications in Chrome, and bring them to the Web Notifications specification, now when we have the Web Notifications API supported in Chrome, Safari and Firefox (as of Firefox 22).
 
-Until then, enjoy the now fully working Web Notifiations in Chrome.
+Until then, enjoy the now fully working Web Notifications in Chrome.
 
