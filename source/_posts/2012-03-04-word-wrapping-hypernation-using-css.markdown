@@ -112,7 +112,7 @@ So the cross browser solution for doing word wrapping using CSS only is a combia
      -ms-word-break: break-all;
          word-break: break-all;
 
-         // Non standard for webkit
+         /* Non standard for webkit */
          word-break: break-word;
 
     -webkit-hyphens: auto;
