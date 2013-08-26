@@ -73,7 +73,7 @@ But what about Firefox? The Mozilla guys has chosen not to implement ```word-bre
 ## CSS3 Hyphenation
 Hyphenation is the better word-break. It's locale aware, and inserts the [hyphen](http://en.wikipedia.org/wiki/Hyphen) character at the correct place, when breaking the words.
 
-The support of [CSS3 Hyphenation](https://developer.mozilla.org/en/CSS/hyphens) has started in Firefox 6 for the english languages, and several other langugages was added in Firefox 8. Word hypenation is dependent on a dictionary, so you must specify the ```lang``` attribute on the HTML element or one of its ancestors, to help the browser use the right dictionary.
+The support of [CSS3 Hyphenation](https://developer.mozilla.org/en/CSS/hyphens) has started in Firefox 6 for the english languages, and several other langugages was added in Firefox 8. Word hypenation is dependent on a dictionary, so you must specify the ```lang``` attribute on the HTML element or one of the target elements ancestors, to help the browser use the right dictionary.
 
 It's already supported in WebKit, currently prefixed, which means [Safari 5.1+ and iOS 4.2](http://caniuse.com/css-hyphens).
 
