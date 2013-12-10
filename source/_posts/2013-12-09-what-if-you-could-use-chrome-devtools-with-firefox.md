@@ -17,9 +17,9 @@ I want to tell you a bit more about the prototype.
 
 <!--more-->
 
-For the demo I didn't invented something completely new. Instead I’ve written something I call a “RemoteDebug bridge” and acts as a translator between the different dialects of remote debugging protocols.
+For the demo I didn't invented something completely new. Instead I’ve written something I call a “RemoteDebug bridge”, that acts as a translator between the different dialects of remote debugging protocols.
 
-My vision is to provide a bridge for each remote debugging protocol, but for my demo I’ve written a bridge called [remotedebug-firefox-bridge](https://github.com/auchenberg/remotedebug-firefox-bridge). As the name indicates it acts as a simple translator between [Google Chrome Remote Debugging](https://developers.google.com/chrome-developer-tools/docs/debugger-protocol) and [Mozilla Firefox Remote Debugging](https://wiki.mozilla.org/Remote_Debugging_Protocol).
+My vision is to provide a bridge for each remote debugging protocol, but for my demo I’ve written a bridge called [remotedebug-firefox-bridge](https://github.com/auchenberg/remotedebug-firefox-bridge). As the name indicates, it's a simple translator between [Google Chrome Remote Debugging](https://developers.google.com/chrome-developer-tools/docs/debugger-protocol) and [Mozilla Firefox Remote Debugging](https://wiki.mozilla.org/Remote_Debugging_Protocol).
 
 The bridge is implemented as a small node app that connects to Firefox by using Firefox's existing remote debugging protocol, translates the commands and provides a Chrome Remote Debugging compliant HTTP and WebSocket endpoints, which Chrome DevTools is then configured to connect to.
 
@@ -32,8 +32,6 @@ It make it more understandable I created a small screencast showing it in action
 
 It's still an early prototype, but [remotedebug-firefox-bridge](https://github.com/auchenberg/remotedebug-firefox-bridge) shows some of the possibilities that will be possible when we, as a community, unify remote debugging in our browsers.
 
-If you think this is a good idea, you should go to [RemoteDebug](http://remotedebug.org) and read more about my initaitive.
-
-Please help me pass this idea along to our browser vendors, either by speading the word or by contributing to [RemoteDebug](http://remotedebug.org).
+If you think this is a good idea, you should read more about the [RemoteDebug](http://remotedebug.org) initiative. Help me pass the message along to our browser vendors.
 
 This is just the beginning. Imagine where we can go from here.
