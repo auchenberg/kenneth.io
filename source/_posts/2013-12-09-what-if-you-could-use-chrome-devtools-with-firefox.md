@@ -15,6 +15,8 @@ I want to tell you a bit more about the prototype.
 
 {% img "" /images/remote-debug-firefox-animation.gif %}
 
+<!--more-->
+
 To make the demo happen I haven't invented something completely new. Instead I’ve written something I call a “RemoteDebug bridge”. It acts as a translator between the different dialects of remote debugging protocols.
 
 My vision is to provide a bridge for each remote debugging protocol, but for my demo I’ve written a bridge called [remotedebug-firefox-bridge](https://github.com/auchenberg/remotedebug-firefox-bridge). It acts as a translator between [Google Chrome Remote Debugging](https://developers.google.com/chrome-developer-tools/docs/debugger-protocol) and [Mozilla Firefox Remote Debugging](https://wiki.mozilla.org/Remote_Debugging_Protocol), and can be seen in action in the animiated gif above.
