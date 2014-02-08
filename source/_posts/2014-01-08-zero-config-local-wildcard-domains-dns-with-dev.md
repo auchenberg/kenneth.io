@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Zero configuration local wildcard domains/dns with .dev"
+title: "zero-config local wildcard domains/dns with .dev"
 date: 2014-01-08 12:00
 published: true
 comments: true
