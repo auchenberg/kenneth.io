@@ -7,11 +7,11 @@ comments: true
 categories:
 ---
 
-A few days ago I was [reminded](https://twitter.com/raamdev/status/430436370977284096) of little script I wrote, and a domain I bought some late saturday night back in 2012. I never took the time to wrap it up as releasable, but today I spent a few hours building a little website and writing this blog post.
+A few days ago I was [reminded](https://twitter.com/raamdev/status/430436370977284096) of little script I wrote, and a domain I bought some late saturday night back in 2012. I never took the time to wrap it up as something releasable, but today I spent a few hours building a little website and writing this blog post.
 
 Since the very beginning of [Podio](http://podio.com) we have been using subdomains extensively to provide organizations with their every own URL. Today we are no longer using subdomains for various reasons, but back then I spend a bit of time finding a good solution to get wildcard *.dev domains working in my development environment. 
 
-You should think running a local development environment with wildcard *.dev domains is a no-brainer. Ignorantly, I thought I just could add a wildcard entry in my /etc/hosts, and bam it would work. 
+You should think running a development environment with wildcard *.dev domains is a no-brainer. Ignorantly, I thought I just could add a wildcard entry in my /etc/hosts, and bam it would work. 
 
 It’s not that simple.
 
