@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Easy local wildcard domains with .dev"
+title: "Zero configuration local wildcard domains/dns with .dev"
 date: 2014-01-08 12:00
 published: true
 comments: true
 categories:
 ---
 
-A few days ago I was [reminded](https://twitter.com/raamdev/status/430436370977284096) of little script I wrote, and a domain I bought some late saturday night back in 2012. I never took the time to wrap it up as something releasable, but today I spent a few hours building a little website and writing this blog post.
+A few days ago I was [reminded](https://twitter.com/raamdev/status/430436370977284096) of little script I wrote, and a domain I bought some late night back in 2012. I never took the time to wrap it up as something releasable, but today I spent a few hours building a little website and writing this blog post.
 
 Since the very beginning of [Podio](http://podio.com) we have been using subdomains extensively to provide organizations with their every own URL. Today we are no longer using subdomains for various reasons, but back then I spend a bit of time finding a good solution to get wildcard *.dev domains working in my development environment. 
 
