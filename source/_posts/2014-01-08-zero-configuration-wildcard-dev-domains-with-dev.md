@@ -15,6 +15,8 @@ You should think running a local development environment with wildcard *.dev dom
 
 It’s not that simple.
 
+<!--more-->
+
 As I found out, it’s not possible to add wildcard entries in your /etc/hosts, and that’s no magic solution to make it work. The way to make it work, the solution is setup a local DNS server, that resolves the traffic to 127.0.0.1, where .dev domains are configured to use the local DNS server.
 
 Sounds complicated? Yeah, there’s plenty of instructions out there telling you to run a few scripts, but all of them seems complicated, and I thought it could be simpler.
