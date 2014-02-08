@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Uncategorized | Kenneth Auchenberg]]></title>
+  <link href="http://kenneth.io/blog/categories/uncategorized/atom.xml" rel="self"/>
+  <link href="http://kenneth.io/"/>
+  <updated>2014-02-08T11:36:57-08:00</updated>
+  <id>http://kenneth.io/</id>
+  <author>
+    <name><![CDATA[Kenneth Auchenberg]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Slides from my HTML5 & browser extensions presentation at ProData Consult]]></title>
+    <link href="http://kenneth.io/blog/2011/02/02/slides-from-my-html5-browser-extensions-presentation-at-prodata-consult/"/>
+    <updated>2011-02-02T00:00:00-08:00</updated>
+    <id>http://kenneth.io/blog/2011/02/02/slides-from-my-html5-browser-extensions-presentation-at-prodata-consult</id>
+    <content type="html"><![CDATA[<p>Thursday last week (27th january 2010) I hosted a &ldquo;evening-event&rdquo; at <a href="http://prodata.dk" target="_blank">ProData Consult</a> for their consultants, where I spoke about HTML5 &amp; Browser extensions. My HTML5 talk was a short recap of the recent changes in the specification, the W3C logo, and a showcase of the semantic changes, new tags and attributes and the HTML5-related JavaScript API&rsquo;s.</p>
+
+<p>The presentation was a bit of an experiment, because I was the first time I coded my presentation in HTML, JavaScript and CSS instead of using the regular tools such as PowerPoint or Keynote.</p>
+
+<!--more-->
+
+
+<p>To &ldquo;code&rdquo; my presentation I used a small sinatra-based ruby app called <a href="https://github.com/schacon/showoff" target="_blank">ShowOff</a>, which is using <a href="http://daringfireball.net/projects/markdown/" target="_blank">markdown</a> for its templating.</p>
+
+<p>The advantage of coding my slides is really obvious in my presentation where I show how the new form controls is being rendered, how HTML5 validation works, theres even an embedded google maps, canvas demo, pushHistory etc.</p>
+
+<p>Normally I embed the presentation into the blog-post, using an embedded <a href="http://www.slideshare.net/auchenberg" target="_blank">SlideShare</a> presentation that is using flash, which allows resizing. But because I this time hardcoded the layout in HTML/CSS, then I&rsquo;m not able to embed a resized version of my slides.</p>
+
+<p><figure class="slides">
+  <iframe src="http://auchenberg-html5.heroku.com/#1"></iframe>
+</figure></p>
+
+<p>To see my slides (which is hosted on <a href="http://auchenberg-html5.heroku.com/#1">Heroku</a>), just click the thumbnail below:</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Diving into photography. ]]></title>
+    <link href="http://kenneth.io/blog/2011/01/12/diving-into-photography/"/>
+    <updated>2011-01-12T00:00:00-08:00</updated>
+    <id>http://kenneth.io/blog/2011/01/12/diving-into-photography</id>
+    <content type="html"><![CDATA[<p>Lately I&rsquo;ve been quite hooked on getting a DSLR, because I wanted to explore the world of photography from another angle than just looking at beautiful pictures.</p>
+
+<p>To begin with I started looking at high-end camera&rsquo;s (top-model or no-model mentality), but after a lot of research I ended up buying a Canon 550d, which is also known as T2I or KISS X4.</p>
+
+<!--more-->
+
+
+<p>It&rsquo;s very similar to Canon 60D and Canon 7D, but the main difference is the physical body, which is in plastic and is lacking some quite nifty navigation buttons compared to 7D/60D.</p>
+
+<p>So why did I buy the 550d?</p>
+
+<ul>
+    <li>It's cheap</li>
+    <li>Shooting execelent video ( See <a href="http://www.youtube.com/watch?v=R2AXjF-wFVo">http://www.youtube.com/watch?v=R2AXjF-wFVo</a>)</li>
+    <li>Pretty feature rich</li>
+</ul>
+
+
+<p>Of couse, if I had unlimited resoruces I would had bough the Canon 7D, simply because it&rsquo;s &ldquo;just nicer&rdquo;, but I came to the conclusion, that this is my first DSLR, and therefore I could live with the lack of weather sealed body, and the nifty navigation buttons, simply because I first need to learn the very basics of photography.</p>
+
+<p>So I decided to go for the Canon 550d body, but which lens should I buy? Should I go for the kit?</p>
+
+<p>After some more research in various places I came to the conclusion that my first lens should be a prime in about 50mm. But since my 550d has a smaller APS-C sensor, it also has a crop-factor of 1.6, which means a 50mm lens would become 85mm on the 550d.</p>
+
+<p>Therefore I ended up buying a Canon EF 28mm 1/8 USM lens, which is going to be equal 45mm on the 550d, got 1/8 aperture, and is using the EF-mount, which means I also can be used on the Canon pro-cameras (if I should end there some day).</p>
+
+<p>The lens was a bit expensive 450$, but got some pretty good reviews, and the sample photos I found in the <a href="http://www.flickr.com/groups/canonef28mmf18usm/">28mm group in Flickr</a> is simply stunning.</p>
+
+<p>In addition to the 550d and 28mm lens, I also bought a filter, lens hood and a battery grip, so totally I ended up with</p>
+
+<ul>
+    <li>Canon 550D body</li>
+    <li>Canon EF 28mm 1/8 USM lens</li>
+    <li>Canon Lens Hood EW-63 II</li>
+    <li>Phottix Battery Grip for 550d</li>
+    <li>Hoya 58mm Pro-1D UV Filter</li>
+</ul>
+
+
+<p>I&rsquo;m still waiting for the lens, battery grip and filter to arrive, so hopefully when all the parts has arrived I&rsquo;m going to be thrilled about photography ;)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New version of CSS Reloader for Chrome is out]]></title>
+    <link href="http://kenneth.io/blog/2011/01/09/new-version-of-css-reloader-for-chrome-is-out/"/>
+    <updated>2011-01-09T00:00:00-08:00</updated>
+    <id>http://kenneth.io/blog/2011/01/09/new-version-of-css-reloader-for-chrome-is-out</id>
+    <content type="html"><![CDATA[<p>It has been a long time since I did changes to my CSS Reloader browser extension. This evening I had some time, and pushed a updated version of CSS Reloader for Chrome out in the public.</p>
+
+<!--more-->
+
+
+<p>The new version contains a revised code-base, which is way more well structured and cleaner, and I also added som new features:</p>
+
+<ul>
+    <li>Much requested options-page has been added - allows you to change the keyboard shortcut.</li>
+    <li>CSS Reloader got a nice new logo (credits goes to <a href="http://www.everaldo.com/crystal/">Everaldo Coelho</a> for the lovely icon.)</li>
+</ul>
+
+
+<p><figure><img src="/assets/images/css-reloader-1ac50389812ccd8101112618ebf60c45.png"></figure></p>
+
+<p>Technically I was quite fun to add the options-page, because the settings is persisted in <a href="http://dev.w3.org/html5/webstorage/">LocalStorage</a>, which is only available for the <a href="http://code.google.com/chrome/extensions/background_pages.html">background-pages</a> in  the extension, and not the <a href="http://code.google.com/chrome/extensions/content_scripts.html">content-script</a> that is injected into every tab. To expose the settings for the <a href="http://code.google.com/chrome/extensions/content_scripts.html">content-script</a> I have taken advantage of the <a href="http://code.google.com/chrome/extensions/messaging.html">message passing implementation</a> in Chrome, that allows the extension-parts to communicate using events.</p>
+
+<p>Get the updated version of <a href="https://chrome.google.com/extensions/detail/dnfpcpfijpdhabaoieccoclghgplmpbd">CSS Reloader for Chrome</a>, or check the <a href="https://github.com/auchenberg/css-reloader">source-code</a> out, to see the funky-ness</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Slides and code from my ANUG jQuery CodeCamp at Vertica]]></title>
+    <link href="http://kenneth.io/blog/2010/10/25/slides-and-code-from-my-anug-jquery-codecamp-at-vertica/"/>
+    <updated>2010-10-25T00:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2010/10/25/slides-and-code-from-my-anug-jquery-codecamp-at-vertica</id>
+    <content type="html"><![CDATA[<p>This saturday I hosted a jQuery CodeCamp at <a href="http://vertica.dk">Vertica</a> in Århus, Denmark.  The code camp was arranged by <a href="http://anug.dk">ANUG</a>, a local .NET user group in Århus, which is one of the most active .NET user groups in Denmark. It was really awesome to see that many people meetup on a saturday to do some jQuery hacking!</p>
+
+<!--more-->
+
+
+<p>My intention with the CodeCamp was to give a brief introduction to jQuery, and do a presentation about all the things you can&rsquo;t read about in the documentation. But since this was a CodeCamp I also had a mission for the attendees.</p>
+
+<p>The mission was that all the attendees, by the end of the CodeCamp should had been building they own chat client, which connected to a chat-server I had build using <a href="http://socket.io">socket.io</a> and <a href="http://nodejs.com">node.js</a>.</p>
+
+<p>I knew from the very beginning that the mission was quite ambious for a crowd that wasn&rsquo;t used to do jQuery/JavaScript stuff, but we succeded! All the attendees managed to build a chat-client that connected to the server, and one even managed to implement a google-maps mashup that showed the location of each connected user!</p>
+
+<p>Here&rsquo;s the slides from the CodeCamp:
+<figure class="slides">
+  <object id="__sse5545896" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="650" height="535" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=kennethauchenberg-jquerycodecamp-101024153558-phpapp02&amp;stripped_title=jquery-codecamp&amp;userName=auchenberg" /><param name="name" value="__sse5545896" /><param name="allowfullscreen" value="true" /><embed id="__sse5545896" type="application/x-shockwave-flash" width="650" height="535" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=kennethauchenberg-jquerycodecamp-101024153558-phpapp02&amp;stripped_title=jquery-codecamp&amp;userName=auchenberg" name="__sse5545896" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+</figure></p>
+
+<p>The source code for the chat-server can be found right here: <a href="http://github.com/auchenberg/jquery-codecamp"><a href="http://github.com/auchenberg/jquery-codecamp">http://github.com/auchenberg/jquery-codecamp</a></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to disable accidentally text-zooming in browsers when using Magic Trackpad/Mouse in OSX]]></title>
+    <link href="http://kenneth.io/blog/2010/10/17/how-to-disable-accidentally-text-zooming-in-browsers-when-using-magic-trackpadmouse-in-osx/"/>
+    <updated>2010-10-17T00:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2010/10/17/how-to-disable-accidentally-text-zooming-in-browsers-when-using-magic-trackpadmouse-in-osx</id>
+    <content type="html"><![CDATA[<p>One thing has lately annoyed me, and it has been the accidentally text zooming in my browsers (Google Chrome, Firefox and Safari), when using the Trackpad, Magic Trackpad or Magic Mouse.</p>
+
+<!--more-->
+
+
+<p>The text zooming happens because the pinch-gesture (zoom) has been enabled for the trackpad/mouse, which by default, is mapped to text-zooming in the browsers.</p>
+
+<p>To disable the text-zooming I used a tool called MultiCluch, which is a input-filter that monitors all multi-touch-input and remaps the gestures to keyboard-combinations. So what I did was to map the zoom-in and zoom-out gestures in Google Chrome to a keyboard combination that is doing absolutely nothing.</p>
+
+<ul>
+    <li>Install MultiCluch from <a href="http://wcrawford.org/2008/02/28/everytime-i-think-about-you-i-touch-my-cell/">http://wcrawford.org/2008/02/28/everytime-i-think-about-you-i-touch-my-cell/</a></li>
+    <li>Add Google Chrome (or the browser you are using), by clicking the small +</li>
+    <li>Add a mapping for zoom-in and zoom-out to a keyboard combination without any action (I used CMD+CTRL+SHIFT+ALT)</li>
+    <li>Restart your browser</li>
+    <li>Bingo, text-zooming is now disabled!</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CSS Reloader - an extension for Firefox and Chrome &mdash; Kenneth Auchenberg</title>
+  <meta name="author" content="Kenneth Auchenberg">
+
+  
+  <meta name="description" content="Some months ago at Vodafone, I was finding myself doing a huge amount of F5&rsquo;s duing the day while I was pixel-pushing parts of the layout of   &hellip;">
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kenneth.io/blog/2010/03/21/css-reloader-an-extension-for-firefox-and-chrome">
+
+  <link rel="stylesheet" type="text/css" href="/assets/app-f75337583ed18b3a5a5eddd900ece1e5.css">
+
+  <link href="/atom.xml" rel="alternate" title="Kenneth Auchenberg" type="application/atom+xml">
+  <link rel="canonical" href="http://kenneth.io/">
+
+  <script type="text/javascript" src="//use.typekit.net/zbi3gmu.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<body   >
+  <header role="banner">
+  <div class="inner">
+    <hgroup>
+      <h1><a href="/">Kenneth Auchenberg</a></h1>
+      <h2>Passion for the web platform.</h2>
+    </hgroup>
+
+    <div class="follow">
+      <a href="https://twitter.com/auchenberg" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @auchenberg</a>
+    </div>
+
+  </div>
+</header>
+
+  <nav id="main-nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+    <!-- <li><a href="/experiments">Experiments</a></li> -->
+    <!-- <li><a href="/talks">Talks</a></li> -->
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+
+  <section class="post">
+
+  <article class="hentry" role="article">
+    
+  <header>
+    
+      <h1 class="entry-title">CSS Reloader - an extension for Firefox and Chrome</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-21T00:00:00-07:00" pubdate data-updated="true">Mar 21<span>st</span>, 2010</time>
+      </p>
+    
+
+    <div class="sharing">
+
+  
+    
+      <a href="http://twitter.com/share" class="twitter-share-button" data-text="CSS Reloader - an extension for Firefox and Chrome"  data-url="http://kenneth.io/blog/2010/03/21/css-reloader-an-extension-for-firefox-and-chrome/" data-via="auchenberg" data-counturl="http://kenneth.io/blog/2010/03/21/css-reloader-an-extension-for-firefox-and-chrome/" >Tweet</a>
+    
+  
+  
+  
+
+
+
+</div>
+
+
+  </header>
+
+
+<div class="entry-content"><p>Some months ago at Vodafone, I was finding myself doing a huge amount of F5&rsquo;s duing the day while I was pixel-pushing parts of the layout of  at <a href="http://360.com">360</a>. 30 minutes later a new Firefox extension was born &ndash; <a href="https://addons.mozilla.org/da/firefox/addon/46211">CSS Reloader</a>.</p>
+
+<!--more-->
+
+
+<p><a href="https://addons.mozilla.org/da/firefox/addon/46211">CSS Reloader</a> is an extension that allows you to reload the stylesheets of any site with an simple press to F9 (and via the context-menus).</p>
+
+<p>I choose this shortcut, because it wasn&rsquo;t used by any other extension in Firefox, and the key position is quite nice. In the middle of F5 (refresh), and F12 for (Firebug).
+You may wonder why I would make such an extension, but imaging you building a true web application, such as <a href="http://360.com">360</a>, where almost everything is happing in the client. This means that if you are tweaking the layout of a model placed in a sub-view, you would have to go to this view every time, and the open the selected modal ( or just make you invokable from the JavaScript console). Anyways it takes time to restore the application state, and with CSS Reloader you can bypass that, because all the state is kept. It&rsquo;s only ghd stylesheets that is being reloaded.</p>
+
+<p>To begin with I released a version of<a href="https://addons.mozilla.org/da/firefox/addon/46211"> CSS Reloader for Firefox</a>, which already has been downloaded more than 7.700 times, so I guess some developers out there also thinks is quite usefull ;)</p>
+
+<p>Because of the response (and my lately switch to Chrome) I decided to do an <a href="https://chrome.google.com/extensions/detail/dnfpcpfijpdhabaoieccoclghgplmpbd">Chrome-version of CSS Reloader</a>. The first version of this is avaiable at the Chrome extension gallery, but since the extensibility of Chrome isn&rsquo;t the same as in Firefox, the Chrome-version is limited to only the F9-key.</p>
+
+<p>CSS Reloader is my first browser extension and is literally 16 lines of code, that saves me  (and the rest of the 360-team) some time during the development 360, which then can be used on better things such as features, extensions and social-beering ;)</p>
+
+<p>Please, let me know what you think of CSS Reloader! What can be improved?</p>
+</div>
+
+
+    <footer>
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Kenneth Auchenberg</span></span>
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-21T00:00:00-07:00" pubdate data-updated="true">Mar 21<span>st</span>, 2010</time>
+        
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/uncategorized/'>Uncategorized</a>
+  
+</span>
+
+
+      </p>
+    </footer>
+  </article>
+
+  
+
+</section>
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29701142-1']);
+  _gaq.push(['_setDomainName', 'kenneth.io']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script type="text/javascript" src="/assets/comments-1bb2d339f9f9bf0185c4b04578171f07.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Kenneth Auchenberg]]></title>
+  <link href="http://kenneth.io/atom.xml" rel="self"/>
+  <link href="http://kenneth.io/"/>
+  <updated>2014-02-08T11:36:57-08:00</updated>
+  <id>http://kenneth.io/</id>
+  <author>
+    <name><![CDATA[Kenneth Auchenberg]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[.dev - zero configuration wildcard *.dev domains.]]></title>
+    <link href="http://kenneth.io/blog/2014/01/08/.dev-zero-config/"/>
+    <updated>2014-01-08T12:00:00-08:00</updated>
+    <id>http://kenneth.io/blog/2014/01/08/.dev-zero-config</id>
+    <content type="html"><![CDATA[<p>A few days ago I was <a href="https://twitter.com/raamdev/status/430436370977284096">reminded</a> of the solution I wrote (and the domain I bought some late saturday night in 2012). I never took the time to wrap it up as releasable, but today I spent a few hours building a little website and writing this blog post.</p>
+
+<p>Since the very beginning of (<a href="http://podio.com">http://podio.com</a>) [Podio] we have been using subdomains extensively to provide organizations with their every own URL. Today we are no longer using subdomains for various reasons, but back then I spend a bit of time finding a good solution to get wildcard *.dev domains in my development environment.</p>
+
+<p>You should think running a local development environment with wildcard *.dev domains is a no-brainer. Ignorantly, I thought I just could add a wildcard entry in my /etc/hosts, and bam it would work.</p>
+
+<p>It’s not that simple.</p>
+
+<p>As I found out, it’s not possible to add wildcard entries in your /etc/hosts, and that’s no magic solution to make it work. The way to make it happen, is setup a local DNS server, that resolves the traffic to 127.0.0.1, where .dev domains then needs to get configured to use the local DNS server.</p>
+
+<p>Sounds complicated? Yeah, there’s plenty of instructions out there telling you to run a few scripts, but all of them seems complicated, and I thought it could be simpler.</p>
+
+<p>So I wrote a small script called .dev, which is installed with one single command in the terminal</p>
+
+<p>.dev a small shell script that installs dnsmasq, a lightweight DNS server, registers it as a LaunchDaemon, so it starts when your computer boots, and configures Resolver in OSX to resolve *.dev traffic to dnsmasq.</p>
+
+<p>That&rsquo;s it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The messy state of Web Notifications in Blink and Webkit]]></title>
+    <link href="http://kenneth.io/blog/2013/07/15/the-messy-state-of-web-notifications-in-chrome-safari-blink-webkit/"/>
+    <updated>2013-07-15T19:21:00-07:00</updated>
+    <id>http://kenneth.io/blog/2013/07/15/the-messy-state-of-web-notifications-in-chrome-safari-blink-webkit</id>
+    <content type="html"><![CDATA[<p>Lately I&rsquo;ve been working with the <a href="http://notifications.spec.whatwg.org/">Web Notifications API</a>, and while working I realized that Chrome ins&rsquo;t following the specification. In this post I will take you through the messy state of Web Notifications.</p>
+
+<p>Showing desktop notifications from the web, was a web-dream for many frontend-developers, until <a href="http://fluidapp.com/">Fluid</a> enabled it via an <a href="http://growl.info/">Growl</a> integration in OSX and exposed it as JavaScript API in Fluid. It became quite popular, and many web2.0 cool cats like <a href="http://37signals.com/svn/posts/797-fluid-wrap-your-favorite-web-apps-in-their-own-browser">Basecamp</a> integrated with it, either themselves or in user scripts by their users.</p>
+
+<p>Soon after followed WebKit-based browsers via it&rsquo;s own notification system, and exposed as an webkit-prefixed API. The Webkit notifications was available on all major platforms, but never became popular. Most likely because the of each notification wasn&rsquo;t what I could call pretty.</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/webkit_notification-69cc17968c6d586980648363704a0981.png"><figcaption>Source: <a href="http://www.neowin.net/news/chrome-gets-desktop-notifications-through-webkit">http://www.neowin.net/news/chrome-gets-desktop-notifications-through-webkit</a></figcaption></figure></p>
+
+<p>Last year desktop notification was standardized into the Web Notifications specification, which now lives both as a <a href="(http://www.w3.org/TR/notifications/">W3C draft</a>, and as a <a href="http://notifications.spec.whatwg.org/">WHATWG standard</a>. <a href="http://apple.com">Apple</a> was one of the first vendors to implement the specification in Safari 6, and announced it as a key-feature, when they released Safari 6 together with <a href="http://developer.apple.com/library/safari/#documentation/AppleApplications/Conceptual/SafariJSProgTopics/Articles/SendingNotifications.html">OSX&rsquo;s Notification Center in OSX Mountain Lion</a>.</p>
+
+<p>Later along followed Chrome implementing the standardized specification, while keeping webkit-prefixed API around.</p>
+
+<p>This is where the mess began.</p>
+
+<!--more-->
+
+
+<h2>The Web Notifications specification</h2>
+
+<p>The W3C Web Notifications specification (now referred as the &ldquo;the standard&rdquo;) is quite simplistic, and exposes  a <code>Notification</code> object to represent a single notification.</p>
+
+<p>Below is the IDL for the standardized API. Here it&rsquo;s important to notice the static attribute <code>permission</code> which is get the current permission state.</p>
+
+<pre><code>[Constructor(DOMString title, optional NotificationOptions options)]
+interface Notification : EventTarget {
+  static readonly attribute NotificationPermission permission;
+  static void requestPermission(optional NotificationPermissionCallback callback);
+
+  attribute EventHandler onclick;
+  attribute EventHandler onshow;
+  attribute EventHandler onerror;
+  attribute EventHandler onclose;
+
+  void close();
+};
+
+dictionary NotificationOptions {
+  NotificationDirection dir = "auto";
+  DOMString lang = "";
+  DOMString body;
+  DOMString tag;
+  DOMString icon;
+};
+
+enum NotificationPermission {
+  "default",
+  "denied",
+  "granted"
+};
+
+callback NotificationPermissionCallback = void (NotificationPermission permission);
+
+enum NotificationDirection {
+  "auto",
+  "ltr",
+  "rtl"
+};
+</code></pre>
+
+<h2>Chrome and it&rsquo;s faulty implementation.</h2>
+
+<p>The reason why I&rsquo;m highlighting the static accessor <code>permission</code> is because it&rsquo;s problematic in Chrome. In the screenshot below I&rsquo;m inspecting <code>Notification</code> in Chrome 27&rsquo;s DevTools.
+<figure><img src="http://kenneth.io/assets/images/chrome_web_notifications-e234f667221cc5f003c57a1feb9b2679.png"><figcaption></figcaption></figure></p>
+
+<p>As you can see, the <code>permission</code> attribute is simply missing from <code>Notification</code>, which makes it impossible to get the current permission state in Chrome.</p>
+
+<p>Luckily since Chrome still keeps the <a href="http://www.chromium.org/developers/design-documents/desktop-notifications/api-specification">non-standard webkit-prefixed API</a> around, we can fallback to, but it&rsquo;s has a completely different return signature than the standard. Sigh.</p>
+
+<p>The webkit-specific API is exposed on <code>webkitNotifications</code>, webkit-prefixed and in plural. To get the current permission-state you have to call <code>checkPermission</code> which returns an <code>integer</code>, and not a <code>string</code> as defined in the standard.</p>
+
+<p>This is messy, but it gets worse.</p>
+
+<h2>Changing the standard&rsquo;s specification.</h2>
+
+<p>When Safari 6 was released, the Web Notifications specification was modeled after the, now deprecated, <a href="http://dev.w3.org/2009/dap/perms/FeaturePermissions.html">Feature Permissions specification</a>.</p>
+
+<pre><code>[NoInterfaceObject]
+interface NavigatorPermissions {
+    const long USER_ALLOWED = 2;
+    const long DEFAULT_ALLOWED = 1;
+    const long DEFAULT_DENIED = -1;
+    const long USER_DENIED = -2;
+    long permissionLevel (in DOMString feature);
+    void requestPermission (in DOMString feature, in Function callback);
+    attribute DOMString[] privilegedFeatures;
+};
+</code></pre>
+
+<p>This means we got WebKit builds out there, where you need to call the function <code>permissionLevel</code> to get the current permisssion state. So even with a standard in place, we need to handle the different versions of the standard.</p>
+
+<p>That&rsquo;s messy!</p>
+
+<p>To make keep things sane, an engineer from Apple, committed a <a href="https://bugs.webkit.org/show_bug.cgi?id=88919">change in Webkit</a> to make the Notification API follow the updated specification. This means Safari 6.0.5 is compliant to the current specification, which simplifies things, but reality is we still need to handle older Safari version(s) and webkit builds.</p>
+
+<h2>Abstracting the mess away.</h2>
+
+<p>So wouldn&rsquo;t it be nice if all these messy parts were abstracted away, so you as a front-end developer, just could show those nice notifications?</p>
+
+<p>We already a bunch of library out there like <a href="http://notifyjs.com/">notify.js</a>, to help even out the browser differences, but I haven&rsquo;t been able to find a library that caters for these specific problems in Safari and Chrome. Existing libraries also provides an new API, which isn&rsquo;t what I want, since I quite like the API defined in the specification.</p>
+
+<p>I&rsquo;m not interesting in emulating the API if Web Notifications isn&rsquo;t available The aim is to fix the faulty implementation.</p>
+
+<p>What we need is a kind of polyfil, to even out the messy implementations within Webkit and Blink, used by Chrome and Safari.</p>
+
+<h2>Polyfiling the gaps with WebNotification.js.</h2>
+
+<p>Let me introduce <a href="https://github.com/auchenberg/WebNotification.js">WebNotification.js</a>, a polyfil for <code>Notification</code>, that makes Chrome and other webkit-based browsers standards-compliant.</p>
+
+<p>Simply construct <code>Notification</code> and it returns an instance of a <code>Notification</code>, like you would expect. When requesting permissions, it follows the specification(s), and fallsback to the prefixed webkit API, when available. To demonstrate the need WebNotification.js I did a small JsFiddle with a little demo where you can request permissions and show a simple notification.</p>
+
+<figure>
+    <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/sFE4Q/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
+
+
+<p><a href="https://github.com/auchenberg/WebNotification.js">WebNotification.js</a> fixes the fauly implementation in Chrmoe and enables you to show notifications in Chrome 27+, Safari 6+, and Firefox (as of version 22) all using the standardized API.</p>
+
+<h2>Going forward in Blink and Webkit.</h2>
+
+<p>Going forward I really hope the Chrome team get&rsquo;s their faulty implementation cleaned up. I&rsquo;ve already open several issues (<a href="https://code.google.com/p/chromium/issues/detail?id=163226">here</a>, and <a href="https://code.google.com/p/chromium/issues/detail?id=139594">here</a> ) in the Chromium bug tracker, but <a href="https://code.google.com/p/chromium/issues/detail?id=139594#c16">little process</a> has happened over the past year.</p>
+
+<p>In my search for an explanation of the faulty implementation in Chrome, I asked on the #blink IRC channel, and got told that the reason why Chrome hasn&rsquo;t implemented the static attributes, is caused by <a href="https://code.google.com/p/v8/">V8</a>, V8 simply doesn&rsquo;t support static attributes. You can read more about the details in <a href="https://code.google.com/p/v8/issues/detail?id=2281">this issue</a> in the Chromium tracker.</p>
+
+<p>This explains why the implementation in Chrome is the way it is, but this probably also means we are stuck with the need of polyfils like <a href="https://github.com/auchenberg/WebNotification.js">WebNotification.js</a>, for a while out in the future.</p>
+
+<h2>Chrome Rich Notifications</h2>
+
+<p>In the meantime the Chrome team has been doing some interesting things for their packaged apps, with the <a href="blog.chromium.org/2013/05/rich-notifications-in-chrome.html">recent release of Rich Notifications</a>, that brings a full notification system into the core of Chrome.</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/chrome_rich_notifications-29cefa68a3daa8e9f546562971aa326e.png"><figcaption>Source: <a href="http://blog.chromium.org/2013/05/rich-notifications-in-chrome.html">http://blog.chromium.org/2013/05/rich-notifications-in-chrome.html</a></figcaption></figure></p>
+
+<p>Rich Notifications is really exciting from an experience perspective, and provides a cross-platform (as in operating system) notification system that eventually is going to work on mobile, desktop and ChromeOS.</p>
+
+<p>From a standardization perspective  Rich Notifications is a bit worrying, as it&rsquo;s available as a chrome-specific API, which potentially makes the future of Web Notifications even more messy.</p>
+
+<p>I hope we sometime in the future can take the learnings from Rich Notifications in Chrome, and bring them to the Web Notifications specification, now when we have the Web Notifications API supported in Chrome, Safari and Firefox (as of Firefox 22).</p>
+
+<p>Until then, enjoy the now fully working Web Notifications in Chrome.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Our web development workflow is completely broken.]]></title>
+    <link href="http://kenneth.io/blog/2013/05/21/our-web-development-workflow-is-completely-broken/"/>
+    <updated>2013-05-21T15:30:00-07:00</updated>
+    <id>http://kenneth.io/blog/2013/05/21/our-web-development-workflow-is-completely-broken</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m sitting here at Google headquaters in Mountain View, and is trying to sum up my take aways from this years <a href="https://developers.google.com/events/io/">Google IO 2013</a>. At the conference I had a chat with <a href="http://paulirish.com">Paul Irish</a> and <a href="https://twitter.com/repenaxa">Pavel Feldman</a> on where the Chrome developers tools are headed, which has spurred me to write this blog post.</p>
+
+<p>The web development workflow has been on my mind for a while. I&rsquo;ve been talking about it at a number of <a href="http://copenhagenjs.dk">CopenhagenJS</a> meet-up&rsquo;s, but now is the time put my thoughts down into a blog post.</p>
+
+<p>My passion is to build tools. I love building the fundamental lego-bricks that other&rsquo;s can combine in ways I didn&rsquo;t imagine. The past years I&rsquo;ve been building <a href="http://podio.com">Podio</a>, a work platform where we have enabled more then 50.000 organizations to work better by enabling them to build their own tools.</p>
+
+<!--more-->
+
+
+<p>In the process of building <a href="http://podio.com">Podio</a>, our frontend has been through dramatic changes. We started out in a simple Rails-app with a bit of DOM manipulation on top, but today around 85% of our frontend code is JavaScript. This has had an huge impact on our tooling and the way we go about frontend development.</p>
+
+<p>This shift hasn&rsquo;t only happened at <a href="http://podio.com">Podio</a>, but is happening everywhere. The past 5 years we have fundamentally changed the way we use the browser. The browser is no longer a simple document reader; instead it&rsquo;s a complex application runtime that runs realtime GPU accelerated applications.</p>
+
+<p>But we have a problem.</p>
+
+<blockquote class="big">
+  <p>Our tools are still based on the assumption that we are inspecting simple documents that have formatting on top, and a few lines of JavaScript on the side.</p>
+</blockquote>
+
+
+<p>Let&rsquo;s I take a quick walk down memorylane to recap where we are coming from with our web developer tooling.</p>
+
+<h2>Microsoft Internet Explorer and IE Developer Toolbar</h2>
+
+<p>Back in the good old IE days, Microsoft <a href="http://betanews.com/2005/09/19/microsoft-issues-ie-developer-toolbar/">released</a> a wonderful tool called <a href="https://www.google.dk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;ved=0CCwQFjAA&amp;url=http%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fdownload%2Fdetails.aspx%3Fid%3D18359&amp;ei=oBCVUd73NOiligL-qoGIDQ&amp;usg=AFQjCNGPJOmdDZBHBQ7bnEO1tIGapmZzEQ&amp;sig2=WVwUTewSiA50I6noi2Ay5g&amp;bvm=bv.46471029,d.cGE">&ldquo;IE Developer Toolbar&rdquo;</a>. This toolbar enabled us, developers, to inspect the HTML and find the related CSS directly from the browser. The toolbar even had a script-debugger for those writing crazy DHTML. The toolbar was an add-on to IE, and was simply implemented via the IE&rsquo;s toolbar API, so it wasn&rsquo;t fully integrated within the browser &ndash; It was slow, but it did the job.</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/ie-developer-toolbar-4dc480e9a190269dbc905454a658a472.png"></figure></p>
+
+<p>Take a look the toolbar. Does it look familiar to you? I should, because if you look at any web developer tool today it&rsquo;s heavily inspired by the layout the IE-team did, more than 5 years ago.</p>
+
+<p>With IE Developer Toolbar, we could for the first time, see what was going on inside the browser. We could &ldquo;inspect the DOM&rdquo;, and because of this functionality many of us moved to IE as our &ldquo;development browser&rdquo;.</p>
+
+<h2>Mozilla Firefox and Firebug.</h2>
+
+<p>After the innovation stopped with IE6, came Mozilla with Firefox, and soon after <a href="http://joehewitt.com/">Joe Hewitt</a> released <a href="http://getfirebug.com/">Firebug</a>. I describe Firebug as the second generation of DOM inspectors. It looks identical to IE Developer Toolbar, but was a big step up from IE Developer Toolbar when released. It was fast and had a tons of small features that made daily tasks easier or even faster to complete.</p>
+
+<p>Conceptually Firebug is still based on the same assumptions as the IE Developer toolbar. It&rsquo;s a tool designed to &ldquo;inspect&rdquo; the document, show the DOM, and highlight the applied styles.</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/firebug-86354bafc5b328c0c94b95a51d80dc45.png"></figure></p>
+
+<p>I think the success of Firefox is highly related to Firebug. I believe Firebug was the main argument for many developers choose Firefox as their standard browser.</p>
+
+<h2>Google Chrome and Developer Tools</h2>
+
+<p>A few years later Google came around with their <a href="http://www.chromium.org/">Chromium project</a>. First came Chrome on Windows, and then later followed OSX and Linux. Chrome had a fresh minimalistic UI, a revolutionary (<a href="https://code.google.com/p/v8/">V8</a>) JavaScript engine, and for the first time brought <a href="http://www.webkit.org/">WebKit</a> to all major platforms. From a tooling perspective Chrome started out by inheriting the default WebKit web developer tools, but not long after the Chrome team began investing in the tooling.</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/chrome_developer_tools-16afc4bdc4ee58bdbc11df893f0f50d8.jpg"></figure></p>
+
+<p>From my perspective the investment into the tooling, and the innovations made in <a href="http://www.webkit.org/">WebKit</a> and <a href="https://code.google.com/p/v8/">V8</a>, are the main reasons why Chrome quickly became the standard browser for many developers.</p>
+
+<p>The Chrome Developer Tools are the 3rd generation of DOM Inspectors. When released it was big step forward. Many of the small annoying things from Firebug was either fixed or improved, and the inspector itself was the first that was implemented directly in the browser, which meant really good performance.</p>
+
+<p>If you look at the conceptual model for Chrome&rsquo;s Developer tools, it&rsquo;s exactly the same as if we go 5 year back: The tool is mainly designed to inspect simple documents, and nothing more.</p>
+
+<p>As time has gone by, more &ldquo;tabs&rdquo; or separate tools, has been added. Today in the Chrome Developer Tools we have a separate DOM Inspector, JavaScript debugger, profiling tools, network analyzer, timeline visualization, console and most importantly a simple code editor. When you look at each tool in the big picture, they are all separate with a minimal integration inbetween.</p>
+
+<h2>Our web development workflow is completely broken.</h2>
+
+<p>While the way we build web applications has changed completely, our web developers tools haven&rsquo;t. There has definitely been innovation the recent years, but clearly there is room for more. When I look at the way frontend-developers are using web developer tools in Chrome, Firefox and Internet Explorer, and how they use them together with their editors, it becomes evident that our web development workflow is completely broken.</p>
+
+<p>In the following chart I have tried to sketch out a typical bug-fixing workflow for web developer:</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/todays-frontend-flow-f95be1b1aa635119052fb93a4ff02144.png"></figure></p>
+
+<h2>Fixing the symptoms with more tools.</h2>
+
+<p>Many small tools have been created to fix the symptoms we are seeing in this broken workflow. The main problem with these tools is that they actually made the overall workflow even more complicated.  They have added additional workflows that all requires more tools and processes to be needs to be maintained and started.</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/terminals-b6b615018e89bf341a375f2385d0f1f4.png"></figure></p>
+
+<p>Admitted. I&rsquo;ve been one of those people. A few years back I wrote <a href="http://blog.kenneth.io/blog/2010/03/21/css-reloader-an-extension-for-firefox-and-chrome/">CSS Reloader</a> for <a href="https://addons.mozilla.org/en-US/firefox/addon/css-reloader/">Firefox</a> and then later <a href="https://chrome.google.com/webstore/detail/css-reloader/dnfpcpfijpdhabaoieccoclghgplmpbd?hl=en">Chrome</a>. CSS Reloader allowed you to force a reload of the stylesheets, which hopefully made it much easier to do pixel pushing.</p>
+
+<p>Today tools like <a href="http://livereload.com/">LiveReload</a> is a part of our frontend-stack, but when you think about it, it&rsquo;s quite weird, and overly complex to have a local file-watcher running and connected to the browser.</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/livereload-flow-75bbb169eab78a539797553e26d85612.png"></figure></p>
+
+<p>We have manged to combine many cool technologies as work arounds &ndash; to fix the symptoms; not the fundemental problem.</p>
+
+<h2>Developer tools becoming your editor.</h2>
+
+<p>More recently our web developer tools started becoming better code editors. This both goes for Firefox and Chrome, but especially the Chrome-team seem to have invested in the editor-part. In Chrome you can even choose to use <a href="http://codemirror.net/">CodeMirror</a> as your code-editor, but is this really the editor you want to use?</p>
+
+<p>When using the browser as code-editor, we are entering a world of new problems. The browser is designed to abstract away the local file system, and is based upon a read-only/execute-only model. In order to &ldquo;fix&rdquo; this we have introduced a new type of browser extensions, that&rsquo;s trying to fix this.</p>
+
+<p>For example: Today we have mapping-extensions like <a href="https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/">FireSASS</a> for enable better editing of SASS stylesheets, and even here in the <a href="https://developers.google.com/events/io/sessions/325206725">Chrome DevTools Revolutions 2013 session</a>, <a href="http://paulirish.com">Paul Irish</a> announced that the SASS support using sourcemaps, is available in Chrome stable, as a built-in feature.</p>
+
+<p>Let&rsquo;s stop and think about the concept of SASS sourcemaps? We are mapping CSS to SCSS, because the browser&rsquo;s editor is editing what&rsquo;s being served to the browser &ndash; not what&rsquo;s on the local file system. That&rsquo;s a problem because we are using the developer tools as the editor, and only because of that.</p>
+
+<p>In addition to the mapping-problem, using the developer tools as the code-editor raises a set of new question:</p>
+
+<ul>
+<li>What to expect from the editor within the developer tools?</li>
+<li>Should it replace my existing editor?</li>
+<li>What kind of functionality can I expect?</li>
+<li>Why should I consider replacing my existing editor? Why new brings it to the table?</li>
+<li>What about server-side code editing? Is that covered too?</li>
+</ul>
+
+
+<blockquote class="big">
+  <p>Does this mean that the browser vendors are on their way to compete with the editor vendors?</p>
+</blockquote>
+
+
+<p>It&rsquo;s also important to realize that the reality for a frontend developer: The application needs to be able to run in multiple browsers.</p>
+
+<p>It doesn&rsquo;t really work to put all of the tooling into one browser, without thinking of the others. What we need is something that makes it easy for us to develop, test and run our app in many browsers &ndash; most likely our editor.</p>
+
+<h2>Keep our editors being editors, and let&rsquo;s integrate.</h2>
+
+<p>What about we do something different? We keep our editors being our editors, and let them communicate with our browsers. What I in-vision is a total integrated experience from the editor to the browser, that&rsquo;s enabling me to increase my productivity by having a much more sane workflow.</p>
+
+<p>What if you could edit a file in your editor, and have the changes reflected directly in the browser?</p>
+
+<p>Maybe it could work like this:</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/editor_workflow-ee6cb8b6361aaae7a37d3a28a3d03a3e.png"></figure></p>
+
+<p>Why? First of all I do believe all developers has chosen their editor for good reasons. There are a million editors out there, and each developer has carefully selected his/her editor by a variety of criteria. Maybe it&rsquo;s the refactoring-functionality, the themes or the plugins? It&rsquo;s all individual, each made their trade-offs and its&rsquo;s perfectly fine.</p>
+
+<p>Secondly, by turning the browser developer tools into an editor, the browser-vendors are entering a highly opinionated and religious world. More importantly why re-invent editing-functionality inside the browser when we already got it in our existing editors? It&rsquo;s a waste of good resources, unless the goal is to build the ultimate code-editor. Is it?</p>
+
+<p>Thirdly, what I want to browser-vendors to focus on is to innovate on the platform , instead re-inventing stuff that we already have. Today I consider my browser my application runtime. Actually I have multiple runtimes (IE, Firefox, Chromium, Safari) to support, and it&rsquo;s not making my life easier, if each of them turns into separate editors.</p>
+
+<blockquote class="big">
+  <p>I think deep integration between our editors and browsers is the key to better a webplatform.</p>
+</blockquote>
+
+
+<p>One thing I noted here at I/O, during the keynote was the big applause from all the Android guys, when the Android Studio was announced. One key feature that was highlighted was the feature get an instant preview of the application layout, as they changed it.</p>
+
+<p>We need the same for the webplatform, but our world is a bit more complicated. We got multiple runtimes, many languages, web servers, frameworks and editors, so how about integrating the pieces we already got?</p>
+
+<h2>Remote-debugging protocols and standardization.</h2>
+
+<p>We actually already have a way to integrate our editors with our browsers, and it&rsquo;s called remote-debugging protocols. An API to the browser. An alternative interface, and it&rsquo;s available in both Chrome and Firefox.</p>
+
+<p>Chrome introduced this protocol back in <a href="http://blog.chromium.org/2011/05/remote-debugging-with-chrome-developer.html">May 2011</a>, and is best known for the functionality to debug mobile devices from Chrome. Actually the protocol is a part of WebKit, and is also used in Safari, which enables <a href="http://moduscreate.com/enable-remote-web-inspector-in-ios-6/">Safari mobile remote debugging</a>.</p>
+
+<p>The funny thing here is that this concept isn&rsquo;t new. You&rsquo;ve had editor integration via Microsoft Script Debugger or Visual Studio since the old Internet Explorer days to debug JSCRIPT, just like any other Microsoft language, but people seem to have forgotten.</p>
+
+<p>Mozilla Firefox also got a <a href="https://wiki.mozilla.org/Remote_Debugging_Protocol">remote debugging protocol</a>, which is great, but we got a fundamental problem.</p>
+
+<p>The remote debugging protocols are incompatible with each other, and each has a different features.</p>
+
+<blockquote class="big">
+  <p>It&#8217;s nearly impossible to make a sane integration with these API&#8217;s.</p>
+</blockquote>
+
+
+<p>This is the main reason why we haven&rsquo;t seen that many integrations using these remote debugging protocols. It&rsquo;s simply not worth adding tooling support for experimental features into the editors.</p>
+
+<p>In our community we have brave people, like <a href="http://remysharp.com/">Remy Sharp</a>, who have started an open-source project called <a href="https://github.com/leftlogic/remote-debug">RemoteDebug</a>, that is aimed to provide a consistent debugging interface to all browsers. Hopefully this project will succeed, now that the browser vendors have failed to agreee.</p>
+
+<p>Going forward I think a unified remote debugging protocol is a new key functionality we need in the browser. We need to be able to communicate to the runtime in a standardized way, so tooling-vendors knows that their integration are cross-platform. Once we have a settled on a consistent interface I&rsquo;m sure we will see more editor-vendors make these integrations.</p>
+
+<p>We can achieve the consistent interface through standardization, and we already got the organizations in place for this.</p>
+
+<h2>What integrations could look like.</h2>
+
+<p>We already have seen exciting experiments from <a href="http://jetbrains.com">JetBrains</a> with <a href="http://blog.jetbrains.com/webide/2012/08/liveedit-plugin-features-in-detail/">WebStorm LiveEdit</a> and <a href="https://github.com/sokolovstas">Stanislav</a>&rsquo;s <a href="https://github.com/sokolovstas/SublimeWebInspector">Sublime Web Inspector</a>, which integrates WebStorm and Sublime Text 2 with Chrome using the remote debugging protocol. Check out these videos:</p>
+
+<figure>
+  <iframe src="http://www.youtube.com/embed/wCVwdvufTds" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+
+
+
+<figure>
+  <iframe src="http://www.youtube.com/embed/LaH_43N34Jg" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+
+<h2>Missing pieces in our web platform.</h2>
+
+<p>In order to make deep integrations possible, we also need some extra pieces from the web platform. Essentially we need to be able to re-replay and re-do every single step in a page-load. We need to able to reload assets in a clever way, so when the editor is changing line 28 in a stylesheet, we can update that specific line, and trigger a reflow/repaint.</p>
+
+<p>We also need to be able to reload images and other assets, and to be able to clear the cache for a specifc object. Today we are making many workarounds to bypass the cache for resources &ndash; is just stupid.</p>
+
+<p>More importantly we need to be able to do realtime JavaScript editing &ldquo;edit-and-go&rdquo;, so we don&rsquo;t need to make a refresh and loose in-memory states. We can already do this with <a href="https://developers.google.com/chrome-developer-tools/docs/protocol/tot/debugger#command-setScriptSource">setScriptSource</a> in Chrome, but what about the other browsers and other resources?</p>
+
+<p>Lastly we also need to figure out how we handle the DOM, and ensure that the already rendered DOM-three somehow is synchronized with our application code we are editing. Maybe WebComponents will make this easier going forward? Who knows? Who are looking into this?</p>
+
+<h2>What about the big picture?</h2>
+
+<p>Browser-vendors, this is the kind of problems I want to you look into. They are important to our platform. You already have the resources, so please stop using them to re-implement our editors. Focus on our platform and the big picture. Talk to the editor-vendors, work together and build integrations to bring the ecosystems together.</p>
+
+<p>We can build on top of our already awesome editors. Take a look at innovation <a href="http://adobe.com">Adobe</a> did with <a href="http://brackets.io/">Brackets</a>. They did a innovative contextual css-editor that allows you to edit the related CSS directly from your HTML-editor.</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/brackets_quick_editor-c13fbcb97e37efae284ee6523429913b.png"></figure></p>
+
+<p>Imagine if we could bring contextual information from the browser directly into the editor. I&rsquo;m thinking computed-styles, dimensions, rendering previews on hover. Lets try to think outside of the box, like Adobe did with Brackets.</p>
+
+<blockquote class="big">
+ <p>Visual debugging could get a whole new meaning, and we could finally show the right information in the right context.</p>
+</blockquote>
+
+
+<p>I want to make these kinds of integrations happen. I want to make our web development easier, more productive and most importantly <strong>more fun</strong>.</p>
+
+<p>Let&rsquo;s make it happen.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Helpmate.]]></title>
+    <link href="http://kenneth.io/blog/2013/04/01/introducing-helpmate/"/>
+    <updated>2013-04-01T21:32:00-07:00</updated>
+    <id>http://kenneth.io/blog/2013/04/01/introducing-helpmate</id>
+    <content type="html"><![CDATA[<p>A few months back I was sitting in <a href="http://heutedenkenmorgenfertig.com/">Jacob Bøtter</a>&rsquo;s kitchen discusing what it would take to disrupt postal services and ultimately eradicate letters for good.</p>
+
+<p><figure><img src="http://kenneth.io/assets/images/helpmate-3f201b9f654828311578e673acdace87.jpg"></figure></p>
+
+<!--more-->
+
+
+<p>After a few beers we came up with something different. I recently moved to a <a href="http://instagram.com/p/PjHbHADJCc/">new place</a> here in Copenhagen, and been busy <a href="http://instagram.com/p/PqnPkNDJMx/">renovating the apartment</a>. Jacob still has 20-30 things in his apartment that needed to be fixed, but he hadn’t had time to tell people to do it.</p>
+
+<p>So how about an iPhone app, where you just could snap a picture of what&rsquo;s needed to be done and it would be done?</p>
+
+<p>We sketched out the concept, and created a little website with an introduction video. We are starting out in Copenhagen, and if enough people signup, we will make it happen.</p>
+
+<p>We call the it <a href="http://helpmate.dk/">Helpmate</a> (in danish).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Visualize your JavaScript dependencies with dependo]]></title>
+    <link href="http://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo/"/>
+    <updated>2013-04-01T21:23:00-07:00</updated>
+    <id>http://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo</id>
+    <content type="html"><![CDATA[<div class="update-box">
+  <p><strong>Update:</strong> grunt-dependencygraph has been replaced by dependo - a more modular version, wrapped up as a NPM-package with both an API, CLI and Grunt task.</p>
+</div>
+
+
+<p>It all started a few months back when I started our &ldquo;AMDification project&rdquo; at <a href="https://podio.com">Podio</a>, where we decided to introduce <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> in our codebase, in order to take advantage of tools like <a href="http://requirejs.org/">RequireJS</a>, and <a href="https://github.com/jrburke/r.js/">r.js</a>.</p>
+
+<p>More importantly I also wanted to gain a better overview of the dependencies in our code, by being able to extract the module definitions and their dependencies in a systematic way. Using <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> has enabled this in a simple way, because much of the tooling already existed.</p>
+
+<p>But for a long time I&rsquo;ve been looking for a visualization tool to help me visualize the JavaScript dependencies &ndash; without any luck.</p>
+
+<!--more-->
+
+
+<p>Okay, I found a few, but they use <a href="http://www.graphviz.org/">GraphViz</a>, or similar, to  generate huge images that is impossible to handle when you generate a graph of a larger code-base.</p>
+
+<p>I want something better. Something similar to Google Maps, where you have a big graph that&rsquo;s zoomable by mouse or gestures, combined with dragging, to enable panning when the graph is zoomed. I haven&rsquo;t been able to find something like this, so I&rsquo;ve  taken the write it myself.</p>
+
+<h2>Introducing dependo</h2>
+
+<p>Let me introduce <a href="https://github.com/auchenberg/dependo"><strong>dependo</strong></a>. It&rsquo;s a small visualization tool that draws an force directed graph of JavaScript dependencies that has been annotated with either <a href="http://www.commonjs.org/">CommonJS</a>, or <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a>. Behind the scene I&rsquo;m using a wonderful library named <a href="https://github.com/pahen/node-madge/">node-madge</a>, to extract the dependencies and combined with the power of <a href="http://d3js.org/">D3.js</a> I  draw a beautiful zoomable directed graph.</p>
+
+<p>It&rsquo;s all wrapped up as a simple node-module, available on <a href="https://npmjs.org/package/dependo">NPM</a>, with both an API and CLI. I also written a <a href="http://gruntjs.com/">grunt</a>-task that can be found here <a href="https://github.com/auchenberg/grunt-dependo">grunt-dependo</a>, so it&rsquo;s convenient to hook into your grunt-build system. The output is a simple HTML-file, with everything embedded, so you can publish it directly to your build server, etc.</p>
+
+<h2>Example: RequireJS multi-page visualization</h2>
+
+<p>Enough talk. The best way to show something is by example, so here I generated a graph of the official RequireJS <a href="https://github.com/requirejs/example-multipage">multipage</a> example:</p>
+
+<figure>
+  <iframe src="http://auchenberg.github.com/dependo/example/"></iframe>
+</figure>
+
+
+<p>It&rsquo;s still early days, but I think this tool will help developers getting a better overview of modules and their dependencies. I really hope you like this tool too.</p>
+
+<p>Have an good idea, or wanna contribute? All feedback is highly appricated.</p>
+
+<p><a href="https://github.com/auchenberg/dependo">https://github.com/auchenberg/dependo</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Microsoft Campus Days 2013 talk]]></title>
+    <link href="http://kenneth.io/blog/2013/02/20/microsoft-campus-days-2013/"/>
+    <updated>2013-02-20T20:00:00-08:00</updated>
+    <id>http://kenneth.io/blog/2013/02/20/microsoft-campus-days-2013</id>
+    <content type="html"><![CDATA[<p>Back in October last year, I spoke a Microsoft Campus Days 2012. A relatively small Microsoft conference in Copenhagen focused on IT professionals and developers.</p>
+
+<p>I did a reality check of HTML5. How far we have gotten, and what problems we are facing with our web platform. I started out by asking how many people that were developers, and 99% of the attendes was developers.</p>
+
+<!--more-->
+
+
+<p>A good thing, but this was my first presentation without any code, so it was a bit up the hill for a crowd that expected code examples. I think the Microsoft-guys understood my message.</p>
+
+<p>The talk in danish, so if you understand my mother tongue, go ahead and watch my presentation (yes, sadly it&rsquo;s Silverlight);</p>
+
+<figure>
+  <iframe style="height:556px; width:960px" src="http://channel9.msdn.com/Events/Microsoft-Campus-Days/Microsoft-Campus-Days-2012/Reality-check-af-HTML5/player?w=960&h=540" frameBorder="0" scrolling="no" ></iframe>
+</figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Warm Crocodile Conference Talk]]></title>
+    <link href="http://kenneth.io/blog/2013/01/21/html5-where-are-we-at/"/>
+    <updated>2013-01-21T22:00:00-08:00</updated>
+    <id>http://kenneth.io/blog/2013/01/21/html5-where-are-we-at</id>
+    <content type="html"><![CDATA[<p>Last week I spoke at a <a href="http://warmcrocconf.net/">Warm Crocodile Conference</a>, a new by <a href="http://microsoft.com">Microsoft</a> in Copenhagen, and later the same evening at our <a href="http://lanyrd.com/2013/copenhagenjs-january/">CopenhagenJS meetup in Malmo</a>, hosted by <a href="http://foocafe.org/">FooCafe</a>.</p>
+
+<p>My talk was about how far we are with our web platform &ndash; more specifically HTML5. I wanted to give a different talk then the usual &ldquo;HTML5 buzz talk&rdquo; that mostly has been about the fancy new features and possibilities we got with HTML5.</p>
+
+<!--more-->
+
+
+<h2>HTML5 in perspective.</h2>
+
+<p>In my talk I talked about the evolution we have been though the past years, how the evolution has been driven by <a href="http://www.whatwg.org/">WHATWG</a>, and <a href="http://www.w3c.org/">W3C</a>, and how we sometimes has ended up with weird evolution (as Christian Heilmann pointed out in <a href="http://www.youtube.com/watch?v=B7ahspCqFMs">his brilliant talk</a>).</p>
+
+<p>I gave an overview of the current browser landscape, how auto-updating has been introduced to the platform, and few examples on how far we are with actual browser support to highlight the shocking truth: We haven&rsquo;t gotten that far the past many years, mainly because older browsers are holding us back.</p>
+
+<h2>IE8 is pollution</h2>
+
+<p>More specificly it&rsquo;s older versions of Internet Explorer, especially IE8, the last upgrade-path for Windows XP users. In my talk I had the statement that IE8 is pollution, that holds us back from moving the platform forward. This thought was put in my head by <a href="http://infrequently.org/">Alex Russel</a>, at last years <a href="http://fronteers.nl/">Fronteers</a> (2012) in Amsterdam, and has slowly grown on me.</p>
+
+<p>In addition I breifly touch the today&rsquo;s browser tooling, and the lack of innovation in it, by showing how little we have innovated since the good days of IE5.5.</p>
+
+<p>Lastly I covered the work that has been going on in the <a href="http://coremob.org/">W3C Core Mobile Community Group</a>, how it relates to <a href="http://facebook.com">Facebook</a>, and what it means for the future.</p>
+
+<h2>Version2 coverage</h2>
+
+<p>My IE8 statement was picked up by one of the biggest IT media&rsquo;s in Denmark, version2, who has written a <a href="http://www.version2.dk/artikel/frontendudvikler-internet-explorer-8-forurening-html5-49943#comment-226337">wonderful article</a>, with an even more brilliant photo of me (very ironic). I hope articles like this can fuel the debate, so we, front-end developers, will unite and do something about IE8.</p>
+
+<p>Many of the subjects in this talk deserves a seperate blog posts, so instead of going into more detail, I&rsquo;ve embedded the slides (yup, regular iframe), so go check them out, or find them here <a href="http://auchenberg.github.com/presentations/warmcroc-html5-where-are-we-at/">HTML5 &ndash; Where are we at?</a></p>
+
+<figure class="slides">
+  <iframe src="http://auchenberg.github.com/presentations/warmcroc-html5-where-are-we-at/"></iframe>
+</figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[We need a open bug tracker for Internet Explorer]]></title>
+    <link href="http://kenneth.io/blog/2012/11/01/we-need-an-open-bugtracker-for-internet-explorer/"/>
+    <updated>2012-11-01T11:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2012/11/01/we-need-an-open-bugtracker-for-internet-explorer</id>
+    <content type="html"><![CDATA[<p>Today I had an issue with drag &amp; drop using jQuery UI&rsquo;s sortable. It was isolated to IE10, only when scrolling, so I started to research to to see if it was a bug within jQuery UI, jQuery or maybe even inside IE10.</p>
+
+<!--more-->
+
+
+<h2>jQuery UI ticket</h2>
+
+<p>In my search I first found a <a href="http://bugs.jqueryui.com/ticket/8633">jQuery UI ticket</a>, that lead me to a jQuery ticket <a href="http://bugs.jquery.com/ticket/12343">&ldquo;EVENT.PAGEX AND PAGEY HAVE INCORRECT VALUES IN IE10 ON WINDOWS 8 RTM&rdquo;</a>.</p>
+
+<h2>jQuery ticket</h2>
+
+<p>In this jQuery ticket, created 7 weeks ago, people are discussing the cause of this, and they confirm it&rsquo;s a bug <strong>within Internet Explorer 10</strong>. The RTM version.</p>
+
+<h2>IE10 bug report</h2>
+
+<p>This jQuery ticket, didn&rsquo;t lead me to a issue reported in the Internet Explorer bug tracker, instead it has this final comment:</p>
+
+<p>&ldquo;I heard back from Microsoft, they have a patch that will go out a few days after the official public release that will fix this issue. There&rsquo;s no reliable marker that jQuery can use to tell fixed vs unfixed implementations, so your best bet is to tough it out until then.&rdquo;</p>
+
+<h2>The need for an open bug tracker</h2>
+
+<p>This is <strong>EXACTLY</strong> the reason why we <strong>NEED</strong> an open bug tracker for Internet Explorer. As a frontend-developer, need to know about these issues, because they affect how and what I&rsquo;m building.</p>
+
+<p>I want to know the open issues in any browser. What progress they are making, and most importantly when the fixes goes out. I can follow the status of bugs reported in Chrome, Firefox, Gecko, Webkit, etc, but where is the openness from Microsoft?</p>
+
+<p>I don&rsquo;t want to end up in a jQuery bug tracker to find out about bugs in Internet Explorer. They belong to it&rsquo;s own open bug tracker.</p>
+
+<p>I know there is a bug tracker for Internet Explorer (somewhere at connect.microsoft.com), but it&rsquo;s really hard for me as a developer to follow what&rsquo;s going in in IE, especially compared to the other browsers out there.</p>
+
+<p>Microsoft, if you want us frontend developers support and build applications for your platform (IE), you need to bring us closer to your browser.</p>
+
+<p><strong>Openness is the necessary step forward.</strong></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[We do our own stunts talk at LBI Denmark]]></title>
+    <link href="http://kenneth.io/blog/2012/06/24/we-do-our-own-stunts-talk-lbi-denmark/"/>
+    <updated>2012-06-24T20:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2012/06/24/we-do-our-own-stunts-talk-lbi-denmark</id>
+    <content type="html"><![CDATA[<p><a href="http://www.lbi.com/dk">LBi Denmark</a> asked me to stop by their internal event called &ldquo;We do our own stunts&rdquo;, to talk a bit about Podio.</p>
+
+<p>In the context of doing stunts I thought the evolution of the Podio front-end stack would be a great fit. At Podio we have been through a big technical transition. We migrated our technical foundation, the whole frontend stack from PHP to Ruby, while we continued to itirate and release new features in our product.</p>
+
+<!--more-->
+
+
+<h2>Podio&rsquo;s air-bourne stunt.</h2>
+
+<p>This was a bold decision and atypical for a startup in the early stage, something rarely see. We didn&rsquo;t have 6 months to set aside for refactoring. Instead we choose to tacle this from a different perspective: This was the perfect opportunity to review all the features in the product. With this opportunity in our hands, the flow as actually straight forward. Everytime we added or improved a feature, we implemented it in the new code-base, and made the transition completely transparant to our users.</p>
+
+<p>Our goals with this project was to ensure a solid techinical platform that would enable us to keep our team productive, while growing, nad to ensure a foundation to deliver the best experience to our users.</p>
+
+<p>This was the &ldquo;Podio air-bourne stunt&rdquo;. One hell of a trans-atlantic flight.</p>
+
+<figure class="slides">
+  <iframe src="http://auchenberg.github.io/podio-frontend-stack-evolution"></iframe>
+</figure>
+
+
+<p>Read more about the project in the slides, <a href="http://auchenberg.github.com/podio-frontend-stack-evolution">Podio Frontend Stack Evolution</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Word wrapping/hyphenation using CSS.]]></title>
+    <link href="http://kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/"/>
+    <updated>2012-03-04T14:34:00-08:00</updated>
+    <id>http://kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css</id>
+    <content type="html"><![CDATA[<p>A few days back I spent most of my afternoon looking into how I could achieve proper word wrapping within elements with a dynamic width.</p>
+
+<p>At <a href="https://podio.com">Podio</a>, we have a fluid layout, with a dynamic width, to deliver a responsive user experience. This means no element is having a fixed width, instead width&rsquo;s are defined as percentages. This causes some headaches, now and then. Word wrapping caused a major one.</p>
+
+<p>Initially I thought: It&rsquo;s a no-brainer, just add <code>word-wrap: break-word</code> to the element, and it should do the wrapping.</p>
+
+<p>It&rsquo;s not.</p>
+
+<!--more-->
+
+
+<p>When you have an element with a dynamic width <code>word-wrap: break-word</code>, isn&rsquo;t having any effect. Today&rsquo;s browsers don&rsquo;t use the calculated width to enforce the wrapping. Instead they seem to ignore the declaration.</p>
+
+<h2>Wonders of a dynamic width.</h2>
+
+<p>In this example I used a generic layout for a two column layout, using table-cell and floats.</p>
+
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/FH7U5/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
+
+
+<p>As you can see in this example, the long word isn&rsquo;t wrapped into multiple lines, it breaks the layout.</p>
+
+<p>So how do we make it look more like this?</p>
+
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/U67jj/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
+
+
+<h2>Our options with HTML and CSS</h2>
+
+<p>In my research I found a lot of proposals on how to fix this issue. Most of them was a suggestion to add a fixed width to the element. Sometimes you need the dynamic width, like when you use the media-block from <a href="http://oocss.org/">OOCSS</a>, so what&rsquo;s the alternatives?</p>
+
+<h2>&lt;WBR&gt; and &amp;#8203; tags</h2>
+
+<p>The past years I&rsquo;ve been using &lt;WBR&gt; and &amp;#8203; tags to insert optional line breaks into long paragrahs of text. This solution became quite made popular after <a href="http://www.quirksmode.org/oddsandends/wbr.html">Quirksmode</a>, made documented it.</p>
+
+<p>This technique is is widely used around the web, including places like Facebook. And there seem to be wbr-encode implementation for all major languages functions, but they all have one common problem. As soon you are outputting markup, and want to break up long words within tags it starts to get messy. To overcome this, it ends up in a lot of regex nightmare, and ultimately, a slow HTML parser, to ensure proper breaking.</p>
+
+<p>This slows down rendering dramatically.</p>
+
+<h2>What about CSS?</h2>
+
+<p>Wouldn&rsquo;t it be better, if the browser could do the work?</p>
+
+<p>In my search for a working CSS declaration, I found <a href="https://developer.mozilla.org/en/CSS/word-wrap"><code>word-wrap</code></a>, which isnt working with a dynamic width, so I continued and found a new CSS3 declaration <a href="http://www.w3.org/TR/css3-text/#word-break"><code>word-break</code></a>, which is described as: &ldquo;This property specifies line break opportunities within words.&rdquo;</p>
+
+<p>Great, so let&rsquo;s try it out in a WebKIt-based browser:</p>
+
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/5C6GG/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
+
+
+<p>Bamn, we got it. <code>word-break: break-all</code> is the way to go for WebKit..</p>
+
+<p>But then I fired up IE8 and Firefox, and realized that it didn&rsquo;t work, so I continued my search&hellip;</p>
+
+<p>It seems like the <code>word-break</code> declaration is prefixed in Internet Explorer 8 standards mode, so you need to add a prefix:</p>
+
+<pre><code> -ms-word-break: break-all;
+     word-break: break-all;
+</code></pre>
+
+<p>But what about Firefox? The Mozilla guys has chosen not to implement <code>word-break</code> support into Gecko. Instead they focused on supporting something new and exciting, the <a href="http://www.w3.org/TR/css3-text/#hyphenation">CSS3 Hyphenation</a> specification.</p>
+
+<h2>CSS3 Hyphenation</h2>
+
+<p>Hyphenation is the better word-break. It&rsquo;s locale aware, and inserts the <a href="http://en.wikipedia.org/wiki/Hyphen">hyphen</a> character at the correct place, when breaking the words.</p>
+
+<p>The support of <a href="https://developer.mozilla.org/en/CSS/hyphens">CSS3 Hyphenation</a> has started in Firefox 6 for the english languages, and several other langugages was added in Firefox 8. Word hypenation is dependent on a dictionary, so you must specify the <code>lang</code> attribute on the HTML element or one of the target elements ancestors, to help the browser use the right dictionary.</p>
+
+<p>It&rsquo;s already supported in WebKit, currently prefixed, which means <a href="http://caniuse.com/css-hyphens">Safari 5.1+ and iOS 4.2</a>.</p>
+
+<p><a href="http://www.w3.org/TR/css3-text/">CSS3 Hyphenation</a> isn&rsquo;t supported in Chrome, since Chrome doesn&rsquo;t ship with any <a href="https://twitter.com/fakebaldur/status/176625058440167424">hypenation dictionaries</a>, but since Chrome supports <code>word-break: break-all</code>  we are good.</p>
+
+<p>To support hyphenation in Safari, Firefox (and future Chrome versions), you will need to do:</p>
+
+<pre><code>-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    -ms-hyphens: auto;
+        hyphens: auto;
+</code></pre>
+
+<h2>Webkit and mystic &ldquo;word-break: break-word&rdquo;</h2>
+
+<p>When using the <code>word-break: break-all</code>  property, is has the sideeffect, that words are being broken up at weird positions, because the <code>break-all</code>, means all words needs to be broken up.</p>
+
+<p>An example of this looks like this:</p>
+
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/a8hBp/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
+
+
+<p>To fix this, I discovered, that you can use <code>word-break: break-word</code> which seems to be an undocumented and non-standard property value in WebKit. This makes the word wrapping behave like <code>word-wrap: break-word</code>, but works with dynamic widths.</p>
+
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/zJ4BL/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
+
+
+<p>As you can see in the above example, the word wrapping looks much better using  <code>word-break: break-word</code>. This leaves us behind with IE, which still would wrap the words at weird positions.</p>
+
+<p>Luckely CSS Hyphenation is supported in IE10 in a prefixed form, so eventually IE won&rsquo;t be a problem.</p>
+
+<h2>The solution</h2>
+
+<p>So the cross browser solution for doing word wrapping using CSS only is a combiation of <code>word-break</code>, <code>word-break: break-word</code> and <code>hyphens</code>:</p>
+
+<pre><code> -ms-word-break: break-all;
+     word-break: break-all;
+
+     /* Non standard for webkit */
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    -ms-hyphens: auto;
+        hyphens: auto;
+</code></pre>
+
+<p>This is working in Internet Explorer 8+, Firefox 6+, iOS 4.2, Safari 5.1+ and Chrome 13+.</p>
+
+<figure class="codepen">
+  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/Hd393/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
+
+
+<p>The end result is simpler markup, and faster rendering, since we don&rsquo;t need encode our strings with &lt;WBR&gt; and &amp;#8203;.</p>
+
+<p>Goodbye &lt;WBR&gt;, I don&rsquo;t need you anymore.</p>
+
+<div class="update-box">
+  <p><strong>Updates</strong>
+    <ul>
+      <li>27-07-2013: Added note about  <code>lang</code>-attribute for CSS Hyphenation, and added <code>-ms-hyphens</code> for IE10. (Credits: <a href="http://twitter.com/simevidas">Šime Vidas</a>)</li>
+      <li>Included a section about <code>word-break: break-word</code> in WebKit (Credits: <a href="http://twitter.com/mkristensen">Mads Kristensen</a>)</li>
+      <li>Added proper references to <code>word-break: break-all;</code>, and highlighted that CSS3 Hyphenation isn&#8217;t supported in Chrome (Credits: <a href="http://twitter.com/fakebaldur">Baldur Bjarnason</a>)</li>
+    </ul>
+
+</div>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Slides from my HTML5 & browser extensions presentation at ProData Consult]]></title>
+    <link href="http://kenneth.io/blog/2011/02/02/slides-from-my-html5-browser-extensions-presentation-at-prodata-consult/"/>
+    <updated>2011-02-02T00:00:00-08:00</updated>
+    <id>http://kenneth.io/blog/2011/02/02/slides-from-my-html5-browser-extensions-presentation-at-prodata-consult</id>
+    <content type="html"><![CDATA[<p>Thursday last week (27th january 2010) I hosted a &ldquo;evening-event&rdquo; at <a href="http://prodata.dk" target="_blank">ProData Consult</a> for their consultants, where I spoke about HTML5 &amp; Browser extensions. My HTML5 talk was a short recap of the recent changes in the specification, the W3C logo, and a showcase of the semantic changes, new tags and attributes and the HTML5-related JavaScript API&rsquo;s.</p>
+
+<p>The presentation was a bit of an experiment, because I was the first time I coded my presentation in HTML, JavaScript and CSS instead of using the regular tools such as PowerPoint or Keynote.</p>
+
+<!--more-->
+
+
+<p>To &ldquo;code&rdquo; my presentation I used a small sinatra-based ruby app called <a href="https://github.com/schacon/showoff" target="_blank">ShowOff</a>, which is using <a href="http://daringfireball.net/projects/markdown/" target="_blank">markdown</a> for its templating.</p>
+
+<p>The advantage of coding my slides is really obvious in my presentation where I show how the new form controls is being rendered, how HTML5 validation works, theres even an embedded google maps, canvas demo, pushHistory etc.</p>
+
+<p>Normally I embed the presentation into the blog-post, using an embedded <a href="http://www.slideshare.net/auchenberg" target="_blank">SlideShare</a> presentation that is using flash, which allows resizing. But because I this time hardcoded the layout in HTML/CSS, then I&rsquo;m not able to embed a resized version of my slides.</p>
+
+<figure class="slides">
+  <iframe src="http://auchenberg-html5.heroku.com/#1"></iframe>
+</figure>
+
+
+<p>To see my slides (which is hosted on <a href="http://auchenberg-html5.heroku.com/#1">Heroku</a>), just click the thumbnail below:</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Diving into photography. ]]></title>
+    <link href="http://kenneth.io/blog/2011/01/12/diving-into-photography/"/>
+    <updated>2011-01-12T00:00:00-08:00</updated>
+    <id>http://kenneth.io/blog/2011/01/12/diving-into-photography</id>
+    <content type="html"><![CDATA[<p>Lately I&rsquo;ve been quite hooked on getting a DSLR, because I wanted to explore the world of photography from another angle than just looking at beautiful pictures.</p>
+
+<p>To begin with I started looking at high-end camera&rsquo;s (top-model or no-model mentality), but after a lot of research I ended up buying a Canon 550d, which is also known as T2I or KISS X4.</p>
+
+<!--more-->
+
+
+<p>It&rsquo;s very similar to Canon 60D and Canon 7D, but the main difference is the physical body, which is in plastic and is lacking some quite nifty navigation buttons compared to 7D/60D.</p>
+
+<p>So why did I buy the 550d?</p>
+
+<ul>
+    <li>It&#8217;s cheap</li>
+    <li>Shooting execelent video ( See <a href="http://www.youtube.com/watch?v=R2AXjF-wFVo">http://www.youtube.com/watch?v=R2AXjF-wFVo</a>)</li>
+    <li>Pretty feature rich</li>
+</ul>
+
+
+<p>Of couse, if I had unlimited resoruces I would had bough the Canon 7D, simply because it&rsquo;s &ldquo;just nicer&rdquo;, but I came to the conclusion, that this is my first DSLR, and therefore I could live with the lack of weather sealed body, and the nifty navigation buttons, simply because I first need to learn the very basics of photography.</p>
+
+<p>So I decided to go for the Canon 550d body, but which lens should I buy? Should I go for the kit?</p>
+
+<p>After some more research in various places I came to the conclusion that my first lens should be a prime in about 50mm. But since my 550d has a smaller APS-C sensor, it also has a crop-factor of 1.6, which means a 50mm lens would become 85mm on the 550d.</p>
+
+<p>Therefore I ended up buying a Canon EF 28mm 1/8 USM lens, which is going to be equal 45mm on the 550d, got 1/8 aperture, and is using the EF-mount, which means I also can be used on the Canon pro-cameras (if I should end there some day).</p>
+
+<p>The lens was a bit expensive 450$, but got some pretty good reviews, and the sample photos I found in the <a href="http://www.flickr.com/groups/canonef28mmf18usm/">28mm group in Flickr</a> is simply stunning.</p>
+
+<p>In addition to the 550d and 28mm lens, I also bought a filter, lens hood and a battery grip, so totally I ended up with</p>
+
+<ul>
+    <li>Canon 550D body</li>
+    <li>Canon EF 28mm 1/8 USM lens</li>
+    <li>Canon Lens Hood EW-63 II</li>
+    <li>Phottix Battery Grip for 550d</li>
+    <li>Hoya 58mm Pro-1D UV Filter</li>
+</ul>
+
+
+<p>I&rsquo;m still waiting for the lens, battery grip and filter to arrive, so hopefully when all the parts has arrived I&rsquo;m going to be thrilled about photography ;)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New version of CSS Reloader for Chrome is out]]></title>
+    <link href="http://kenneth.io/blog/2011/01/09/new-version-of-css-reloader-for-chrome-is-out/"/>
+    <updated>2011-01-09T00:00:00-08:00</updated>
+    <id>http://kenneth.io/blog/2011/01/09/new-version-of-css-reloader-for-chrome-is-out</id>
+    <content type="html"><![CDATA[<p>It has been a long time since I did changes to my CSS Reloader browser extension. This evening I had some time, and pushed a updated version of CSS Reloader for Chrome out in the public.</p>
+
+<!--more-->
+
+
+<p>The new version contains a revised code-base, which is way more well structured and cleaner, and I also added som new features:</p>
+
+<ul>
+    <li>Much requested options-page has been added - allows you to change the keyboard shortcut.</li>
+    <li>CSS Reloader got a nice new logo (credits goes to <a href="http://www.everaldo.com/crystal/">Everaldo Coelho</a> for the lovely icon.)</li>
+</ul>
+
+
+<p><figure><img src="http://kenneth.io/assets/images/css-reloader-1ac50389812ccd8101112618ebf60c45.png"></figure></p>
+
+<p>Technically I was quite fun to add the options-page, because the settings is persisted in <a href="http://dev.w3.org/html5/webstorage/">LocalStorage</a>, which is only available for the <a href="http://code.google.com/chrome/extensions/background_pages.html">background-pages</a> in  the extension, and not the <a href="http://code.google.com/chrome/extensions/content_scripts.html">content-script</a> that is injected into every tab. To expose the settings for the <a href="http://code.google.com/chrome/extensions/content_scripts.html">content-script</a> I have taken advantage of the <a href="http://code.google.com/chrome/extensions/messaging.html">message passing implementation</a> in Chrome, that allows the extension-parts to communicate using events.</p>
+
+<p>Get the updated version of <a href="https://chrome.google.com/extensions/detail/dnfpcpfijpdhabaoieccoclghgplmpbd">CSS Reloader for Chrome</a>, or check the <a href="https://github.com/auchenberg/css-reloader">source-code</a> out, to see the funky-ness</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Slides and code from my ANUG jQuery CodeCamp at Vertica]]></title>
+    <link href="http://kenneth.io/blog/2010/10/25/slides-and-code-from-my-anug-jquery-codecamp-at-vertica/"/>
+    <updated>2010-10-25T00:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2010/10/25/slides-and-code-from-my-anug-jquery-codecamp-at-vertica</id>
+    <content type="html"><![CDATA[<p>This saturday I hosted a jQuery CodeCamp at <a href="http://vertica.dk">Vertica</a> in Århus, Denmark.  The code camp was arranged by <a href="http://anug.dk">ANUG</a>, a local .NET user group in Århus, which is one of the most active .NET user groups in Denmark. It was really awesome to see that many people meetup on a saturday to do some jQuery hacking!</p>
+
+<!--more-->
+
+
+<p>My intention with the CodeCamp was to give a brief introduction to jQuery, and do a presentation about all the things you can&rsquo;t read about in the documentation. But since this was a CodeCamp I also had a mission for the attendees.</p>
+
+<p>The mission was that all the attendees, by the end of the CodeCamp should had been building they own chat client, which connected to a chat-server I had build using <a href="http://socket.io">socket.io</a> and <a href="http://nodejs.com">node.js</a>.</p>
+
+<p>I knew from the very beginning that the mission was quite ambious for a crowd that wasn&rsquo;t used to do jQuery/JavaScript stuff, but we succeded! All the attendees managed to build a chat-client that connected to the server, and one even managed to implement a google-maps mashup that showed the location of each connected user!</p>
+
+<p>Here&rsquo;s the slides from the CodeCamp:</p>
+
+<figure class="slides">
+  <object id="__sse5545896" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="650" height="535" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=kennethauchenberg-jquerycodecamp-101024153558-phpapp02&amp;stripped_title=jquery-codecamp&amp;userName=auchenberg" /><param name="name" value="__sse5545896" /><param name="allowfullscreen" value="true" /><embed id="__sse5545896" type="application/x-shockwave-flash" width="650" height="535" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=kennethauchenberg-jquerycodecamp-101024153558-phpapp02&amp;stripped_title=jquery-codecamp&amp;userName=auchenberg" name="__sse5545896" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+</figure>
+
+
+<p>The source code for the chat-server can be found right here: <a href="http://github.com/auchenberg/jquery-codecamp"><a href="http://github.com/auchenberg/jquery-codecamp">http://github.com/auchenberg/jquery-codecamp</a></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to disable accidentally text-zooming in browsers when using Magic Trackpad/Mouse in OSX]]></title>
+    <link href="http://kenneth.io/blog/2010/10/17/how-to-disable-accidentally-text-zooming-in-browsers-when-using-magic-trackpadmouse-in-osx/"/>
+    <updated>2010-10-17T00:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2010/10/17/how-to-disable-accidentally-text-zooming-in-browsers-when-using-magic-trackpadmouse-in-osx</id>
+    <content type="html"><![CDATA[<p>One thing has lately annoyed me, and it has been the accidentally text zooming in my browsers (Google Chrome, Firefox and Safari), when using the Trackpad, Magic Trackpad or Magic Mouse.</p>
+
+<!--more-->
+
+
+<p>The text zooming happens because the pinch-gesture (zoom) has been enabled for the trackpad/mouse, which by default, is mapped to text-zooming in the browsers.</p>
+
+<p>To disable the text-zooming I used a tool called MultiCluch, which is a input-filter that monitors all multi-touch-input and remaps the gestures to keyboard-combinations. So what I did was to map the zoom-in and zoom-out gestures in Google Chrome to a keyboard combination that is doing absolutely nothing.</p>
+
+<ul>
+    <li>Install MultiCluch from <a href="http://wcrawford.org/2008/02/28/everytime-i-think-about-you-i-touch-my-cell/">http://wcrawford.org/2008/02/28/everytime-i-think-about-you-i-touch-my-cell/</a></li>
+    <li>Add Google Chrome (or the browser you are using), by clicking the small +</li>
+    <li>Add a mapping for zoom-in and zoom-out to a keyboard combination without any action (I used CMD+CTRL+SHIFT+ALT)</li>
+    <li>Restart your browser</li>
+    <li>Bingo, text-zooming is now disabled!</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Auto-Check-in]]></title>
+    <link href="http://kenneth.io/blog/2010/08/11/introducing-auto-check-in/"/>
+    <updated>2010-08-11T00:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2010/08/11/introducing-auto-check-in</id>
+    <content type="html"><![CDATA[<p>The past few days I worked on a new mashup-project I wanted to realize since the day I started used Foursquare&hellip;</p>
+
+<!--more-->
+
+
+<p>Let me introduce <a href="http://autocheckin.appspot.com/">Auto-Check-In</a>. It&rsquo;s a new service that removes the hassle about remembering to check-in, since it&rsquo;s doing to for you. <a href="http://autocheckin.appspot.com/">Auto-Check-in</a> does not require (yet) another app running in the background, since it&rsquo;s using Google Latitude to get the your location (Google Latitude is build in into all Android devices, and with an iPhone you need to run one app in the background).</p>
+
+<p>The service is asking for users location every 5min, and if the user has been at the same spot for the configured timespan, the system is asking foursquare for the near by venues and finally checking the user into the closest one.</p>
+
+<p>For the technical interested, I&rsquo;ve build the service in Python, and it&rsquo;s running on <a href="appengine.google.com">Google App Engine</a>, with a true async architecture, which takes advantage of the newly released <a href="http://code.google.com/appengine/docs/python/taskqueue/">Task Queues in App Engine</a>.</p>
+
+<p>I teamed up with my friend and colleague <a href="http://mortenjust.com">Morten Just</a>, which had a lot ideas on how the service should work, and the same afternoon he had a user interface ready.</p>
+
+<p><a href="http://autocheckin.appspot.com/">Auto-Check-In</a> is currently running in a public alpha, and is having about 100 active users that each and every day is checking into a lot of venues, without they need to remember it.</p>
+
+<p><strong>Roadmap:</strong></p>
+
+<ul>
+    <li>Ranking of near-by-venues, to select a more qualified venue than the closest one.</li>
+    <li>Black/white-listing.</li>
+    <li>Geofencing.</li>
+    <li>Add support for Gowalla, Yelp, Brightkite, etc.</li>
+    <li>Gather location from more sources than Google Latitude.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Let the new adventure begin...]]></title>
+    <link href="http://kenneth.io/blog/2010/07/19/let-the-new-adventure-begin/"/>
+    <updated>2010-07-19T00:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2010/07/19/let-the-new-adventure-begin</id>
+    <content type="html"><![CDATA[<p>About a month ago I <a href="http://twitter.com/auchenberg/status/16205847885">tweeted</a> that I had made a LIFECHANGING DICISION.  I had accepted a position at <a href="http://hoisthq.com/">Hoist</a>, a startup located in Copenhagen.</p>
+
+<!--more-->
+
+
+
+
+<blockquote><em>Hoist is an online organisation and collaboration application for professionals and organisations. It’s the Facebook equivalent for the workplace, and it has enough functionality to compete with the best guys out there in the current market with its out of the box tools. But not only that, it has an in-built platform to simply create your own online ‘apps’ that cater to your individual business needs.</em>
+
+<em>Hoist recently won the MIT Global Best Startup award, and if you spend a few minutes playing around with it it’s quite easy to see why. At the moment it’s only for cool kids via invites, but very soon you are going to hear a lot more about Hoist.</em></blockquote>
+
+
+<p>At Hoist most of my time is going to be spent on web development, with a focus on HTML5, CSS and JavaScript, but I&rsquo;m also going to have a look at the user experience around the web-product. It&rsquo;s going to be damn exiting.</p>
+
+<p>I&rsquo;m looking forward to be a part of a new (quite impressive) team, with a vision that&rsquo;s mind-blowing. I&rsquo;m ready! Hoist-me-up!</p>
+
+<p><strong>Update: </strong>As my fellow colleague Morten Just <a href="http://twitter.com/mortenjust/status/18914019216">kindly pointed out</a> at Twitter today, the italic paragraphs is kindly borrowed from my upcoming colleague <a href="http://www.chopeh.com/blog/chopeh-to-copenhagen/">Pete Lacey&rsquo;s blog post</a> about his join to Hoist.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Slides from my Browser Extension session at Community Day 2010]]></title>
+    <link href="http://kenneth.io/blog/2010/05/30/slides-from-my-browser-extension-session-at-community-day-2010/"/>
+    <updated>2010-05-30T00:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2010/05/30/slides-from-my-browser-extension-session-at-community-day-2010</id>
+    <content type="html"><![CDATA[<p>This week I had a session about Browser Extensions in Mozilla Firefox and Google Chrome at<a href="http://community.in/copenhagen" target="_blank"> Community Day 2010 in Copenhagen</a>. The event was a cross community primary arranged by Microsoft Denmark. The event had a lot of different sessions subjects with everything from Browser Extensions to Dependency Injection in C#</p>
+
+<!--more-->
+
+
+<p>Here is the slides from my session:</p>
+
+<figure class="slides">
+  <object id="__sse4344533" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="650" height="535" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=kennethauchenberg-browserextensionscd10-100528115136-phpapp02&amp;stripped_title=browser-extensions-in-mozilla-firefox-google-chrome-4344533" /><param name="name" value="__sse4344533" /><param name="allowfullscreen" value="true" /><embed id="__sse4344533" type="application/x-shockwave-flash" width="650" height="535" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=kennethauchenberg-browserextensionscd10-100528115136-phpapp02&amp;stripped_title=browser-extensions-in-mozilla-firefox-google-chrome-4344533" name="__sse4344533" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+</figure>
+
+
+<p>If you attended the session, any feedback is appreciated! Please rate my session <a href="http://www.doodle.com/6yscng5fcut6gbyu"><a href="http://www.doodle.com/6yscng5fcut6gbyu">http://www.doodle.com/6yscng5fcut6gbyu</a></a>, or write a comment to let me know how I did.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to use desktop icons in Google Chrome - the HTML5 way.]]></title>
+    <link href="http://kenneth.io/blog/2010/05/04/desktop-icons-in-google-chrome/"/>
+    <updated>2010-05-04T00:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2010/05/04/desktop-icons-in-google-chrome</id>
+    <content type="html"><![CDATA[<p>Today I wondered how Google Reader and Google Mail was having nice high resolution icons when I saved a application shortcut to them in Google Chrome (currently a windows only feature).</p>
+
+<!--more-->
+
+
+<p>I searched a bit, but had trouble finding documentation on this functionality. Even the Google Chrome/Chromium developer pages didn&rsquo;t contain anything. But after some more research, I discovered a small <a href="http://www.google.com/chrome/intl/en/webmasters-faq.html">Webmaster FAQ for Google Chrome</a> that contained a single example on how to add icons, application name, description and application urls.</p>
+
+<p>The code example:</p>
+
+<pre>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;Gmail&lt;/title&gt;
+    &lt;meta name="application-name" content="Gmail"/&gt;
+    &lt;meta name="description" content="Google's approach to email"/&gt;
+    &lt;meta name="application-url" content="http://www.gmail.com"/&gt;
+    &lt;link rel="icon" href=gmail_32x32.png sizes="32x32"/&gt;
+    &lt;link rel="icon" href=gmail_48x48.png sizes="48x48"/&gt;
+ &lt;/head&gt;
+ &lt;body&gt;</pre>
+
+
+<p>When I saw this code example the first thing that hit my mind was &ldquo;This code is invalid!&rdquo;.</p>
+
+<p>Take a look at the sizes-attribute. This attribute isn&rsquo;t a part of any final HTML specification, but then I had a look at the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#rel-icon">HTML5-specification</a>, and it seems to be that Google Chrome is following the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#rel-icon">HTML5-specification</a> for external icon resources (an obvious choice!).</p>
+
+<p>The <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#rel-icon">HTML5 specification 4.12.3.7 Link type &ldquo;icon&rdquo;</a>,  defines as following:</p>
+
+<pre>The specified resource is an icon representing the page or site, and should be used by the user agent when representing the page in the user interface.</pre>
+
+
+<p>You might wonder what the correct values of sizes-attribute could be, and luckyly the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#rel-icon">HTML5-specification</a> tells a bit more about the sizes-attribute.</p>
+
+<pre>If specified, the attribute must have a value that is an <a href="common-microsyntaxes.html#unordered-set-of-unique-space-separated-tokens">unordered set of unique space-separated tokens</a>. The values must all be either <code title="attr-link-sizes-any"><a href="#attr-link-sizes-any">any</a></code> or a value that consists of two <a title="valid non-negative integer" href="common-microsyntaxes.html#valid-non-negative-integer">valid non-negative integers</a> that do not have a leading U+0030 DIGIT ZERO (0) character and that are separated by a single U+0078 LATIN SMALL LETTER X character (x)</pre>
+
+
+<p>This means if you have two options for defining a size of an icon. You could either use &ldquo;any&rdquo; that represents that a resource which contains a scalable icon, or you could use a size in this pattern &ldquo;[width]x[height]&rdquo; with non negative integers that represents the icon size in pixels.</p>
+
+<p>You are able to define multiple resource links for icons in various sizes.   Take a look at this example from the HTML5 specification:</p>
+
+<pre>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;lsForums — Inbox&lt;/title&gt;
+  &lt;link rel=icon href=favicon.png sizes="16x16" type="image/png"&gt;
+  &lt;link rel=icon href=windows.ico sizes="32x32 48x48" type="image/vnd.microsoft.icon"&gt;
+  &lt;link rel=icon href=mac.icns sizes="128x128 512x512 8192x8192 32768x32768"&gt;
+  &lt;link rel=icon href=iphone.png sizes="59x60" type="image/png"&gt;
+  &lt;link rel=icon href=gnome.svg sizes="any" type="image/svg+xml"&gt;
+ &lt;/head&gt;
+ &lt;body&gt;</pre>
+
+
+<p>As you can see this page would support a broad range of icon sizes form the commonly known favicon to a scalable svg icon.</p>
+
+<p>We can only hope that future browsers, and existing ones (Safari Mobile on iPhone, currently having it&rsquo;s own resource type) will start supporting this specification, since it would save us, web developers, a bit of work.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS Reloader - an extension for Firefox and Chrome]]></title>
+    <link href="http://kenneth.io/blog/2010/03/21/css-reloader-an-extension-for-firefox-and-chrome/"/>
+    <updated>2010-03-21T00:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2010/03/21/css-reloader-an-extension-for-firefox-and-chrome</id>
+    <content type="html"><![CDATA[<p>Some months ago at Vodafone, I was finding myself doing a huge amount of F5&rsquo;s duing the day while I was pixel-pushing parts of the layout of  at <a href="http://360.com">360</a>. 30 minutes later a new Firefox extension was born &ndash; <a href="https://addons.mozilla.org/da/firefox/addon/46211">CSS Reloader</a>.</p>
+
+<!--more-->
+
+
+<p><a href="https://addons.mozilla.org/da/firefox/addon/46211">CSS Reloader</a> is an extension that allows you to reload the stylesheets of any site with an simple press to F9 (and via the context-menus).</p>
+
+<p>I choose this shortcut, because it wasn&rsquo;t used by any other extension in Firefox, and the key position is quite nice. In the middle of F5 (refresh), and F12 for (Firebug).
+You may wonder why I would make such an extension, but imaging you building a true web application, such as <a href="http://360.com">360</a>, where almost everything is happing in the client. This means that if you are tweaking the layout of a model placed in a sub-view, you would have to go to this view every time, and the open the selected modal ( or just make you invokable from the JavaScript console). Anyways it takes time to restore the application state, and with CSS Reloader you can bypass that, because all the state is kept. It&rsquo;s only ghd stylesheets that is being reloaded.</p>
+
+<p>To begin with I released a version of<a href="https://addons.mozilla.org/da/firefox/addon/46211"> CSS Reloader for Firefox</a>, which already has been downloaded more than 7.700 times, so I guess some developers out there also thinks is quite usefull ;)</p>
+
+<p>Because of the response (and my lately switch to Chrome) I decided to do an <a href="https://chrome.google.com/extensions/detail/dnfpcpfijpdhabaoieccoclghgplmpbd">Chrome-version of CSS Reloader</a>. The first version of this is avaiable at the Chrome extension gallery, but since the extensibility of Chrome isn&rsquo;t the same as in Firefox, the Chrome-version is limited to only the F9-key.</p>
+
+<p>CSS Reloader is my first browser extension and is literally 16 lines of code, that saves me  (and the rest of the 360-team) some time during the development 360, which then can be used on better things such as features, extensions and social-beering ;)</p>
+
+<p>Please, let me know what you think of CSS Reloader! What can be improved?</p>
+]]></content>
+  </entry>
+  
+</feed>

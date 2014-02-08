@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Visualize your JavaScript dependencies with dependo &mdash; Kenneth Auchenberg</title>
+  <meta name="author" content="Kenneth Auchenberg">
+
+  
+  <meta name="description" content="Update: grunt-dependencygraph has been replaced by dependo - a more modular version, wrapped up as a NPM-package with both an API, CLI and Grunt &hellip;">
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo">
+
+  <link rel="stylesheet" type="text/css" href="/assets/app-f75337583ed18b3a5a5eddd900ece1e5.css">
+
+  <link href="/atom.xml" rel="alternate" title="Kenneth Auchenberg" type="application/atom+xml">
+  <link rel="canonical" href="http://kenneth.io/">
+
+  <script type="text/javascript" src="//use.typekit.net/zbi3gmu.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<body   >
+  <header role="banner">
+  <div class="inner">
+    <hgroup>
+      <h1><a href="/">Kenneth Auchenberg</a></h1>
+      <h2>Passion for the web platform.</h2>
+    </hgroup>
+
+    <div class="follow">
+      <a href="https://twitter.com/auchenberg" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @auchenberg</a>
+    </div>
+
+  </div>
+</header>
+
+  <nav id="main-nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+    <!-- <li><a href="/experiments">Experiments</a></li> -->
+    <!-- <li><a href="/talks">Talks</a></li> -->
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+
+  <section class="post">
+
+  <article class="hentry" role="article">
+    
+  <header>
+    
+      <h1 class="entry-title">Visualize your JavaScript dependencies with dependo</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-01T21:23:00-07:00" pubdate data-updated="true">Apr 1<span>st</span>, 2013</time>
+      </p>
+    
+
+    <div class="sharing">
+
+  
+    
+      <a href="http://twitter.com/share" class="twitter-share-button" data-text="Visualize your JavaScript dependencies with dependo"  data-url="http://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo/" data-via="auchenberg" data-counturl="http://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo/" >Tweet</a>
+    
+  
+  
+  
+
+
+
+</div>
+
+
+  </header>
+
+
+<div class="entry-content"><div class="update-box">
+  <p><strong>Update:</strong> grunt-dependencygraph has been replaced by dependo - a more modular version, wrapped up as a NPM-package with both an API, CLI and Grunt task.</p>
+</div>
+
+
+<p>It all started a few months back when I started our &ldquo;AMDification project&rdquo; at <a href="https://podio.com">Podio</a>, where we decided to introduce <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> in our codebase, in order to take advantage of tools like <a href="http://requirejs.org/">RequireJS</a>, and <a href="https://github.com/jrburke/r.js/">r.js</a>.</p>
+
+<p>More importantly I also wanted to gain a better overview of the dependencies in our code, by being able to extract the module definitions and their dependencies in a systematic way. Using <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> has enabled this in a simple way, because much of the tooling already existed.</p>
+
+<p>But for a long time I&rsquo;ve been looking for a visualization tool to help me visualize the JavaScript dependencies &ndash; without any luck.</p>
+
+<!--more-->
+
+
+<p>Okay, I found a few, but they use <a href="http://www.graphviz.org/">GraphViz</a>, or similar, to  generate huge images that is impossible to handle when you generate a graph of a larger code-base.</p>
+
+<p>I want something better. Something similar to Google Maps, where you have a big graph that&rsquo;s zoomable by mouse or gestures, combined with dragging, to enable panning when the graph is zoomed. I haven&rsquo;t been able to find something like this, so I&rsquo;ve  taken the write it myself.</p>
+
+<h2>Introducing dependo</h2>
+
+<p>Let me introduce <a href="https://github.com/auchenberg/dependo"><strong>dependo</strong></a>. It&rsquo;s a small visualization tool that draws an force directed graph of JavaScript dependencies that has been annotated with either <a href="http://www.commonjs.org/">CommonJS</a>, or <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a>. Behind the scene I&rsquo;m using a wonderful library named <a href="https://github.com/pahen/node-madge/">node-madge</a>, to extract the dependencies and combined with the power of <a href="http://d3js.org/">D3.js</a> I  draw a beautiful zoomable directed graph.</p>
+
+<p>It&rsquo;s all wrapped up as a simple node-module, available on <a href="https://npmjs.org/package/dependo">NPM</a>, with both an API and CLI. I also written a <a href="http://gruntjs.com/">grunt</a>-task that can be found here <a href="https://github.com/auchenberg/grunt-dependo">grunt-dependo</a>, so it&rsquo;s convenient to hook into your grunt-build system. The output is a simple HTML-file, with everything embedded, so you can publish it directly to your build server, etc.</p>
+
+<h2>Example: RequireJS multi-page visualization</h2>
+
+<p>Enough talk. The best way to show something is by example, so here I generated a graph of the official RequireJS <a href="https://github.com/requirejs/example-multipage">multipage</a> example:</p>
+
+<figure>
+  <iframe src="http://auchenberg.github.com/dependo/example/"></iframe>
+</figure>
+
+
+<p>It&rsquo;s still early days, but I think this tool will help developers getting a better overview of modules and their dependencies. I really hope you like this tool too.</p>
+
+<p>Have an good idea, or wanna contribute? All feedback is highly appricated.</p>
+
+<p><a href="https://github.com/auchenberg/dependo">https://github.com/auchenberg/dependo</a></p>
+</div>
+
+
+    <footer>
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Kenneth Auchenberg</span></span>
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-01T21:23:00-07:00" pubdate data-updated="true">Apr 1<span>st</span>, 2013</time>
+        
+
+
+      </p>
+    </footer>
+  </article>
+
+  
+    <section class="comments" aria-live="polite">
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_shortname = 'blog-kenneth-io';
+    
+      
+      // var disqus_developer = 1;
+      var disqus_identifier = 'http://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo/';
+      var disqus_url = 'http://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo/';
+      var disqus_script = 'embed.js';
+    
+  </script>
+</section>
+
+  
+
+</section>
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29701142-1']);
+  _gaq.push(['_setDomainName', 'kenneth.io']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script type="text/javascript" src="/assets/comments-1bb2d339f9f9bf0185c4b04578171f07.js"></script>
+
+</body>
+</html>

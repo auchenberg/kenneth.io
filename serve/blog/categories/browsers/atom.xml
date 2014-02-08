@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: browsers | Kenneth Auchenberg]]></title>
+  <link href="http://kenneth.io/blog/categories/browsers/atom.xml" rel="self"/>
+  <link href="http://kenneth.io/"/>
+  <updated>2014-02-08T11:36:57-08:00</updated>
+  <id>http://kenneth.io/</id>
+  <author>
+    <name><![CDATA[Kenneth Auchenberg]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[We need a open bug tracker for Internet Explorer]]></title>
+    <link href="http://kenneth.io/blog/2012/11/01/we-need-an-open-bugtracker-for-internet-explorer/"/>
+    <updated>2012-11-01T11:00:00-07:00</updated>
+    <id>http://kenneth.io/blog/2012/11/01/we-need-an-open-bugtracker-for-internet-explorer</id>
+    <content type="html"><![CDATA[<p>Today I had an issue with drag &amp; drop using jQuery UI&rsquo;s sortable. It was isolated to IE10, only when scrolling, so I started to research to to see if it was a bug within jQuery UI, jQuery or maybe even inside IE10.</p>
+
+<!--more-->
+
+
+<h2>jQuery UI ticket</h2>
+
+<p>In my search I first found a <a href="http://bugs.jqueryui.com/ticket/8633">jQuery UI ticket</a>, that lead me to a jQuery ticket <a href="http://bugs.jquery.com/ticket/12343">&ldquo;EVENT.PAGEX AND PAGEY HAVE INCORRECT VALUES IN IE10 ON WINDOWS 8 RTM&rdquo;</a>.</p>
+
+<h2>jQuery ticket</h2>
+
+<p>In this jQuery ticket, created 7 weeks ago, people are discussing the cause of this, and they confirm it&rsquo;s a bug <strong>within Internet Explorer 10</strong>. The RTM version.</p>
+
+<h2>IE10 bug report</h2>
+
+<p>This jQuery ticket, didn&rsquo;t lead me to a issue reported in the Internet Explorer bug tracker, instead it has this final comment:</p>
+
+<p>&ldquo;I heard back from Microsoft, they have a patch that will go out a few days after the official public release that will fix this issue. There&rsquo;s no reliable marker that jQuery can use to tell fixed vs unfixed implementations, so your best bet is to tough it out until then.&rdquo;</p>
+
+<h2>The need for an open bug tracker</h2>
+
+<p>This is <strong>EXACTLY</strong> the reason why we <strong>NEED</strong> an open bug tracker for Internet Explorer. As a frontend-developer, need to know about these issues, because they affect how and what I&rsquo;m building.</p>
+
+<p>I want to know the open issues in any browser. What progress they are making, and most importantly when the fixes goes out. I can follow the status of bugs reported in Chrome, Firefox, Gecko, Webkit, etc, but where is the openness from Microsoft?</p>
+
+<p>I don&rsquo;t want to end up in a jQuery bug tracker to find out about bugs in Internet Explorer. They belong to it&rsquo;s own open bug tracker.</p>
+
+<p>I know there is a bug tracker for Internet Explorer (somewhere at connect.microsoft.com), but it&rsquo;s really hard for me as a developer to follow what&rsquo;s going in in IE, especially compared to the other browsers out there.</p>
+
+<p>Microsoft, if you want us frontend developers support and build applications for your platform (IE), you need to bring us closer to your browser.</p>
+
+<p><strong>Openness is the necessary step forward.</strong></p>
+]]></content>
+  </entry>
+  
+</feed>

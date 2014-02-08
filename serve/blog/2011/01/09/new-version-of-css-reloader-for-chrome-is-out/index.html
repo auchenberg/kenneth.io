@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>New version of CSS Reloader for Chrome is out &mdash; Kenneth Auchenberg</title>
+  <meta name="author" content="Kenneth Auchenberg">
+
+  
+  <meta name="description" content="It has been a long time since I did changes to my CSS Reloader browser extension. This evening I had some time, and pushed a updated version of CSS &hellip;">
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kenneth.io/blog/2011/01/09/new-version-of-css-reloader-for-chrome-is-out">
+
+  <link rel="stylesheet" type="text/css" href="/assets/app-f75337583ed18b3a5a5eddd900ece1e5.css">
+
+  <link href="/atom.xml" rel="alternate" title="Kenneth Auchenberg" type="application/atom+xml">
+  <link rel="canonical" href="http://kenneth.io/">
+
+  <script type="text/javascript" src="//use.typekit.net/zbi3gmu.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<body   >
+  <header role="banner">
+  <div class="inner">
+    <hgroup>
+      <h1><a href="/">Kenneth Auchenberg</a></h1>
+      <h2>Passion for the web platform.</h2>
+    </hgroup>
+
+    <div class="follow">
+      <a href="https://twitter.com/auchenberg" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @auchenberg</a>
+    </div>
+
+  </div>
+</header>
+
+  <nav id="main-nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/posts">Posts</a></li>
+    <!-- <li><a href="/experiments">Experiments</a></li> -->
+    <!-- <li><a href="/talks">Talks</a></li> -->
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+
+  <section class="post">
+
+  <article class="hentry" role="article">
+    
+  <header>
+    
+      <h1 class="entry-title">New version of CSS Reloader for Chrome is out</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-09T00:00:00-08:00" pubdate data-updated="true">Jan 9<span>th</span>, 2011</time>
+      </p>
+    
+
+    <div class="sharing">
+
+  
+    
+      <a href="http://twitter.com/share" class="twitter-share-button" data-text="New version of CSS Reloader for Chrome is out"  data-url="http://kenneth.io/blog/2011/01/09/new-version-of-css-reloader-for-chrome-is-out/" data-via="auchenberg" data-counturl="http://kenneth.io/blog/2011/01/09/new-version-of-css-reloader-for-chrome-is-out/" >Tweet</a>
+    
+  
+  
+  
+
+
+
+</div>
+
+
+  </header>
+
+
+<div class="entry-content"><p>It has been a long time since I did changes to my CSS Reloader browser extension. This evening I had some time, and pushed a updated version of CSS Reloader for Chrome out in the public.</p>
+
+<!--more-->
+
+
+<p>The new version contains a revised code-base, which is way more well structured and cleaner, and I also added som new features:</p>
+
+<ul>
+    <li>Much requested options-page has been added - allows you to change the keyboard shortcut.</li>
+    <li>CSS Reloader got a nice new logo (credits goes to <a href="http://www.everaldo.com/crystal/">Everaldo Coelho</a> for the lovely icon.)</li>
+</ul>
+
+
+<p><figure><img src="/assets/images/css-reloader-1ac50389812ccd8101112618ebf60c45.png"></figure></p>
+
+<p>Technically I was quite fun to add the options-page, because the settings is persisted in <a href="http://dev.w3.org/html5/webstorage/">LocalStorage</a>, which is only available for the <a href="http://code.google.com/chrome/extensions/background_pages.html">background-pages</a> in  the extension, and not the <a href="http://code.google.com/chrome/extensions/content_scripts.html">content-script</a> that is injected into every tab. To expose the settings for the <a href="http://code.google.com/chrome/extensions/content_scripts.html">content-script</a> I have taken advantage of the <a href="http://code.google.com/chrome/extensions/messaging.html">message passing implementation</a> in Chrome, that allows the extension-parts to communicate using events.</p>
+
+<p>Get the updated version of <a href="https://chrome.google.com/extensions/detail/dnfpcpfijpdhabaoieccoclghgplmpbd">CSS Reloader for Chrome</a>, or check the <a href="https://github.com/auchenberg/css-reloader">source-code</a> out, to see the funky-ness</p>
+</div>
+
+
+    <footer>
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Kenneth Auchenberg</span></span>
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-09T00:00:00-08:00" pubdate data-updated="true">Jan 9<span>th</span>, 2011</time>
+        
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/uncategorized/'>Uncategorized</a>
+  
+</span>
+
+
+      </p>
+    </footer>
+  </article>
+
+  
+
+</section>
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29701142-1']);
+  _gaq.push(['_setDomainName', 'kenneth.io']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script type="text/javascript" src="/assets/comments-1bb2d339f9f9bf0185c4b04578171f07.js"></script>
+
+</body>
+</html>
