@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Zero configuration wildcard *.dev domains with .dev"
+title: "Easy local wildcard domains with .dev"
 date: 2014-01-08 12:00
 published: true
 comments: true
