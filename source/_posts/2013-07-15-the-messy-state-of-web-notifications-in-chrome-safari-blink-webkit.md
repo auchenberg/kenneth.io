@@ -143,3 +143,13 @@ I hope we sometime in the future can take the learnings from Rich Notifications 
 
 Until then, enjoy the now fully working Web Notifications in Chrome.
 
+<div class="update-box">
+  <p><strong>Updates</strong>
+    <ul>
+      <li>24-10-2013: The previous linked bugs in Chrome has been fixed. Web Notifications now work as expected. Disregard this article.</li>
+      <li>03-03-2014: Chrome is about to remove the legacy Web Notifications API from Chrome M35 (Stable @ May 20 2014). Read the <a href="https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/8vqyfHa8_dw">intent to remove</a>.</li>
+    </ul>
+</div>
+
+
+
