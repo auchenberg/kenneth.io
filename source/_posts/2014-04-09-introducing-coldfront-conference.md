@@ -5,6 +5,7 @@ date: 2014-04-09 12:00
 published: true
 comments: true
 categories:
+og_image: images/posts/coldfront.png
 ---
 
 The past years I’ve been traveling to Amsterdam, London, Berlin, Brighton, London, New York and San Francisco to attend awesome conferences and to be a part of our community.
