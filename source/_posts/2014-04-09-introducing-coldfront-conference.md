@@ -33,7 +33,7 @@ This means ColdFront won't be ridiculously expensive as many other conferences h
 Let's face it, networking and having a great time is probably one of the main reasons why we are going to conferences these days, so with ColdFront we are going to be focusing on quality sessions, networking, and of course having a great time.
 
 ## Who's behind?
-Running a conference is a lot of work, so I've joined forces with a good friend of mine, and experienced conference organizer, [Daniel Frost](http://danielfrost.io), who has been running several events from his time at Microsoft, and more recently his own conference, [TheWDCC](http://thewcdc.net/).
+Running a conference is a lot of work, so I've joined forces with a good friend of mine, and experienced conference organizer, [Daniel Frost](http://danielfrost.io), who has been running several events from his time at Microsoft, and more recently his own conference, [TheWCDC](http://thewcdc.net/).
 
 If you are interested in sponsoring ColdFront, then feel free to give me a ping at [kenneth@auchenberg.dk](mailto:kenneth@auchenberg.dk)
 
