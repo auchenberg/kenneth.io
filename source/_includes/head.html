@@ -21,6 +21,26 @@
   <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml">
   <link rel="canonical" href="http://kenneth.io/">
 
+{% if page.title %}
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{ page.title }}" />
+{% else %}
+  <meta property="og:type" content="website" /> 
+{% endif %}
+
+{% if page.author.url %}
+  <meta property="article:author" content="{{ page.author.url }}" />
+  <link rel="author" href="{{ page.author.url }}" />
+{% elsif site.owner_link %}
+  <meta property="article:author" content="{{ site.owner_link }}" />
+  <link rel="author" href="{{ site.owner_link }}" />
+{% endif %}
+
+{% if page.og_image %}
+  <meta content="{{ page.og_image | asset_path }}" property="og:image">
+{% endif %}
+
+
   <script type="text/javascript" src="//use.typekit.net/zbi3gmu.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
