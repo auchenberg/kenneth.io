@@ -15,7 +15,6 @@ gem 'sinatra'
 gem 'babosa'
 
 gem 'thor'
-gem 'stringex'
 gem 'pygmentize'
 
 gem 'rackables'
@@ -25,10 +24,3 @@ gem 'rack-jekyll'
 gem 'rack-subdomain'
 gem 'jekyll-assets'
 gem 'unicorn'
-
-group :development do
-  gem 'rb-fsevent'
-  gem 'heroku'
-  gem 'debugger'
-end
-

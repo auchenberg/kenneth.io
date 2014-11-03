@@ -8,7 +8,7 @@ $header-subtitle-font-family: $heading-font-family !default;
 
 // Fonts
 .heading {
-  font-family: $heading-font-family;
+  
 
   a:link,
   a:visited {
@@ -23,21 +23,24 @@ $header-subtitle-font-family: $heading-font-family !default;
 body > header h1 {
   font-size: 2.2em;
   @extend .heading;
-  font-family: $header-title-font-family;
   font-weight: normal;
   line-height: 1.2em;
   margin-bottom: 0.6667em;
 }
 body > header h2 {
-  font-family: $header-subtitle-font-family;
+ 
 }
 
 body {
   line-height: 1.5em;
   font-size: 1.15em;
   color: $text-color;
-  @extend .serif;
+
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
 }
+
+
 h1 {
   font-size: 2.6em;
   line-height: 1.2em;

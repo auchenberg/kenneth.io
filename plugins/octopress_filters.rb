@@ -1,44 +1,6 @@
 #custom filters for Octopress
-require './plugins/backtick_code_block'
-require './plugins/post_filters'
-require './plugins/raw'
-require './plugins/date'
-require 'rubypants'
-
-module OctopressFilters
-  include BacktickCodeBlock
-  include TemplateWrapper
-  def pre_filter(input)
-    input = render_code_block(input)
-    input.gsub /(<figure.+?>.+?<\/figure>)/m do
-      safe_wrap($1)
-    end
-  end
-  def post_filter(input)
-    input = unwrap(input)
-    RubyPants.new(input).to_html
-  end
-end
-
-module Jekyll
-  class ContentFilters < PostFilter
-    include OctopressFilters
-    def pre_render(post)
-      if post.ext.match('html|textile|markdown|md|haml|slim|xml')
-        post.content = pre_filter(post.content)
-      end
-    end
-    def post_render(post)
-      if post.ext.match('html|textile|markdown|md|haml|slim|xml')
-        post.content = post_filter(post.content)
-      end
-    end
-  end
-end
-
 
 module OctopressLiquidFilters
-  include Octopress::Date
 
   # Used on the blog index to split posts on the <!--more--> marker
   def excerpt(input)
@@ -78,7 +40,7 @@ module OctopressLiquidFilters
   # Replaces relative urls with full urls
   def expand_urls(input, url='')
     url ||= '/'
-    input.gsub /(\s+(href|src)\s*=\s*["|']{1})(\/[^\"'>]*)/ do
+    input.gsub /(\s+(href|src)\s*=\s*["|']{1})(\/[^\/>]{1}[^\"'>]*)/ do
       $1+url+$3
     end
   end
@@ -132,4 +94,3 @@ module OctopressLiquidFilters
 
 end
 Liquid::Template.register_filter OctopressLiquidFilters
-

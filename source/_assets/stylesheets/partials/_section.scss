@@ -87,7 +87,12 @@ section {
     }
   }
 
-  p, h2, h3, blockquote, ul {
+  p, 
+  h2, 
+  h3, 
+  blockquote, 
+  ul,
+  > section {
     max-width: $max-width;
     margin-left: auto;
     margin-right: auto;

@@ -1,0 +1,216 @@
+- event: "Fronteers 2014 Jam session"
+  place: Amsterdam
+  title: RemoteDebug everything!
+  date: October 2014
+  url: 'https://fronteers.nl/congres/2014/jam-session'
+  slides: ''
+
+- event: "IMUS Javascript Conference"
+  place: Copenhagen
+  title: "Future of DevTools"
+  date: September 2014
+  url: 'http://imus.dk/'
+  slides: ''
+
+- event: "CopenhagenJS"
+  place: Copenhagen
+  title: "What is this WebRTC thing about?"
+  date: June 2014
+  url: 'http://lanyrd.com/2014/copenhagenjs-june/'
+  slides: ''
+
+- event: "con.devdk"
+  place: Copenhagen
+  title: "Where's the webplatform headed?"
+  date: May 2014
+  url: ''
+  slides: ''
+
+- event: "EdgeConf - DevTools panel"
+  place: London
+  title: DevTools Panel!
+  date: October 2014
+  url: ''
+  slides: ''
+
+- event: "Citrix Connect 2014"
+  place: London
+  title: Platforms and API's
+  date: February 2014
+  url: ''
+  slides: ''
+
+- event: "Citrix Connect 2014"
+  place: Bangalore
+  title: Platforms and API's
+  date: February 2014
+  url: ''
+  slides: ''  
+
+- event: "Citrix Connect 2014"
+  place: San Jose
+  title: Platforms and API's
+  date: February 2014
+  url: ''
+  slides: ''   
+
+- event: "Breww"
+  place: Copenhagen
+  title: "Our development workflow is completely broken & RemoteDebug"
+  date: February 2014
+  url: ''
+  slides: ''    
+
+- event: "FullFrontal 2013"
+  place: Brighton
+  title: "Our development workflow is completely broken"
+  date: October 2013
+  url: ''
+  slides: ''  
+
+- event: "Microsoft Campus Days 2013"
+  place: Copenhagen
+  title: "The modern front-end toolbox"
+  date: October 2013
+  url: ''
+  slides: ''  
+
+- event: "Umbraco CodeGarden 2013"
+  place: Copenhagen
+  title: "HTML5: Our completely broken development flow"
+  date: June 2013
+  url: 'http://codegarden13.com/speakers/sessions/thursday/1130-1230/html-5-our-completely-broken-development-workflow.aspx'
+  slides: ''     
+
+- event: "KMD Dot Net Days"
+  place: Copenhagen
+  title: "Our web platform in perspective"
+  date: May 2013
+  url: ''
+  slides: ''  
+
+- event: "CodeHouse"
+  place: Copenhagen
+  title: "Our web platform in perspective"
+  date: May 2013
+  url: ''
+  slides: '' 
+
+- event: "CopenhagenJS"
+  place: Copenhagen
+  title: "JavaScript dependencies, RequireJS and dependo."
+  date: February 2013
+  url: 'http://lanyrd.com/2013/copenhagenjs-february/scdbdh/'
+  slides: '' 
+
+- event: "CopenhagenJS / Foo Café"
+  place: Copenhagen
+  title: "HTML5 - where are we at?"
+  date: January 2013
+  url: "http://blog.kenneth.io/blog/2013/01/21/html5-where-are-we-at/"
+  slides: ''   
+
+- event: "Microsoft Warm Crocodile Conference"
+  place: Copenhagen
+  title: "HTML5 - where are we at?"
+  date: January 2013
+  url: "http://blog.kenneth.io/blog/2013/01/21/html5-where-are-we-at/"
+  slides: '' 
+
+- event: "CopenhagenJS"
+  place: Copenhagen
+  title: "Web Tooling is broken."
+  date: November 2012
+  url: "http://lanyrd.com/2012/copenhagenjs-november/szyrr/"
+  slides: '' 
+
+- event: "CopenhagenJS"
+  place: Copenhagen
+  title: "Everything was easier with <blink> and <marguee>"
+  date: October 2012
+  url: "http://lanyrd.com/2012/copenhagenjs-october/szfqk/"
+  slides: '' 
+
+- event: "CopenhagenJS"
+  place: Copenhagen
+  title: "Microsoft Campus Days 2013"
+  date: October 2012
+  url: "http://www.conferencemanager.dk/campusdays2013"
+  slides: ''   
+
+- event: "LBi Denmark: We Do Our Own Stunts"
+  place: Copenhagen
+  title: "Podio's front-end stack"
+  date: May 2012
+  url: "http://blog.kenneth.io/blog/2012/06/24/slides-our-own-stunts-lbi/"
+  slides: ''  
+
+- event: "Citix Synergy 2012"
+  place: San Francisco
+  title: "The evolution of the Podio front-end stack"
+  date: May 2012
+  url: ''
+  slides: ''  
+
+- event: "CopenhagenJS"
+  place: Copenhagen
+  title: "jQuery.mentionsInput"
+  date: February 2012
+  url: "http://lanyrd.com/2012/copenhagenjs-february/spzkq/"
+  slides: ''   
+
+- event: "CopenhagenJS"
+  place: Copenhagen
+  title: "jQuery.mentionsInput"
+  date: February 2012
+  url: "http://lanyrd.com/2012/copenhagenjs-february/spzkq/"
+  slide: '' 
+
+- event: "Podcast: ANUGCast"
+  place: Copenhagen
+  title: "HTML5 and CSS"
+  date: September 2011
+  url: "http://www.anug.dk/post/2011/08/21/ANUGCast-131-HTML5-og-CSS3-med-Kenneth-Auchenberg-del-1-af-2.aspx"
+  slide: '' 
+
+- event: "Community Day Conference 2011"
+  place: Copenhagen
+  title: "HTML5 Panel"
+  date: May 2011
+  url: ""
+  slide: '' 
+
+- event: "Copenhagen Ruby Brigade"
+  place: Copenhagen
+  title: "HTML5"
+  date: January 2011
+  url: ""
+  slide: '' 
+
+- event: "ProData Consult"
+  place: Copenhagen
+  title: "HTML5 and browser extensions"
+  date: January 2011
+  url: "http://blog.kenneth.io/blog/2011/02/02/slides-from-my-html5-browser-extensions-presentation-at-prodata-consult/"
+  slide: '' 
+
+- event: "ANUG Codecamp"
+  place: Aarhus
+  title: "jQuery code-camp"
+  date: October 2010
+  url: "http://blog.kenneth.io/blog/2010/10/25/slides-and-code-from-my-anug-jquery-codecamp-at-vertica/"
+  slide: ''
+
+- event: "Community Day Conference 2010"
+  place: Copenhagen
+  title: "Browser extensions"
+  date: May 2010
+  url: "http://blog.kenneth.io/blog/2010/05/30/slides-from-my-browser-extension-session-at-community-day-2010/"
+  slide: ''
+
+- event: "Microsoft TechTalk"
+  place: Copenhagen
+  title: "jQuery"
+  date: October 2009
+  url: "http://danielfrost.dk/post/2009/10/13/jQuery-TechTalk-med-Kenneth-Auchenberg.aspx"
+  slide: ''

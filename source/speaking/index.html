@@ -1,169 +1,25 @@
 ---
 layout: page
 title: Speaking
+header: Speaking
 ---
 
 <section class="speaking">
 
-   <h2>Speaking Engagements</h2>
+  <p>I often speak in public; in communities, at conferences and in companies. Mostly I talk about front-end development, and the web platform, but you'll also hear me talk about things like architecture, minimalism and design, simply because I'm curious about how we, human beings, interpret and interact with the world.</p>
+  {% img "" /images/me_full_frontal_web.jpg "Photo credits: <a href='http://www.flickr.com/photos/drewm/10757628855'>Drew McLellan</a>, Full Frontal 2013, Brigthon" %}
 
-    <ul class="content">
-
+  <h2 class="block">My talks</h2>
+    <ul class="speaking-list">
+    {% for talk in site.data.speaking %}
       <li>
-        <h2>Citrix Connect 2014 - London</h2>
-        <h3>Platforms and API's</h3>
-        <h4>February 2014</h4>
+        <h2><a href="{{ talk.url }}">{{ talk.event }}</a></h2>,
+        <h3>{{ talk.place}}</h3>,
+        <span class="date">{{ talk.date}}</span>
+
+        <h4>{{ talk.title}}</h4>
       </li>
-
-      <li>
-        <h2>Citrix Connect 2014 - Bangalore</h2>
-        <h3>Platforms and API's</h3>
-        <h4>February 2014</h4>
-      </li>
-
-      <li>
-        <h2>Citrix Connect 2014 - San Jose</h2>
-        <h3>Platforms and API's</h3>
-        <h4>February 2014</h4>
-      </li>
-
-      <li>
-        <h2>Breww</h2>
-        <h3>Our development workflow is completely broken & RemoteDebug</h3>
-        <h4>February 2014</h4>
-      </li>
-
-      <li>
-        <h2><a href="">FullFrontal 2013</a></h2>
-        <h3>Our development workflow is completely broken</h3>
-        <h4>October 2013</h4>
-      </li>
-
-      <li>
-        <h2>Microsoft Campus Days 2013</h2>
-        <h3>The modern front-end toolbox</h3>
-        <h4>October 2013</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://codegarden13.com/speakers/sessions/thursday/1130-1230/html-5-our-completely-broken-development-workflow.aspx">Umbraco CodeGarden 2013</a></h2>
-        <h3>HTML5: Our completely broken development flow</h3>
-        <h4>June 2013</h4>
-      </li>
-
-      <li>
-        <h2>KMD Dot Net Days</h2>
-        <h3>Our web platform in perspective</h3>
-        <h4>May 2013</h4>
-      </li>
-
-      <li>
-        <h2>CodeHouse</h2>
-        <h3>Our web platform in perspective</h3>
-        <h4>May 2013</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://lanyrd.com/2013/copenhagenjs-february/scdbdh/">CopenhagenJS</a></h2>
-        <h3>JavaScript dependencies, RequireJS and dependo.</h3>
-        <h4>February 2013</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://blog.kenneth.io/blog/2013/01/21/html5-where-are-we-at/">CopenhagenJS / Foo Café</a></h2>
-        <h3>HTML5 - where are we at?</h3>
-        <h4>January 2013</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://blog.kenneth.io/blog/2013/01/21/html5-where-are-we-at/">Microsoft Warm Crocodile Conference</a></h2>
-        <h3>HTML5 - where are we at?</h3>
-        <h4>January 2013</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://lanyrd.com/2012/copenhagenjs-november/szyrr/">CopenhagenJS</a></h2>
-        <h3>Web Tooling is broken</h3>
-        <h4>November 2012</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://lanyrd.com/2012/copenhagenjs-october/szfqk/">CopenhagenJS</a></h2>
-        <h3>Everything was easier with &lt;blink&gt; and &lt;marguee&gt;</h3>
-        <h4>October 2012</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://www.conferencemanager.dk/campusdays2013">Microsoft Campus Days 2013</a></h2>
-        <h3>HTML5 - where are we at?</h3>
-        <h4>October 2012</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://blog.kenneth.io/blog/2012/06/24/slides-our-own-stunts-lbi/">LBi Denmark: We Do Our Own Stunts</a></h2>
-        <h3>Podio's front-end stack</h3>
-        <h4>May 2012</h4>
-      </li>
-
-      <li>
-        <h2>Citix Synergy 2012, San Francisco</h2>
-        <h3>The evolution of the Podio front-end stack</h3>
-        <h4>May 2012</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://lanyrd.com/2012/copenhagenjs-february/spzkq/">CopenhagenJS</a></h2>
-        <h3>jQuery.mentionsInput</h3>
-        <h4>February 2012</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://www.anug.dk/post/2011/08/21/ANUGCast-131-HTML5-og-CSS3-med-Kenneth-Auchenberg-del-1-af-2.aspx" target="_blank">ANUGCast podcast</a></h2>
-        <h3>HTML5 and CSS</h3>
-        <h4>September 2011</h4>
-
-        <p>ANUGCAST was a weekly podcast about software development, mainly focused on web and the Microsoft .NET platform, curated by Søren Spelling Lund.
-      </li>
-
-      <li>
-        <h2>Community Day Conference 2011</h2>
-        <h3>HTML5 Panel</h3>
-        <h4>May 2011</h4>
-      </li>
-
-      <li>
-        <h2>Copenhagen Ruby Brigade</h2>
-        <h3>HTML5</h3>
-        <h4>January 2011</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://blog.kenneth.io/blog/2011/02/02/slides-from-my-html5-browser-extensions-presentation-at-prodata-consult/">ProData Consult</a></h2>
-        <h3>HTML5 and browser extensions</h3>
-        <h4>January 2011</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://blog.kenneth.io/blog/2010/10/25/slides-and-code-from-my-anug-jquery-codecamp-at-vertica/">ANUG / Vertica</a></h2>
-        <h3>jQuery CodeCamp</h3>
-        <h4>October 2010</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://blog.kenneth.io/blog/2010/05/30/slides-from-my-browser-extension-session-at-community-day-2010/">Community Day Conference 2010</a></h2>
-        <h3>Browser extensions</h3>
-        <h4>May 2010</h4>
-      </li>
-
-      <li>
-        <h2><a href="http://danielfrost.dk/post/2009/10/13/jQuery-TechTalk-med-Kenneth-Auchenberg.aspx">Microsoft TechTalk</a></h2>
-        <h3>jQuery</h3>
-        <h4>October 2009</h4>
-      </li>
-
-
-    </ul>
-
-
+    {% endfor %}
+  </ul>
 
 </section>

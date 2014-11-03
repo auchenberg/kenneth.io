@@ -8,25 +8,27 @@ categories:
 og_image: images/posts/coldfront.png
 ---
 
-For a long time I wanted a local front-end conference in Copenhagen.
+The past few years I’ve been traveling to Amsterdam, London, Berlin, Brighton, London, New York and San Francisco to attend awesome conferences and to be a part of our global front-end community, but I always wanted to bring a part of that community back to Copenhagen.
 
-The past few years I’ve been traveling to Amsterdam, London, Berlin, Brighton, London, New York and San Francisco to attend awesome conferences and to be a part of our global community.
+In Copenhagen we have a vibrant community of developers, designers and creatives. We are doing fantastic things for the web, in our agencies and iin the startupscene, which is booming. There's no reason why we should travel to other great cities to get inspired, instead we should come together, as a community - right here in Copenhagen.
 
-I feel we have a vibrant community of developers, designers and creatives here in Copenhagen. We are doing fantastic things for the web, either in agencies or in the startups. There's no reason why we should travel to other great cities to get inspired, instead we should come together, as a community right here in Copenhagen.
+A few years ago I started [CopenhagenJS](http://copenhagenjs.dk), our local JavaScript community, which has been growing over the years and slowly gained more traction among people. 
 
-Especially, [CopenhagenJS](http://copenhagenjs.dk), our local JavaScript community, has been growing over the years and gained more traction among people. So now is the time to take [CopenhagenJS](http://copenhagenjs.dk) a step further - a single day conference focused around what it takes to build great front-end for the web.
+Now is the time to take [CopenhagenJS](http://copenhagenjs.dk) a step further, which is way I'm happy to introduce a new single day conference focused around what it takes to build great front-end for the web.
+
+<!--more--> 
 
 ## ColdFront Conference
 
-[ColdFront Conference](http://coldfrontconf.com) is new front-end conference in Copenhagen, and is going to take place 4th September 2014 in a cool and non-corporate venue.
+[ColdFront Conference](http://coldfrontconf.com) is new front-end conference in Copenhagen, and is going to take place 4th September 2014 in a cool venue in the very center of Copenhagen.
 
 When we look at the history, a lot of great web technology has been researched and developed in Denmark, like Google's V8 engine and Ruby On Rails, but ironically we haven't talked much about these projects on danish soil. 
 
-I think some of the reason is that the majoriy of our established conferences are themed around general software development and have a rather "enterprisy" focus on established technologies like Microsoft .NET and Java.
+Some of the reason is that the majoriy of our established conferences are themed around general software development and have a rather "enterprisy" focus on established technologies like Microsoft .NET and Java.
 
 ColdFront isn't going to be like that. 
 
-ColdFront is a curated conferenced, with hand-picked speakers, and I'm going to put emphasis on the single-track format, as I feel it's the best way to great the best conference experience. Conference attendees should experience the same talks, and when people are on the same page, it usually spurs a lot of great conversations in the breaks.
+ColdFront is a curated conferenced, with hand-picked speakers, and I'm going to put emphasis on the single-track format, as I feel it's the best way to great the best conference experience. 
 
 Our aim is to create a conference with a community feeling, full of great like-minded people that loves crafting for the web. 
 

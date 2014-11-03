@@ -1,0 +1,45 @@
+
+
+.speaking {
+
+	h2 {
+		font-size: 30px;
+	}
+
+	.block {
+
+		height: 50px;
+		line-height: 50px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	.speaking-list {
+		margin: 0;
+		padding: 0;
+
+		li {
+			list-style: none;
+			border-bottom: 1px solid #ccc;
+			padding: 30px 20px;
+			margin: 0;
+
+			&:nth-child(even) {
+				background: #F9F9F9;
+			}
+
+			h2, h3 {
+				display: inline-block;
+				margin: 0;
+
+				font-weight: normal;
+				font-size: 22px;
+			}
+
+			h4 {
+				display: block;
+			}
+		}
+
+	}
+
+}

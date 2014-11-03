@@ -1,0 +1,27 @@
+---
+layout: page
+title: Travel
+header: Travel
+---
+
+<section class="travel">
+
+    <p>Each year I'm aiming to visit new places, even though I also end up with visiting the same places. Over the years I've been lucky enough to visit some very cool places.</p>
+    <p>Below is a map of the places I've been:</p>
+
+    <section>
+        <div class="travel-map"></div>
+    </section>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+
+    {% javascript datamaps/dist/datamaps.world %}
+    {% javascript travel %}
+
+    <script>
+
+    </script>
+
+</section>
