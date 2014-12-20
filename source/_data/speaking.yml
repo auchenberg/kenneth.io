@@ -1,3 +1,17 @@
+- event: "JSCamp 2015"
+  place: Bucharest
+  title: "Future of DevTools with RemoteDebug"
+  date: June 2015
+  url: 'http://www.jscamp.ro/speakers/'
+  slides: ''
+
+- event: "CopenhagenJS"
+  place: Copenhagen
+  title: Future of DevTools
+  date: December 2014
+  url: 'http://lanyrd.com/2014/copenhagenjs-december/'
+  slides: ''
+
 - event: "Fronteers 2014 Jam session"
   place: Amsterdam
   title: RemoteDebug everything!
@@ -28,9 +42,9 @@
 
 - event: "EdgeConf - DevTools panel"
   place: London
-  title: DevTools Panel!
-  date: October 2014
-  url: ''
+  title: DevTools Panel
+  date: 21-03-2014
+  url: 'https://edgeconf.com/2014-london'
   slides: ''
 
 - event: "Citrix Connect 2014"

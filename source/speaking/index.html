@@ -9,16 +9,36 @@ header: Speaking
   <p>I often speak in public; in communities, at conferences and in companies. Mostly I talk about front-end development, and the web platform, but you'll also hear me talk about things like architecture, minimalism and design, simply because I'm curious about how we, human beings, interpret and interact with the world.</p>
   {% img "" /images/me_full_frontal_web.jpg "Photo credits: <a href='http://www.flickr.com/photos/drewm/10757628855'>Drew McLellan</a>, Full Frontal 2013, Brigthon" %}
 
-  <h2 class="block">My talks</h2>
+  {% assign curDate = site.time | date: '%s' %}
+
+  <h2 class="block">Future talks</h2>
     <ul class="speaking-list">
-    {% for talk in site.data.speaking %}
+    {% for talk in site.data.speaking | sort: 'date' %}
+      {% assign postStartDate = talk.date | date: '%s' %}
+      {% if postStartDate >= curDate %}
       <li>
         <h2><a href="{{ talk.url }}">{{ talk.event }}</a></h2>,
         <h3>{{ talk.place}}</h3>,
         <span class="date">{{ talk.date}}</span>
-
         <h4>{{ talk.title}}</h4>
       </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+
+  <h2 class="block">My talks</h2>
+    <ul class="speaking-list">
+    {% for talk in site.data.speaking %}
+      {% assign postStartDate = talk.date | date: '%s' %}
+      {% if postStartDate <= curDate %}
+      <li>
+        <h2><a href="{{ talk.url }}">{{ talk.event }}</a></h2>,
+        <h3>{{ talk.place}}</h3>,
+        <span class="date">{{ talk.date | date: "%B %Y" }}</span>
+        <h4>{{ talk.title}}</h4>
+      </li>
+      {% endif %}
     {% endfor %}
   </ul>
 
