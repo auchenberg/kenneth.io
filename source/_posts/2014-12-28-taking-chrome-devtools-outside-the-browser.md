@@ -70,7 +70,7 @@ Why are DevTools still bundled with the browsers?
 What if clicking "inspect element" simply started an external DevTools app?
 
 ### Working with other browsers (via [RemoteDebug](http://remotedebug.org)).
-With DevTools separated from one specific browser, a natural next step would be making the DevTools app work with other browsers. I already explored this idea about a year ago, in my [What if you could use Chrome DevTools with Mozilla Firefox?](http://localhost:4000/blog/2013/12/09/what-if-you-could-use-chrome-devtools-with-firefox/) blog post, where I showed how my [RemoteDebug Firefox adaptor](https://github.com/auchenberg/remotedebug-firefox-bridge), could be used with Chrome DevTools. 
+With DevTools separated from one specific browser, a natural next step would be making the DevTools app work with other browsers. I already explored this idea about a year ago, in my [What if you could use Chrome DevTools with Mozilla Firefox?](https://kenneth.io/blog/2013/12/09/what-if-you-could-use-chrome-devtools-with-firefox/) blog post, where I showed how my [RemoteDebug Firefox adaptor](https://github.com/auchenberg/remotedebug-firefox-bridge), could be used with Chrome DevTools. 
 
 Imagine if we invested time in such adaptors, and the Firefox adaptor was packaged as a Firefox extension (yes, it's possible). Firefox instances would then be able to showed up in the "targets" list within the DevTools app. The same tool, now with multiple browsers.
 
