@@ -48,7 +48,7 @@
 {% endif %}
 
 {% if page.og_image %}
-  <meta content="{{ site.url }}{{ page.og_image | asset_path }}" property="og:image">
+  <meta property="og:image" content="{{ site.url }}{{ page.og_image | asset_path }}">
 {% endif %}
 
   <script type="text/javascript" src="//use.typekit.net/zbi3gmu.js"></script>
