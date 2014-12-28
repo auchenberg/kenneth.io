@@ -68,9 +68,14 @@ section {
     }
 
     iframe {
+      display: inline-block !important;
       max-width: 1000px;
       width: 100%;
-      min-height: 500px;
+
+      &:not(.twitter-tweet) {
+        min-height: 500px;      
+      }      
+    
     }
 
     figcaption {
