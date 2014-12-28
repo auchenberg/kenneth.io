@@ -22,9 +22,9 @@ Now with a working prototype, the next thing was to polish the UI into something
 
 ## Polishing the UI with Material design.
 
-In these "material times", where everything is getting re-designed into the material design pattern, it was natrual for me to grab the [AngularJS Material](https://material.angularjs.org) components, and try to create a somewhat material-inspired UI. 
+In these "material times", where everything is getting re-designed into the material design pattern, it was natural for me to grab the [AngularJS Material](https://material.angularjs.org) components, and try to create a somewhat material-inspired UI. 
 
-As a developer, with no special design expathise, I spent quite some time reading the [Material design specification](https://www.google.com/design/spec), and I was quite surprised how little "desktop" focus there is in the spec. It's like the design team simply have forgotten that we have this thing called a "desktop" computers, where we use these oldschool interactions called mouse and keyboard. 
+As a developer, with no special design expertise, I spent quite some time reading the [Material design specification](https://www.google.com/design/spec), and I was quite surprised how little "desktop" focus there is in the spec. It's like the design team simply have forgotten that we have this thing called a "desktop" computers, where we use these oldschool interactions called mouse and keyboard. 
 
 Actually, the only mention of "desktop" I've been able to find was under the ["tabs component"](https://www.google.com/design/spec/components/tabs.html#tabs-usage).
 
@@ -34,7 +34,7 @@ So I spent quite some time searching for examples of how material should be appl
 
 ## Hello Chrome DevTools App.
 
-Let me introduce what I call the [Chrome DevTools App](https://github.com/auchenberg/chrome-devtools-app). It's a standalone app that runs Chrome DevTools in its own process. It's powered by [node-webkit](https://github.com/rogerwang/node-webkit), and it's able to run on Windows, Mac and Linux, completely independent of Chrome.
+Let me introduce what I call the [Chrome DevTools App](https://github.com/auchenberg/chrome-devtools-app). It's a standalone app that runs Chrome DevTools in its own process. It's powered by [node-webkit](https://github.com/rogerwang/node-webkit), and it's able to run on Windows, Mac and Linux, completely independently of Chrome.
 
 {% img /images/posts/devtools-app/app-intro.png %}
 
@@ -59,7 +59,7 @@ Please be aware that this project is highly experimental, and I can't guarantee 
 As a part of this exploration there's a few perspectives of taking DevTools outside of the browser, that I find super interesting.
 
 ### Chrome DevTools is close to a functional editor.
-Chrome DevTools is pretty damn close to being a fully featured. I've been [quite vocal](https://kenneth.io/blog/2013/05/21/our-web-development-workflow-is-completely-broken/) about this in the past, as I still think DevTools should be something **different** than an editor, but in the perspective of separating DevTools from the browser, we could easily make the editor part of DevTools much more prominent. 
+Chrome DevTools is pretty damn close to being a fully featured editor. I've been [quite vocal](https://kenneth.io/blog/2013/05/21/our-web-development-workflow-is-completely-broken/) about this in the past, as I still think DevTools should be something **different** than an editor, but in the perspective of separating DevTools from the browser, we could easily make the editor part of DevTools much more prominent. 
 
 With relatively few UI changes, as DevTools already have functionality to read the filesystem via its much hidden [Workspaces feature](https://developer.chrome.com/devtools/docs/workspaces), we could easily turn DevTools into something like a basic version of [Brackets](brackets.io). It's straightforward.
 
