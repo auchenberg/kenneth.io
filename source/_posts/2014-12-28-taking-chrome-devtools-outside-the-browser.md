@@ -5,7 +5,7 @@ date: 2014-12-28 10:00
 published: true
 comments: true
 categories:
-og_image: images/posts/devtools-app/app-intro.png
+og_image: images/posts/devtools-app/og.jpg
 ---
 
 For a while I've been wondering how much work it would be to take Chrome DevTools outside of the browser, and into it's own app - independent of Chrome. 
