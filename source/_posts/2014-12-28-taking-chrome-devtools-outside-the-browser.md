@@ -10,7 +10,7 @@ og_image: images/posts/devtools-app/og.jpg
 
 For a while I've been wondering how much work it would be to take Chrome DevTools outside of the browser, and into it's own app - independent of Chrome. 
 
-So about a month ago, where I had a quiet evening in the airport I pulled Chrome DevTools from the [git repo](https://chromium.googlesource.com/chromium/blink/+/master/Source/devtools/), and wrapped the app with [node-webkit](https://github.com/rogerwang/node-webkit). After a few hours, after figuring out how node-webkit worked, I had a functional prototype of DevTools as a standalone app. 
+So about a month ago, where I had a quiet evening in the airport I pulled Chrome DevTools from the [git repo](https://chromium.googlesource.com/chromium/blink/+/master/Source/devtools/), and wrapped the app with [node-webkit](https://github.com/rogerwang/node-webkit). A few hours later, after figuring out how node-webkit worked, I had a functional prototype of DevTools as a standalone app. 
 
 <figure>
 	<blockquote class="twitter-tweet" lang="en"><p>Chrome DevTools as a stand-alone app via node-webkit. Next-up workspaces. (<a href="https://twitter.com/paul_irish">@paul_irish</a>, <a href="https://twitter.com/addyosmani">@addyosmani</a>) <a href="https://t.co/j0j78p2Mhp">https://t.co/j0j78p2Mhp</a> <a href="https://twitter.com/hashtag/airporthacking?src=hash">#airporthacking</a></p>&mdash; Kenneth Auchenberg (@auchenberg) <a href="https://twitter.com/auchenberg/status/534222665155108864">November 17, 2014</a></blockquote>
@@ -18,13 +18,13 @@ So about a month ago, where I had a quiet evening in the airport I pulled Chrome
 
 <!--more--> 
 
-After I had the prototype working, the next thing was to polish the UI into something more pretty and functional. 
+Now with a working prototype, the next thing was to polish the UI into something more pretty and functional. 
 
 ## Polishing the UI with Material design.
 
-In these "material times", where everything is getting re-designed into the material design pattern, it was natrual to grab the [AngularJS Material](https://material.angularjs.org) components, and try to create a somewhat material-inspired UI. 
+In these "material times", where everything is getting re-designed into the material design pattern, it was natrual for me to grab the [AngularJS Material](https://material.angularjs.org) components, and try to create a somewhat material-inspired UI. 
 
-As a developer, with no special design expathise, I spent quite some time reading the [Material design specification](https://www.google.com/design/spec), and I was quite surprised how little "desktop" focus there is in the spec. It's like the design team simply have forgotten that we have this thing called a "desktop" computer, where we use these oldschool interactions called mouse and keyboard. 
+As a developer, with no special design expathise, I spent quite some time reading the [Material design specification](https://www.google.com/design/spec), and I was quite surprised how little "desktop" focus there is in the spec. It's like the design team simply have forgotten that we have this thing called a "desktop" computers, where we use these oldschool interactions called mouse and keyboard. 
 
 Actually, the only mention of "desktop" I've been able to find was under the ["tabs component"](https://www.google.com/design/spec/components/tabs.html#tabs-usage).
 
@@ -61,10 +61,10 @@ As a part of this exploration there's a few perspectives of taking DevTools outs
 ### Chrome DevTools is close to a functional editor.
 Chrome DevTools is pretty damn close to be a fully featured editor. I've been [quite vocal](https://kenneth.io/blog/2013/05/21/our-web-development-workflow-is-completely-broken/) about this in the past, as I still think DevTools should be something **different** than a editor, but in the perspective of separating DevTools from the browser, we could easily make the editor part of DevTools much more prominent. 
 
-With a relatively few UI changes, as DevTools already have functionality to read the filesystem via it's much hidden Workspaces feature, we could turn DevTools into something like a basic version of [Brackets](brackets.io). It's straigtforward to do.
+With a relatively few UI changes, as DevTools already have functionality to read the filesystem via it's much hidden [Workspaces feature](https://developer.chrome.com/devtools/docs/workspaces), we could easily turn DevTools into something like a basic version of [Brackets](brackets.io). It's straigtforward.
 
 ### Browser independence.
-Another perspective of seperating DevTools from the browser is the independence of one specific browser. If Chrome DevTools wasn't bundled together with Chrome, but something you installed seperately, we wouldn't have the bias that DevTools only should work with the browser it came bundled with. 
+Another perspective of seperating DevTools from the browser is the independence of one specific browser. If Chrome DevTools wasn't bundled together with Chrome, but something you installed seperately, we wouldn't have the bias of DevTools only working with the browser it came bundled with. 
 
 Why are DevTools still bundled with the browsers? 
 What if clicking "inspect element" simply started an external DevTools app?
@@ -72,7 +72,7 @@ What if clicking "inspect element" simply started an external DevTools app?
 ### Working with other browsers (via [RemoteDebug](http://remotedebug.org)).
 With DevTools separated from one specific browser, a natural next step would be making the DevTools app work with other browsers. I already explored this idea about a year ago, in my [What if you could use Chrome DevTools with Mozilla Firefox?](http://localhost:4000/blog/2013/12/09/what-if-you-could-use-chrome-devtools-with-firefox/) blog post, where I showed how my [RemoteDebug Firefox adaptor](https://github.com/auchenberg/remotedebug-firefox-bridge), could be used with Chrome DevTools. 
 
-Imagine if the adaptor was packaged as a Firefox extension (yes, it's possible), and Firefox instances suddenly showed up in the "targets" list within the DevTools app? 
+Imagine if we invested time in such adaptors, and the Firefox adaptor was packaged as a Firefox extension (yes, it's possible). Firefox instances would then be able to showed up in the "targets" list within the DevTools app. The same tool, now with multiple browsers.
 
 We could easily to the same thing for Safari, via [Google's Safari to Webkit remote debugging proxy](https://github.com/google/ios-webkit-debug-proxy). 
 
@@ -87,9 +87,9 @@ We have already seen this with projects like [node-inspector](https://github.com
 
 I find this perspective really interesting, as there's something about being able to re-use our tooling with various runtimes. It's just nice to be able to re-use all the hardwork put into DevTools, instead of reinventing the wheel(s), just because the runtime is different.
 
-Today both node-inspector and PonyDebugger are including their own DevTools front-end, which is a version of Chrome DevTools hosted via a small HTTP server running locally. By having DevTools as a standalone app, there isn't a need for these tools to include their on front-end. Instead they simply should make their remote debugging endpoint discoverable to applications like [Chrome Devtools App](https://github.com/auchenberg/chrome-devtools-app).
+Today both node-inspector and PonyDebugger are including their own DevTools front-end, which is a version of Chrome DevTools hosted via a small HTTP server running locally. By having DevTools as a standalone app, there isn't a need for these tools to include their on front-end. 
 
-Imagine if we used [mDNS](http://en.wikipedia.org/wiki/Multicast_DNS) to expose remote debugging targets on the network from various runtimes like node.js and browsers, and made the Chrome DevTools app look for them. 
+Instead they simply should make their remote debugging endpoint discoverable to applications like [Chrome Devtools App](https://github.com/auchenberg/chrome-devtools-app). Imagine if we used [mDNS](http://en.wikipedia.org/wiki/Multicast_DNS) to expose remote debugging targets on the network from various runtimes like node.js and browsers, and made the Chrome DevTools app look for them. 
 
 It would be much better experience for local developers, but also enable concepts like pair programming, remote support, etc.
 
