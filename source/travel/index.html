@@ -4,19 +4,18 @@ title: Travel
 header: Travel
 ---
 
-<section class="travel">
+<article class="travel">
 
     <p>Each year I'm aiming to visit new places, even though I also end up with visiting the same places. Over the years I've been lucky enough to visit some very cool places.</p>
-    <p>Below is a map of the places I've been:</p>
 
-    <section>
-        <div class="travel-map"></div>
-    </section>
+    <figure>
+        <div class="travel-map">
+        </div>
+    </figure>
 
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
-
+    {% javascript d3.v3.js %}
+    {% javascript d3.geo.projection.v0.js %}
+    {% javascript topojson.v1.js %}
     {% javascript datamaps/dist/datamaps.world %}
     {% javascript travel %}
 
@@ -24,4 +23,4 @@ header: Travel
 
     </script>
 
-</section>
+</article>
