@@ -110,6 +110,7 @@ Luckely CSS Hyphenation is supported in IE10 in a prefixed form, so eventually I
 
 So the cross browser solution for doing word wrapping using CSS only is a combiation of ```word-break```, ```word-break: break-word``` and ```hyphens```:
 
+    /* Warning: Needed for oldIE support, but words are broken up letter-by-letter */
      -ms-word-break: break-all;
          word-break: break-all;
 
@@ -135,6 +136,7 @@ Goodbye &lt;WBR&gt;, I don't need you anymore.
 <div class="update-box">
   <p><strong>Updates</strong>
     <ul>
+      <li>03-01-2015: Added warning about <code>word-break: break-all</code>, as it causes words to be broken up letter-by-letter.</li>
       <li>27-07-2013: Added note about  <code>lang</code>-attribute for CSS Hyphenation, and added <code>-ms-hyphens</code> for IE10. (Credits: <a href="http://twitter.com/simevidas">Šime Vidas</a>)</li>
       <li>Included a section about <code>word-break: break-word</code> in WebKit (Credits: <a href="http://twitter.com/mkristensen">Mads Kristensen</a>)</li>
       <li>Added proper references to <code>word-break: break-all;</code>, and highlighted that CSS3 Hyphenation isn't supported in Chrome (Credits: <a href="http://twitter.com/fakebaldur">Baldur Bjarnason</a>)</li>
