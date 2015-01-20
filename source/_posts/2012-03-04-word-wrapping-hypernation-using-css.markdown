@@ -24,7 +24,7 @@ When you have an element with a dynamic width ```word-wrap: break-word```, isn't
 In this example I used a generic layout for a two column layout, using table-cell and floats.
 
 <figure class="codepen">
-  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/FH7U5/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  <iframe width="100%" height="300" src="https://jsbin.com/bofaho/1/embed?output" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </figure>
 
 As you can see in this example, the long word isn't wrapped into multiple lines, it breaks the layout.
@@ -32,7 +32,7 @@ As you can see in this example, the long word isn't wrapped into multiple lines,
 So how do we make it look more like this?
 
 <figure class="codepen">
-  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/U67jj/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  <iframe width="100%" height="300" src="https://jsbin.com/cawoxu/1/embed?output" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </figure>
 
 ## Our options with HTML and CSS
@@ -56,7 +56,7 @@ In my search for a working CSS declaration, I found [```word-wrap```](https://de
 Great, so let's try it out in a WebKIt-based browser:
 
 <figure class="codepen">
-  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/5C6GG/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  <iframe width="100%" height="300" src="https://jsbin.com/guciko/1/embed?output" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </figure>
 
 Bamn, we got it. ```word-break: break-all``` is the way to go for WebKit..
@@ -93,13 +93,13 @@ When using the ```word-break: break-all```  property, is has the sideeffect, tha
 An example of this looks like this:
 
 <figure class="codepen">
-  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/a8hBp/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  <iframe width="100%" height="300" src="https://jsbin.com/tomapa/1/embed?output" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </figure>
 
 To fix this, I discovered, that you can use ```word-break: break-word``` which seems to be an undocumented and non-standard property value in WebKit. This makes the word wrapping behave like ```word-wrap: break-word```, but works with dynamic widths.
 
 <figure class="codepen">
-  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/zJ4BL/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  <iframe width="100%" height="300" src="https://jsbin.com/dayaxi/1/embed?output" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </figure>
 
 As you can see in the above example, the word wrapping looks much better using  ```word-break: break-word```. This leaves us behind with IE, which still would wrap the words at weird positions.
@@ -125,17 +125,17 @@ So the cross browser solution for doing word wrapping using CSS only is a combia
 This is working in Internet Explorer 8+, Firefox 6+, iOS 4.2, Safari 5.1+ and Chrome 13+.
 
 <figure class="codepen">
-  <iframe width="100%" height="300" src="http://jsfiddle.net/auchenberg/Hd393/embedded/result,css,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  <iframe width="100%" height="300" src="https://jsbin.com/deqobi/1/embed?output" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </figure>
 
 The end result is simpler markup, and faster rendering, since we don't need encode our strings with &lt;WBR&gt; and &amp;#8203;.
 
 Goodbye &lt;WBR&gt;, I don't need you anymore.
 
-
 <div class="update-box">
   <p><strong>Updates</strong>
     <ul>
+      <li>20-01-2015: Changed JSfiddles to JSbins due to lack of HTTPs support.</li>
       <li>03-01-2015: Added warning about <code>word-break: break-all</code>, as it causes words to be broken up letter-by-letter.</li>
       <li>27-07-2013: Added note about  <code>lang</code>-attribute for CSS Hyphenation, and added <code>-ms-hyphens</code> for IE10. (Credits: <a href="http://twitter.com/simevidas">Šime Vidas</a>)</li>
       <li>Included a section about <code>word-break: break-word</code> in WebKit (Credits: <a href="http://twitter.com/mkristensen">Mads Kristensen</a>)</li>
