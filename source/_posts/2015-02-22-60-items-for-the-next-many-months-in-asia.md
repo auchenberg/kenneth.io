@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 60 items - for the next many months in Asia.
+title: 60 items. For the next many months in Asia.
 date: 2015-02-22 17:00
 published: true
 comments: true
