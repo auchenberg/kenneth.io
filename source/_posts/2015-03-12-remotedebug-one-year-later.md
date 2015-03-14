@@ -86,6 +86,15 @@ We have also seen Square putting some effort into [PonyDebugger](https://github.
 
 I find the perspectives of using DevTools with other platforms really interesting, and I already elaborated some thoughts in my [Taking Chrome DevTools outside the browser](https://kenneth.io/blog/2014/12/28/taking-chrome-devtools-outside-the-browser/) post, but one thing is sure, re-use of DevTools outside the browser is yet another argument for a common protocol.
 
+## New tooling using remote debugging protocols
+
+In addition to seeing DevTools re-use across platforms, we have also started seeing new kind of tools being built in top of the remote debugging protocols. 
+
+{% img /images/posts/remotedebug-one-year/calibre.jpg %}
+
+One example is [Calibre](https://calibreapp.com/), a performance tool that is using the Chrome Remote Debugging protocol to extract performance related information from Chrome. 
+
+Another is [Amok](http://caspervonb.com/javascript/tools/live-edit-javascript-amok/), which also uses the Chrome Remote Debugging protocol to enable live editing of JavaScript files in any editor, but hot-replacing assets.
 ## Too early for W3C or other standard bodies
 
 Originally I thought [RemoteDebug](http://remotedebug.org/) would be a fitting project for W3C or WHATWG, but during the past year I reached the conclusion that taking the remote debugging protocols though the official standardization process, simply is too early. I spoke with the [W3C Browser Testing and Tools Working Group](http://www.w3.org/2011/08/browser-testing-charter.html) if they were interesting in RemoteDebug, and the answer was that none of the members were working on DevTools, which kinda ruled the working group out.
@@ -99,3 +108,5 @@ So, I'm now one year into RemoteDebug. It’s a bold vision, and there's a lot o
 It's extremely hard for me to have an impact, when I'm not working on the platform nor the tools, but <strong>I DO</strong> want to make a common interface to our browsers happen. This is why I [quit my job at Citrix](https://kenneth.io/blog/2014/12/12/leaving-citrix-time-for-a-break/), to first of all take a break, but also because I realized that developer tooling and developer evangelism is my passion. That's what I wanna do going forward. Now I just need to figure out where and how.
 
 I'll be speaking about [RemoteDebug](http://remotedebug.org/) and how I see the future of developer tooling at [JSCamp](www.jscamp.ro) in June, so if you are interesting to hear more about RemoteDebug, join me in Romania!
+
+The open web follows standards. Our tools should too.
