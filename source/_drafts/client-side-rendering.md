@@ -1,0 +1,1 @@
+Client-side rendering belongs to the modern web.
