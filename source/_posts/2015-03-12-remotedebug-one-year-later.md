@@ -95,6 +95,9 @@ In addition to seeing DevTools re-use across platforms, we have also started see
 One example is [Calibre](https://calibreapp.com/), a performance tool that is using the Chrome Remote Debugging protocol to extract performance related information from Chrome. 
 
 Another is [Amok](http://caspervonb.com/javascript/tools/live-edit-javascript-amok/), which also uses the Chrome Remote Debugging protocol to enable live editing of JavaScript files in any editor, but hot-replacing assets.
+
+We need to build more tools that leverages the browser logic instead of re-implementing it.
+
 ## Too early for W3C or other standard bodies
 
 Originally I thought [RemoteDebug](http://remotedebug.org/) would be a fitting project for W3C or WHATWG, but during the past year I reached the conclusion that taking the remote debugging protocols though the official standardization process, simply is too early. I spoke with the [W3C Browser Testing and Tools Working Group](http://www.w3.org/2011/08/browser-testing-charter.html) if they were interesting in RemoteDebug, and the answer was that none of the members were working on DevTools, which kinda ruled the working group out.
