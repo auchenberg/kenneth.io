@@ -5,7 +5,7 @@ date: 2015-03-12 12:00
 published: true
 comments: true
 categories:
-og_image: images/posts/remotedebug-logo.jpg
+og_image: images/posts/remotedebug-one-year/remotedebug-logo.jpg
 ---
  
 This post has been on my mind for a while now. I’ve kept pushing it, but now is the time to do a status of my RemoteDebug initiative, that I launched a little more than a year ago.
@@ -14,7 +14,7 @@ I announced [RemoteDebug](http://remotedebug.org/) as a separate initiative, wit
 
 That didn’t happen.
 
-{% img /images/posts/remotedebug-logo.jpg %}
+{% img /images/posts/remotedebug-one-year/remotedebug-logo.jpg %}
 
 <!--more--> 
 
@@ -43,7 +43,7 @@ Luckily my point resonated with others, and one of the persons I highly respect,
 
 I think we can do better than adding the same keyboard shortcuts our DevTools. I still believe that if a browser vendor went all-in on cross-browser tooling, and did it well, that vendor would win most developers. 
 
-Today, most developers, doesn't care about the runtime, but they DO care about the tooling. So if developers could use ONE tool, in-browser/editor/whatever, with all of their daily browsers, that would bring some real value on the table, instead of today where each vendor is forcing developers to learn each of their browser-specific tools.
+Today, most developers, doesn't care about the runtime, but they DO care about the tooling. So if developers could use ONE tool, in-browser/editor/whatever, with all of their daily browsers, that would bring some real value on the table, instead of today where most vendors are forcing developers to learn each of their browser-specific tools.
 
 ## A common protocol is a "chicken or egg" problem
 
@@ -57,7 +57,7 @@ Today each tooling vendor would need to repeat the integration work for each pro
 
 At the same time, I've talked to browser vendors, and they are afraid that a common interface would affect their agility, and slow-down the innovation within their DevTools. A common protocol with a standardized interface would definitely affect the agility of the DevTools teams, as they would have to keep the keep the contract of the protocol, but I don't see that as a problem. Everything we build for the web is based upon standards and agreements, so this constraint wouldn't be something new - it would be a natural thing for people building the web. 
 
-If I were building a platform, it would be in my interest to have as many tooling vendors building on top of my platform. I therefore see it as the browser vendors responsibility to expose the primitives for other vendors to build upon. It shouldn't be the responsibility of tooling vendors to figure out ways to talk to the browsers. The more tools that are integrated with the platform, the more relevant and sticky it is.
+If I were building a platform, it would be in my interest to have as many tooling vendors building on top of my platform. I therefore see it as the browser vendors responsibility to expose the primitives for other vendors to build upon. It shouldn't be the responsibility of tooling vendors to figure out ways to talk to the browsers. The more tools that are integrated with a platform, the more relevant and sticky it would become.
 
 So currently we have the browser vendors saying "Proof the demand for a common interface, and we'll consider it", and the tooling vendors says "We need a common interface, the existing interfaces are too much effort, but we can't take the investment to build common thing for all browsers". 
 
@@ -65,7 +65,9 @@ It's a classic "chicken or egg problem", so where do we start? I still don't kno
 
 ## Mozilla embracing cross-browser debugging gives me hope
 
-I was attending the [Extensibilty Web Summit](http://lanyrd.com/2014/extwebsummit-berlin/) in Berlin, where I had a chance to discuss RemoteDebug, when Mozilla announced that they wanted to embrace cross browser debugging with their new Firefox Protocols Adaptors (codename Valence), which honestly came as a bit of a (happily) surprise for me. At the last meeting I had with [David Camp](https://twitter.com/campd) and [Heather Arthur](https://twitter.com/harthvader) in the lovely Mozilla SF offices, Mozilla didn't seem overly positive about a common protocol, as I were advocating for using the wildly-used Chrome protocol as the starting point. I think Dave misunderstod my intention, as I'm not merried to the Chrome protocol, but to me, it still seems to be the best starting point, due to it's protocols existing usage and simplicity. 
+I was attending the [Extensibilty Web Summit](http://lanyrd.com/2014/extwebsummit-berlin/) in Berlin, where I had a chance to discuss RemoteDebug, when Mozilla announced that they wanted to embrace cross browser debugging with their new Firefox Protocols Adaptors (codename Valence), which honestly came as a bit of a (happily) surprise. 
+
+At the last meeting I had with [David Camp](https://twitter.com/campd) and [Heather Arthur](https://twitter.com/harthvader) in the lovely Mozilla SF offices, Mozilla didn't seem overly positive about a common protocol, as I were advocating for using the wildly-used Chrome protocol as the starting point. I think Dave misunderstod my intention, as I'm not merried to the Chrome protocol, but to me, it still seems to be the best starting point, due to it's protocols existing usage and simplicity. 
 
 {% img /images/posts/remotedebug-one-year/firefox-protocol-adaptors.jpg "Source: http://arstechnica.com/information-technology/2014/09/debug-chrome-safari-apps-from-firefox-with-new-add-on/" %}
 
@@ -114,7 +116,9 @@ First, we still need to map out the needed functionality, and reach a common gro
 
 So, I'm now one year into RemoteDebug. It’s a bold vision, and there's a lot of work ahead. I was too optimistic, thinking that vendors naturally would pick this initiative up, and drive it forward. But, here in 2015 I've started to see things happening in the corners, so I'm hopeful that we will move RemoteDebug forward in 2015.
 
-It's extremely hard for me to have an impact, when I'm not working on the platform nor the tools, but I do want to make a common interface to our browsers happen. This is why I [quit my job at Citrix](https://kenneth.io/blog/2014/12/12/leaving-citrix-time-for-a-break/), to first of all take a break, but also because I realized that developer tooling and developer evangelism is my passion. That's what I wanna do going forward. Now I just need to figure out how and where.
+It's extremely hard for me to have an impact, when I'm not working on the platform nor the tools. I'm kinda the odd-one-out that's yelling from the side, but I do want to make a common interface to our browsers happen. 
+
+This is why I [quit my job at Citrix](https://kenneth.io/blog/2014/12/12/leaving-citrix-time-for-a-break/), to first of all take a break, but also because I realized that developer tooling and developer evangelism are my passion. That's what I wanna do going forward. Now I just need to figure out how and where to do that.
 
 I'll be speaking about [RemoteDebug](http://remotedebug.org/) and how I see the future of developer tooling at [JSCamp](www.jscamp.ro) in June, so if you are interesting to hear more about RemoteDebug, join me in Romania!
 
