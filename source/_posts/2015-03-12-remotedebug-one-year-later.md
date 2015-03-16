@@ -53,13 +53,13 @@ Over the last year I've learned that a common remote debugging protocol is a "ch
 
 I've talked to several non-browser tooling vendors, and all of them would love a common interface to browser(s), but currently they are holding back integrating with the existing remote debugging protocols, because they first are too browser specific, and to fragile. 
 
-Today each tooling vendor would need to repeat the integration work for each protocol, and without being sure if the integration would work in 6 months from now, this has multiple times resultet in vendors disregarding the existing protocols and rolling their own.
+Today each tooling vendor would need to repeat the integration work for each protocol, and without being sure if the integration would work in 6 months from now, this has multiple times resulted in vendors disregarding the existing protocols and rolling their own.
 
 At the same time, I've talked to browser vendors, and they are afraid that a common interface would affect their agility, and slow-down the innovation within their DevTools. A common protocol with a standardized interface would definitely affect the agility of the DevTools teams, as they would have to keep the keep the contract of the protocol, but I don't see that as a problem. Everything we build for the web is based upon standards and agreements, so this constraint wouldn't be something new - it would be a natural thing for people building the web. 
 
 If I were building a platform, it would be in my interest to have as many tooling vendors building on top of my platform. I therefore see it as the browser vendors responsibility to expose the primitives for other vendors to build upon. It shouldn't be the responsibility of tooling vendors to figure out ways to talk to the browsers. The more tools that are integrated with a platform, the more relevant and sticky it would become.
 
-So currently we have the browser vendors saying "Proof the demand for a common interface, and we'll consider it", and the tooling vendors says "We need a common interface, the existing interfaces are too much effort, but we can't take the investment to build common thing for all browsers". 
+So currently we have the browser vendors saying "Prove the demand for a common interface, and we'll consider it", and the tooling vendors says "We need a common interface, the existing interfaces are too much effort, but we can't take the investment to build common thing for all browsers". 
 
 It's a classic "chicken or egg problem", so where do we start? I still don't know.
 
