@@ -1,3 +1,10 @@
+- event: "Øredev 2015"
+  place: "Malmö, Sweden"
+  title: "TBD"
+  date: "November 2015"
+  url: "http://oredev.org/"
+  slides: ""
+
 - event: "JSCamp 2015"
   place: Bucharest
   title: "Future of DevTools with RemoteDebug"
@@ -59,154 +66,154 @@
   title: Platforms and API's
   date: February 2014
   url: ''
-  slides: ''  
+  slides: ''
 
 - event: "Citrix Connect 2014"
   place: San Jose
   title: Platforms and API's
   date: February 2014
   url: ''
-  slides: ''   
+  slides: ''
 
 - event: "Breww"
   place: Copenhagen
   title: "Our development workflow is completely broken & RemoteDebug"
   date: February 2014
   url: ''
-  slides: ''    
+  slides: ''
 
 - event: "FullFrontal 2013"
   place: Brighton
   title: "Our development workflow is completely broken"
   date: October 2013
   url: ''
-  slides: ''  
+  slides: ''
 
 - event: "Microsoft Campus Days 2013"
   place: Copenhagen
   title: "The modern front-end toolbox"
   date: October 2013
   url: ''
-  slides: ''  
+  slides: ''
 
 - event: "Umbraco CodeGarden 2013"
   place: Copenhagen
   title: "HTML5: Our completely broken development flow"
   date: June 2013
   url: 'http://codegarden13.com/speakers/sessions/thursday/1130-1230/html-5-our-completely-broken-development-workflow.aspx'
-  slides: ''     
+  slides: ''
 
 - event: "KMD Dot Net Days"
   place: Copenhagen
   title: "Our web platform in perspective"
   date: May 2013
   url: ''
-  slides: ''  
+  slides: ''
 
 - event: "CodeHouse"
   place: Copenhagen
   title: "Our web platform in perspective"
   date: May 2013
   url: ''
-  slides: '' 
+  slides: ''
 
 - event: "CopenhagenJS"
   place: Copenhagen
   title: "JavaScript dependencies, RequireJS and dependo."
   date: February 2013
   url: 'http://lanyrd.com/2013/copenhagenjs-february/scdbdh/'
-  slides: '' 
+  slides: ''
 
 - event: "CopenhagenJS / Foo Café"
   place: Copenhagen
   title: "HTML5 - where are we at?"
   date: January 2013
   url: "http://blog.kenneth.io/blog/2013/01/21/html5-where-are-we-at/"
-  slides: ''   
+  slides: ''
 
 - event: "Microsoft Warm Crocodile Conference"
   place: Copenhagen
   title: "HTML5 - where are we at?"
   date: January 2013
   url: "http://blog.kenneth.io/blog/2013/01/21/html5-where-are-we-at/"
-  slides: '' 
+  slides: ''
 
 - event: "CopenhagenJS"
   place: Copenhagen
   title: "Web Tooling is broken."
   date: November 2012
   url: "http://lanyrd.com/2012/copenhagenjs-november/szyrr/"
-  slides: '' 
+  slides: ''
 
 - event: "CopenhagenJS"
   place: Copenhagen
   title: "Everything was easier with <blink> and <marguee>"
   date: October 2012
   url: "http://lanyrd.com/2012/copenhagenjs-october/szfqk/"
-  slides: '' 
+  slides: ''
 
 - event: "CopenhagenJS"
   place: Copenhagen
   title: "Microsoft Campus Days 2013"
   date: October 2012
   url: "http://www.conferencemanager.dk/campusdays2013"
-  slides: ''   
+  slides: ''
 
 - event: "LBi Denmark: We Do Our Own Stunts"
   place: Copenhagen
   title: "Podio's front-end stack"
   date: May 2012
   url: "http://blog.kenneth.io/blog/2012/06/24/slides-our-own-stunts-lbi/"
-  slides: ''  
+  slides: ''
 
 - event: "Citix Synergy 2012"
   place: San Francisco
   title: "The evolution of the Podio front-end stack"
   date: May 2012
   url: ''
-  slides: ''  
+  slides: ''
 
 - event: "CopenhagenJS"
   place: Copenhagen
   title: "jQuery.mentionsInput"
   date: February 2012
   url: "http://lanyrd.com/2012/copenhagenjs-february/spzkq/"
-  slides: ''   
+  slides: ''
 
 - event: "CopenhagenJS"
   place: Copenhagen
   title: "jQuery.mentionsInput"
   date: February 2012
   url: "http://lanyrd.com/2012/copenhagenjs-february/spzkq/"
-  slide: '' 
+  slide: ''
 
 - event: "Podcast: ANUGCast"
   place: Copenhagen
   title: "HTML5 and CSS"
   date: September 2011
   url: "http://www.anug.dk/post/2011/08/21/ANUGCast-131-HTML5-og-CSS3-med-Kenneth-Auchenberg-del-1-af-2.aspx"
-  slide: '' 
+  slide: ''
 
 - event: "Community Day Conference 2011"
   place: Copenhagen
   title: "HTML5 Panel"
   date: May 2011
   url: ""
-  slide: '' 
+  slide: ''
 
 - event: "Copenhagen Ruby Brigade"
   place: Copenhagen
   title: "HTML5"
   date: January 2011
   url: ""
-  slide: '' 
+  slide: ''
 
 - event: "ProData Consult"
   place: Copenhagen
   title: "HTML5 and browser extensions"
   date: January 2011
   url: "http://blog.kenneth.io/blog/2011/02/02/slides-from-my-html5-browser-extensions-presentation-at-prodata-consult/"
-  slide: '' 
+  slide: ''
 
 - event: "ANUG Codecamp"
   place: Aarhus
