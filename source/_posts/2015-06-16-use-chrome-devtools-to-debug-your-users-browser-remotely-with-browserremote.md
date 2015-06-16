@@ -5,7 +5,7 @@ date: 2015-06-16 18:00
 published: true
 comments: true
 categories:
-og_image: images/posts/browser-remote/explainer.png
+og_image: images/posts/browser-remote/browse-remote-social.jpg
 ---
 
 As a part of [my talk about the future of DevTools and my RemoteDebug initiative at JSCamp](auchenberg.github.io/presentations/jscamp-2015-future-of-devtools-with-remotedebug/#1) in Romania, I build a little prototype I’d like to introduce. It’s called BrowserRemote.
@@ -52,7 +52,7 @@ And yes, there's probably a better name than ``window.remoteDebug.getDebugSocket
 ### Security considerations
 Enabling remote access to the browser via the remote debugging protocol opens up a new potential attack vector to the browser, as having access to the debugSocket enables the connected client to do a lot of powerfull things.
 
-I don’t see that as an added security risk as long the permission is modeled after similar API's such as getUserMedia and similar API’s. As long the user is prompted for permission and the permission is *scoped to the current browser tab/window*, then I think we have a good starting point.
+I don’t see that as an added security risk as long the permission is modeled after similar API's such as [getUserMedia](http://www.w3.org/TR/mediacapture-streams/). As long the user is prompted for permission and the permission is *scoped to the current browser tab/window*, then I think we have a good starting point.
 
 {% img /images/posts/browser-remote/permission.gif %}
 
