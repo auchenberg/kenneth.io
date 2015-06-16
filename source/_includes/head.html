@@ -35,9 +35,15 @@
 {% if page.title %}
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{{ page.title }}" />
+  <meta name="twitter:title" content="{{ page.title }}">
 {% else %}
-  <meta property="og:type" content="website" /> 
+  <meta property="og:type" content="website" />
 {% endif %}
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@auchenberg">
+<meta name="twitter:creator" content="@auchenberg">
 
 {% if page.author.url %}
   <meta property="article:author" content="{{ page.author.url }}" />
@@ -49,10 +55,11 @@
 
 {% if page.og_image %}
   <meta property="og:image" content="{{ site.url }}{{ page.og_image | asset_path }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ page.og_image | asset_path }}">
 {% endif %}
 
   <script type="text/javascript" src="//use.typekit.net/zbi3gmu.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,600,300">
-  
+
 </head>
