@@ -8,7 +8,7 @@ categories:
 og_image: images/posts/browser-remote/social.jpg
 ---
 
-As a part of [my talk about the future of DevTools and my RemoteDebug initiative at JSCamp](auchenberg.github.io/presentations/jscamp-2015-future-of-devtools-with-remotedebug/#1) in Romania, I build a little prototype I’d like to introduce. It’s called [BrowserRemote](github.com/auchenberg/browser-remote).
+As a part of [my talk about the future of DevTools and my RemoteDebug initiative](https://auchenberg.github.io/presentations/jscamp-2015-future-of-devtools-with-remotedebug/#1) at [JSCamp in Romania](http://jscamp.ro), I build a little prototype I’d like to introduce. It’s called [BrowserRemote](https://github.com/auchenberg/browser-remote).
 
 {% img /images/posts/browser-remote/social.jpg %}
 
@@ -16,10 +16,10 @@ As a part of [my talk about the future of DevTools and my RemoteDebug initiative
 
 <!--more-->
 
-[BrowserRemote](github.com/auchenberg/browser-remote) enables you to remote support or assist your users  directly from the browser, within your own web app. No need to install anything, just click a button. This is kinda the nirvana of web support, as most of the support agents today ends up asking the user in trouble for screenshots, browser details, etc. BrowserRemote eliminates all of that by making it possible for the support agent to pull the needed information – remotely.
+[BrowserRemote](https://github.com/auchenberg/browser-remote) enables you to remote support or assist your users  directly from the browser, within your own web app. No need to install anything, just click a button. This is kinda the nirvana of web support, as most of the support agents today ends up asking the user in trouble for screenshots, browser details, etc. BrowserRemote eliminates all of that by making it possible for the support agent to pull the needed information – remotely.
 
 ## How does BrowserRemote work?
-[BrowserRemote](github.com/auchenberg/browser-remote) works by an chrome extension that injects a ``window.remoteDebug`` object which exposes a method named ``getDebugSocket(<sourceName>)``, which can be invoked from within the viewport. Once called a simple permission prompt is shown, and once granted, the extension invokes the internal extension-only ``chrome.debugger`` API. Once the extension is attached to the debugger it connects to a proxy server via socket.io and simply forwards the data from the debugger to the proxy.
+[BrowserRemote](https://github.com/auchenberg/browser-remote) works by an chrome extension that injects a ``window.remoteDebug`` object which exposes a method named ``getDebugSocket(<sourceName>)``, which can be invoked from within the viewport. Once called a simple permission prompt is shown, and once granted, the extension invokes the internal extension-only ``chrome.debugger`` API. Once the extension is attached to the debugger it connects to a proxy server via socket.io and simply forwards the data from the debugger to the proxy.
 
 {% img /images/posts/browser-remote/flow.png %}
 
@@ -40,10 +40,10 @@ Yay. I could [remote my ugly hacks](https://github.com/auchenberg/browser-remote
 
 {% img /images/posts/browser-remote/screencasting.jpg %}
 
-So with [BrowserRemote](github.com/auchenberg/browser-remote) screencasting works for desktop browsers too, and when using Chrome DevTools you are able to get a live-preview of the rendered viewport. This is quite powerfull, as you now connect remote to a browser, see the rendered output while inspecting and debugging the application. Just like being in front of the computer.
+So with [BrowserRemote](https://github.com/auchenberg/browser-remote) screencasting works for desktop browsers too, and when using Chrome DevTools you are able to get a live-preview of the rendered viewport. This is quite powerfull, as you now connect remote to a browser, see the rendered output while inspecting and debugging the application. Just like being in front of the computer.
 
 ## Perspective a DebugSocket API
-[BrowserRemote](github.com/auchenberg/browser-remote) is highly experimental demoware, and shouldn’t be used in in any production like environment, as there’s no security or privacy. Anyone can connect to anyone.
+[BrowserRemote](https://github.com/auchenberg/browser-remote) is highly experimental demoware, and shouldn’t be used in in any production like environment, as there’s no security or privacy. Anyone can connect to anyone.
 
 However the perspective of being able to connect remotely to a browser-instance over the internet, after the user has granted permission, opens a new perspective on tooling.
 
