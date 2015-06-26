@@ -34,7 +34,7 @@ This architecture isn’t new.
 
 This is exactly how the built-in browser DevTools are working in modern browser like Chrome, Firefox and Safari. The front-end is a simply client of a remote debugging server hosted by the browser.
 
-However there’s a difference, and that’s the built-in DevTools doesn’t have a notion of other browsers. This functionality was explored by <name> in the [Weinre project](http://people.apache.org/~pmuellr/weinre-docs/latest/) which enabled users to use Safari Web Inspector with other browsers, via a much similar architecture to vorlon.js, as it’s also relied upon a script injection technique to emulate the Webkit remote debugging protocol.
+However there’s a difference, and that’s the built-in DevTools doesn’t have a notion of other browsers. This functionality was explored by [Patrick Mueller](https://twitter.com/pmuellr) in the [Weinre project](http://people.apache.org/~pmuellr/weinre-docs/latest/) which enabled users to use Safari Web Inspector with other browsers, via a much similar architecture to vorlon.js, as it’s also relied upon a script injection technique to emulate the Webkit remote debugging protocol.
 
 Today the [Weinre project](http://people.apache.org/~pmuellr/weinre-docs/latest/) is kinda dead, but recently we have also seen commercial solutions like [GhostLab](http://vanamco.com/ghostlab/) which is using a similar approach, to enable [Chrome DevTools](https://developer.chrome.com/devtools) to be connected to multiple browsers. [GhostLab](http://vanamco.com/ghostlab/) is the new modern flavour of [Weinre](http://people.apache.org/~pmuellr/weinre-docs/latest/).
 
