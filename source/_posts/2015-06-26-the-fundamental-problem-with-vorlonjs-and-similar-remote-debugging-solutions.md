@@ -67,9 +67,9 @@ When running inside the “viewport sandbox” along with the application itself
 
 Getting access to the memory heap and other internal parts of the runtime won’t be secure with the security model we have on the web.
 
-This means that debugging tools running inside this sandbox has to rely on dynamic code instrumentation that injects observers and other logic in order to “extract” the interesting information from the runtime. This is a lot of work, and by design, we won’t be able to extract much of the “intersting” information needed for Profilers, Network monitors or emulation features.
+This means that debugging tools running inside this sandbox has to rely on dynamic code instrumentation that injects observers and other logic in order to “extract” the interesting information from the runtime. This is a lot of work, and by design, we won’t be able to extract much of the "interesting" information needed for Profilers, Network monitors or emulation features.
 
-This is the reason why [Weinre](http://people.apache.org/~pmuellr/weinre-docs/latest/) and [GhostLab](http://vanamco.com/ghostlab/) hasn’t been able to provide more advanced features that the DOM and Styling related features of today’s DevTools. This constraint also exists for vorlon.js, and that’s by vorlon.js from the beginning won’t be able to provide what’s required of a modern remote debugging tool. It’s access to information is too limited.
+This is the reason why [Weinre](http://people.apache.org/~pmuellr/weinre-docs/latest/) and [GhostLab](http://vanamco.com/ghostlab/) hasn’t been able to provide more advanced features that the DOM and Styling related features of today’s DevTools. This constraint also exists for vorlon.js, and that’s why vorlon.js from the very beginning won’t be able to provide what’s required of a modern remote debugging tool. It’s access to information is too limited.
 
 This is also why modern DevTools aren’t relaying on dynamic script injection, but instead is using the [remote debugging protocols](http://remotedebug.org/specifications/) that’s built into every modern browser. These aren’t limited by the “viewport sandbox”, and provides a much more advanced set of API’s for specifically created debugging, provided by the browser vendors.
 
