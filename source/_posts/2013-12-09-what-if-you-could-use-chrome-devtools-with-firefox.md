@@ -26,7 +26,7 @@ The bridge is implemented as a small node app that connects to Firefox by using 
 It make it more understandable I created a small screencast showing it in action:
 
 <figure>
-  <iframe src="http://www.youtube.com/embed/86qg7zYh3AY" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/86qg7zYh3AY" frameborder="0" allowfullscreen></iframe>
 </figure>
 
 
