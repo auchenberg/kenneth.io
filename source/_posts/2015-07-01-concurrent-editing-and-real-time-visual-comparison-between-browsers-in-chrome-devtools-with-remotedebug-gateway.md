@@ -5,6 +5,7 @@ date: 2015-07-02 00:30
 published: true
 comments: true
 categories:
+og_image: images/posts/remotedebug-gateway/remotedebug-gateway.png
 ---
 
 I’d like to introduce a new project of mine. It’s called [RemoteDebug Gateway](https://github.com/auchenberg/remotedebug-gateway), and instead of writing long blog post I’ve done something new. I’ve made this little screencast explaining the project.
