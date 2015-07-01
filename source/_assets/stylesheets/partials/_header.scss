@@ -40,9 +40,23 @@ body > header {
     right: 30px;
     top: 10px;
   }
-
 }
 
+.is-opera {
+
+  header h2 {
+    font-size: 1.1rem;
+  }
+
+  header .follow {
+    transform: rotate(5deg)
+  }
+
+  a[rel=full-article] {
+    transform: rotate(-5deg)
+  }
+
+}
 
 @media screen and (max-width: 768px) {
 
