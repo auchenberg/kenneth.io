@@ -44,7 +44,7 @@ In the recent years our community has talked about the lack of browser choice in
 	<p>It’s alright you don’t have the ressources to drive the web, or you simply don’t want to anymore, but now is the time, to open up iOS and allow us to innovate.</p>
 </blockquote>
 
-The good news is that I'm not alone with this, as Jake from the Chrome team, and given his bias of working from a competing vendor; he agree's with me:
+The good news is that I'm not alone with this; Jake from the Chrome team, and given his bias of working from a competing vendor; he agree's with me:
 
 <figure>
 	<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">If Apple are throttling back on web platform work in Safari, I wish they&#39;d allow other browsers on iOS so someone else can have a go</p>&mdash; Jake Archibald (@jaffathecake) <a href="https://twitter.com/jaffathecake/status/612992537238896641">June 22, 2015</a></blockquote>
