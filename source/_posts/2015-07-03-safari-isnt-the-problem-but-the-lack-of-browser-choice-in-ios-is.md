@@ -32,9 +32,9 @@ This is why I suggested to [start a petition](https://github.com/h5bp/lazyweb-re
 	<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">An open letter to put pressure on Apple… <a href=“https://t.co/yLp1LHqgA4”>https://t.co/yLp1LHqgA4</a> <a href=“http://t.co/ibSWzAAmLd”>pic.twitter.com/ibSWzAAmLd</a></p>&mdash; Šime Vidas (@simevidas) <a href=“https://twitter.com/simevidas/status/616114174729551872”>July 1, 2015</a></blockquote>
 </figure>
 
-As a vendor of dominant mobil operating system, Apple, should make a real browser choice possible in iOS in order to ensure fair competition and innovation. Any other major operating system (Android, Windows, OSX, Linux) has a free browser choice, and iOS should be no different.
+As a vendor of dominant mobile operating system, Apple, should make a real browser choice possible in iOS in order to ensure fair competition and innovation. Any other major operating system (Android, Windows, OSX, Linux) has a free browser choice, and iOS should be no different.
 
-To me this this draws many parallels to the [antitrust case against Microsoft](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp.) back in the golden-era of Windows, where they were forced to introduce a “free browser choice”, but since I’m not a lawyer, I don’t know if there’s a similar legal reasoning which could be used to put pressure on Apple.
+To me this this draws many parallels to the [antitrust case against Microsoft](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp.) back in the golden-era of Windows, as Safari is deeply integrated into iOS. It can't be removed or replaced. It's forcefully distributed by Apple, and is embedded inside native applications as WebViews. Since I’m not a lawyer, I don’t know if a similar legal reasoning can be used to put pressure on Apple, but I do see the similarities on the outside.
 
 <figure>
 	<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">If Apple are throttling back on web platform work in Safari, I wish they&#39;d allow other browsers on iOS so someone else can have a go</p>&mdash; Jake Archibald (@jaffathecake) <a href="https://twitter.com/jaffathecake/status/612992537238896641">June 22, 2015</a></blockquote>
