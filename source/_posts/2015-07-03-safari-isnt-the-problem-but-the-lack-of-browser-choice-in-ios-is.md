@@ -24,7 +24,7 @@ The real problem is Apple’s lack of browser-choice in iOS, and that’s a prob
 
 - It's creates a big overhead for web developers as they forced to cater for mobile Safari’s slow update cycle, with hacks and workarounds for bugs and issues, that are fixed in other browsers. This is where the “new IE” reasoning has it’s roots.
 
-- It’s holding the mobile web in general back, as the web isn’t better than the lowest common denominator, and by having a dominant mobile platform where the web only is being updated once a year, and by one vendor, simply slows down the distrubtion of new features, which slows down the innovation on the web.
+- It’s holding the mobile web back, as the web isn’t better than the lowest common denominator, and by having a dominant mobile platform where the web only is being updated once a year, and by one vendor, it simply slows down the distribution of new features, which ultimately slows down the innovation on the web.
 
 This is why I suggested to [start a petition](https://github.com/h5bp/lazyweb-requests/issues/181#issuecomment-117436986), so we, in the web community, can raise our voices and create awareness of this fundamental problem for the web.
 
@@ -38,20 +38,18 @@ To me this this draws many parallels to the [antitrust case against Microsoft](h
 
 In the recent years many of us, in our community, has talked about the lack of browser choice in iOS, and how it's a problem, but I think the time has come to, that we demand a browser choice, so Apple I wanna say something.
 
-## My message to Apple:
-
 <blockquote class="big">
-	<p>Apple, it’s alright you don’t have the ressources to drive the web, or you simply don’t want to anymore, but now is the time, where we need you to open up and allow us to innovate.</p>
+	<p>Dear Apple</p>
+	<p>It’s alright you don’t have the ressources to drive the web, or you simply don’t want to anymore, but now is the time, to open up iOS and allow the rest of us to innovate.</p>
 	<p>We are a bunch of passionate	people that really want make the web better for everyone, but you are holding us back.</p>
 </blockquote>
 
-And it seems like I'm not alone with this.
+The good news is that I'm not alone with this, as Jake from the Chrome team, and given his bias of working from a competing vendor; he agree's with me:
 
 <figure>
 	<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">If Apple are throttling back on web platform work in Safari, I wish they&#39;d allow other browsers on iOS so someone else can have a go</p>&mdash; Jake Archibald (@jaffathecake) <a href="https://twitter.com/jaffathecake/status/612992537238896641">June 22, 2015</a></blockquote>
 </figure>
 
-
-Let's put [some power behind a petition](https://github.com/h5bp/lazyweb-requests/issues/181#issuecomment-117792929) and get this ball rolling. It's about time.
+So let's put [some power behind a petition](https://github.com/h5bp/lazyweb-requests/issues/181#issuecomment-117792929) and get this ball rolling. It's about time that we get a free browser choice on iOS.
 
 *This post is written on the train to Narita airport in Tokyo, so bear with me on typos, etc.*
