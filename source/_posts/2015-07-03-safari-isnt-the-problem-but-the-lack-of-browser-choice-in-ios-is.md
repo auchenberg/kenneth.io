@@ -48,8 +48,6 @@ To me this this draws many parallels to the [antitrust case against Microsoft](h
 </blockquote>
 
 
-So let's put [some power behind a petition](https://github.com/h5bp/lazyweb-requests/issues/181#issuecomment-117792929) and get this ball rolling.
-
-It's about time.
+So let's put [some power behind a petition](https://github.com/h5bp/lazyweb-requests/issues/181#issuecomment-117792929) and get this ball rolling. It's about time.
 
 *This post is written on the train to Narita airport in Tokyo, so bare with me on typos, etc.*
