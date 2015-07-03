@@ -41,7 +41,7 @@ In the recent years our community has talked about the lack of browser choice in
 <blockquote class="big">
 	<p>Dear Apple</p>
 	<p>We are a bunch of passionate people that really want make the web better for everyone, but you are holding us back.</p>
-	<p>It’s alright you don’t have the ressources to drive the web, or you simply don’t want to anymore, but now is the time, to open up iOS and allow us to innovate.</p>
+	<p>It’s alright you don’t have the ressources to drive the web, or you simply don’t want to anymore, but now is the time, to open up the browser-lock in iOS and allow us to innovate.</p>
 </blockquote>
 
 The good news is that I'm not alone with this; Jake from the Chrome team, and given his bias of working from a competing vendor; he agree's with me:
