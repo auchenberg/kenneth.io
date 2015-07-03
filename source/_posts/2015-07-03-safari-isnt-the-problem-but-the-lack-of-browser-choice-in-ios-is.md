@@ -36,12 +36,12 @@ As a vendor of dominant mobile operating system, Apple, should make a **real bro
 
 To me this this draws many parallels to the [antitrust case against Microsoft](https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp.) back in the golden-era of Windows, as Safari is deeply integrated into iOS. It can't be removed or replaced. It's forcefully distributed by Apple, and is embedded inside native applications as WebViews. Since I’m not a lawyer, I don’t know if there exists similar legal reasoning as in the Microsoft case, but I do see the similarities when comparing the two.
 
-In the recent years many of us, in our community, has talked about the lack of browser choice in iOS, and how it's a problem, but I think the time has come to, that we demand a browser choice, so Apple I wanna say something.
+In the recent years our community has talked about the lack of browser choice in iOS, and how it's a problem, but I think the time has come to, that we demand a browser choice, so Apple I have something to say.
 
 <blockquote class="big">
 	<p>Dear Apple</p>
-	<p>It’s alright you don’t have the ressources to drive the web, or you simply don’t want to anymore, but now is the time, to open up iOS and allow the rest of us to innovate.</p>
-	<p>We are a bunch of passionate	people that really want make the web better for everyone, but you are holding us back.</p>
+	<p>We are a bunch of passionate people that really want make the web better for everyone, but you are holding us back.</p>
+	<p>It’s alright you don’t have the ressources to drive the web, or you simply don’t want to anymore, but now is the time, to open up iOS and allow us to innovate.</p>
 </blockquote>
 
 The good news is that I'm not alone with this, as Jake from the Chrome team, and given his bias of working from a competing vendor; he agree's with me:
