@@ -8,7 +8,7 @@
         scope: 'world',
         disableDefaultStyles: true,
         setProjection: function(element, options) {
-            
+
             projection = d3.geo.naturalEarth()
                 .scale(240)
                 .translate([element.offsetWidth / 2, element.offsetHeight / 2])
@@ -33,7 +33,7 @@
             highlightFillColor: '#FC8D59',
             highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
             highlightBorderWidth: 2
-        },            
+        },
         data: {
             DNK: { fillKey: "home" },
             USA: { fillKey: "beenTo" },
@@ -52,20 +52,26 @@
             ROU: { fillKey: "beenTo" },
             CZE: { fillKey: "beenTo" },
             GRC: { fillKey: "beenTo" },
-            VNM: { fillKey: "planned" },
-            LAO: { fillKey: "planned" },
-            MMR: { fillKey: "planned" },
-            IDN: { fillKey: "planned" },
+            VNM: { fillKey: "beenTo" },
+            LAO: { fillKey: "beenTo" },
+            MMR: { fillKey: "beenTo" },
+            IDN: { fillKey: "beenTo" },
+            TLS: { fillKey: "beenTo" },
+            CHN: { fillKey: "beenTo" },
+            KHM: { fillKey: "beenTo" },
+            ROU: { fillKey: "beenTo" },
+            TWN: { fillKey: "beenTo" },
+            JPN: { fillKey: "beenTo" },
+            IND: { fillKey: "beenTo" },
             PHL: { fillKey: "planned" },
-            TLS: { fillKey: "planned" },
             PNG: { fillKey: "planned" },
-        }            
+        }
     });
 
     window.addEventListener('resize', function() {
         var elmMap = document.querySelector('.travel-map > svg');
         var elmContainer = document.querySelector('.travel-map');
-        
+
         var targetWidth = elmContainer.offsetWidth;
         var aspect = elmMap.offsetWidth / elmMap.offsetHeight;
 
