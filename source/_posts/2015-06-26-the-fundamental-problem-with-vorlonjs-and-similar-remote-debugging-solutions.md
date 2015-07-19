@@ -1,4 +1,4 @@
-—
+---
 layout: post
 title: The fundamental problem with vorlon.js and similar remote debugging solutions.
 date: 2015-06-26 23:00
@@ -6,16 +6,15 @@ published: true
 comments: true
 categories:
 og_image: images/posts/vorlonjs/vorlonjs.jpg
-—
+---
 
 This post is a follow-up discussion of brief Twitter thread between [@deltakosh](https://twitter.com/deltakosh), [@meulta](https://twitter.com/meulta), [@pierlag](https://twitter.com/pierlag) and [@davrous](https://twitter.com/davrous) where I asked into the reasoning behind building [Vorlon.js](http://vorlonjs.com).
 
 {% img /images/posts/vorlonjs/vorlonjs.jpg %}
 
-
 **Preface**: This is quite an opinionated post, and everything here is said without have had a chat with the team, and is purely based upon the observations I’ve made since the announcement and by following the project. I might be completely wrong in my criticism.
 
-<!—more—>
+<!--more-->
 
 I’ve been following the [vorlon.js](http://vorlonjs.com) project for a while now, and recently I’ve started to notice a [big amount of work]() being put into building a “DOM Explorer” and other parts of “DevTools-like front-end”, which trigger this tweet:
 
