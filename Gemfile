@@ -3,6 +3,8 @@ source "http://rubygems.org"
 gem 'rake'
 gem 'rack'
 gem 'jekyll'
+gem 'jekyll-assets'
+
 gem 'unicorn'
 gem 'rdiscount'
 gem 'RedCloth'
@@ -23,4 +25,3 @@ gem 'rackables'
 gem 'uglifier'
 gem 'rack-jekyll'
 gem 'rack-subdomain'
-gem 'jekyll-assets'
