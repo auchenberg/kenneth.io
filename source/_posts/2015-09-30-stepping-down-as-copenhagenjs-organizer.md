@@ -8,7 +8,7 @@ categories:
 og_image: images/posts/copenhagenjs-stepping-down/copenhagenjs.jpg
 ---
 
-Back in December I [decided to quit my job](https://kenneth.io/blog/2014/12/12/leaving-citrix-time-for-a-break/) take a leap into unexplored territories. I ended up [packing a backpack to travel Asia](https://kenneth.io/blog/2015/02/22/60-items-for-the-next-many-months-in-asia/), which has been an amazing experience, but it also meant that I haven’t been able to help organizing [CopenhagenJS](http://copenhagenjs.dk), as I simply haven’t been around.
+Back in December I [decided to quit my job](https://kenneth.io/blog/2014/12/12/leaving-citrix-time-for-a-break/) and take a leap into unexplored territories. I ended up [packing a backpack to travel Asia](https://kenneth.io/blog/2015/02/22/60-items-for-the-next-many-months-in-asia/), which has been an amazing experience, but it also meant that I haven’t been able to help organizing [CopenhagenJS](http://copenhagenjs.dk), as I simply haven’t been around.
 
 {% img /images/posts/copenhagenjs-stepping-down/copenhagenjs.jpg %}
 
@@ -25,7 +25,7 @@ CopenhagenJS came to life in the summer of 2011, after I one afternoon randomly 
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </figure>
 
-I tweeted this without knowing much about the existing front-end/javascript community. Soon after [Bjorn](https://twitter.com/bjorn_js) asked, if I was interested in taking over the existing Oresund JavaScript meetup group (which I never attended) and [Morgan Roderick](https://twitter.com/mrgnrdrck) also stepped in and bought the copenhagenjs.dk domain.
+I tweeted this without knowing much about the existing front-end/javascript community. Soon after [Bjorn](https://twitter.com/bjorn_js) asked if I was interested in taking over the existing Oresund JavaScript meetup group (which I never attended) and [Morgan Roderick](https://twitter.com/mrgnrdrck) also stepped in and bought the copenhagenjs.dk domain.
 
 <figure>
 	<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/auchenberg">@auchenberg</a> <a href="https://twitter.com/copenhagenjs">@copenhagenjs</a> Up for taking over the existing one?</p>&mdash; Bobcoin Söderqvist (@bjorn_js) <a href="https://twitter.com/bjorn_js/status/92985688257073152">July 18, 2011</a></blockquote>
@@ -34,7 +34,7 @@ I tweeted this without knowing much about the existing front-end/javascript comm
 
 In a matter of just a few days we had managed to join forces, we merged the existing front-end meetups into CopenhagenJS, build a website, designed a logo, and on the [21 July 2011](http://copenhagenjs.dk/2011/07/21/hello-copenhagenjs/) we announced the first meetup, where the original Podio offices were literally stuffed with wonderful people.
 
-With [CopenhagenJS](http://copenhagenjs.dk) I wanted to create a forum where we could discuss our problems, share ideas and most importantly get inspired. The name has been a bit off from the begining, as my intention was to cover front-end in broad, and not just JavaScript, but we followed a trend, and got a logo (almost) for free. We have meet [consistently every third Thursday](http://copenhagenjs.dk/past/) every month for more than 4 years, and have managed to build a community around front-end and JavaScript from the ground up.
+With [CopenhagenJS](http://copenhagenjs.dk) I wanted to create a forum where we could discuss our problems, share ideas and most importantly get inspired. The name has been a bit off from the beginning, as my intention was to cover front-end in broad, and not just JavaScript, but we followed a trend, and got a logo (almost) for free. We have meet [consistently every third Thursday](http://copenhagenjs.dk/past/) every month for more than 4 years, and have managed to build a community around front-end and JavaScript from the ground up.
 
 Over the years our community has grown, and we now have more than [1.100 followers](https://twitter.com/copenhagenjs), and many wonderful people joining the meetups. When [Bjorn](https://twitter.com/bjorn_js) stepped down as organizer, [Peter Müller](https://twitter.com/_munter_) stepped up, who for the past years, has been driving the community together with me.
 
@@ -42,7 +42,7 @@ Our community ins't the biggest community in the world, but we had a fantastic r
 
 ## Meetup evolved into ColdFront Conference
 
-Two [years ago](https://kenneth.io/blog/2014/04/09/introducing-coldfront-conference/) I started [ColdFront Conference](http://coldfrontconf.com), which was an idea that came up among us organizers, as we wanted to take the local community to an international level. I ended up being the one executing on the idea, and just a few weeks ago, we ran the [second ColdFront](http://2015.coldfrontconf.com), and the [feedback been incredible](https://storify.com/auchenberg/coldfront-conference-2015). But organizing a conference is an incredible time consuming thing, and combining it with a monthly meetup, is a bit too time consuming, if I also want to be able to do other things.
+Two [years ago](https://kenneth.io/blog/2014/04/09/introducing-coldfront-conference/) I started [ColdFront Conference](http://coldfrontconf.com), which was an idea that came up among us organizers, as we wanted to take the local community to an international level. I ended up being the one executing on the idea, and just a few weeks ago, we ran the [second ColdFront](http://2015.coldfrontconf.com), and the [feedback been incredible](https://storify.com/auchenberg/coldfront-conference-2015). But organizing a conference is an incredible time consuming thing, and combining it with a monthly meetup, is a bit too time consuming.
 
 So now that I’m back in Copenhagen I’ve decided to take a step back, and look at all the many projects I’m involved with, and revise how my commitment should be.
 
