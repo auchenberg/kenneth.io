@@ -16,7 +16,7 @@ Now I’m back in Copenhagen, and been putting a bit of thought into how I shoul
 
 <!--more-->
 
-## 4 years fun years with CopenhagenJS
+## 4 years of fun years with CopenhagenJS
 
 CopenhagenJS came to life in the summer of 2011, after I one afternoon randomly tweeted this:
 
@@ -34,15 +34,15 @@ I tweeted this without knowing much about the existing front-end/javascript comm
 
 In a matter of just a few days we had managed to join forces, we merged the existing front-end meetups into CopenhagenJS, build a website, designed a logo, and on the [21 July 2011](http://copenhagenjs.dk/2011/07/21/hello-copenhagenjs/) we announced the first meetup, where the original Podio offices were literally stuffed with wonderful people.
 
-With [CopenhagenJS](http://copenhagenjs.dk) I wanted to create a forum where we could discuss our problems, share ideas and most importantly get inspired. We have meet [consistently every third Thursday](http://copenhagenjs.dk/past/) every month for more than 4 years, and managed to build a community around front-end and JavaScript.
+With [CopenhagenJS](http://copenhagenjs.dk) I wanted to create a forum where we could discuss our problems, share ideas and most importantly get inspired. The name has been a bit off from the begining, as my intention was to cover front-end in broad, and not just JavaScript, but we followed a trend, and got a logo (almost) for free. We have meet [consistently every third Thursday](http://copenhagenjs.dk/past/) every month for more than 4 years, and have managed to build a community around front-end and JavaScript from the ground up.
 
-Over the years our community has grown, and when [Bjorn](https://twitter.com/bjorn_js) stepped down as organizer, [Peter Müller](https://twitter.com/_munter_) stepped up, who together with me has been the main drivers of the community.
+Over the years our community has grown, and we now have more than [1.100 followers](https://twitter.com/copenhagenjs), and many wonderful people joining the meetups. When [Bjorn](https://twitter.com/bjorn_js) stepped down as organizer, [Peter Müller](https://twitter.com/_munter_) stepped up, who for the past years, has been driving the community together with me.
 
-Our community ins't the biggest community in the world, but we had a fantastic range of speakers. We have had international international names like [Douglas Crockford](http://copenhagenjs.dk/2013/11/06/crockford/) and [Seb Lee Delisle](http://copenhagenjs.dk/2014/05/02/creativejs-demodag-event/) stopping by, we have done special events with companies like [Adobe](http://copenhagenjs.dk/2012/09/26/october-busy-month/), [Microsoft](http://copenhagenjs.dk/2013/01/03/special-future-internet-explorer-event/) and [GitHub](http://copenhagenjs.dk/2013/05/13/github-training-workshop-event/), and we been hosted by many great companies, who I’m thankful for their investments into the local community.
+Our community ins't the biggest community in the world, but we had a fantastic range of speakers. We have had international international names like [Douglas Crockford](http://copenhagenjs.dk/2013/11/06/crockford/) and [Seb Lee Delisle](http://copenhagenjs.dk/2014/05/02/creativejs-demodag-event/) stopping by. We have done special events with companies like [Adobe](http://copenhagenjs.dk/2012/09/26/october-busy-month/), [Microsoft](http://copenhagenjs.dk/2013/01/03/special-future-internet-explorer-event/) and [GitHub](http://copenhagenjs.dk/2013/05/13/github-training-workshop-event/), and we been hosted by many great companies, who I’m thankful for their investments into the local community.
 
 ## Meetup evolved into ColdFront Conference
 
-Two [years ago](https://kenneth.io/blog/2014/04/09/introducing-coldfront-conference/) I started [ColdFront Conference](http://coldfrontconf.com), which was an idea that came up among us organizers, as we wanted to take the local community to an international level. I ended up being the one executing on the idea, and just a few weeks ago, we ran the [second ColdFront](http://2015.coldfrontconf.com), and the [feedback been incredible](https://storify.com/auchenberg/coldfront-conference-2015). But organizing a conference is an incredible time consuming thing, and combining it with a monthly meetup, it’s a bit too time consuming, if I also want to be able to do other things.
+Two [years ago](https://kenneth.io/blog/2014/04/09/introducing-coldfront-conference/) I started [ColdFront Conference](http://coldfrontconf.com), which was an idea that came up among us organizers, as we wanted to take the local community to an international level. I ended up being the one executing on the idea, and just a few weeks ago, we ran the [second ColdFront](http://2015.coldfrontconf.com), and the [feedback been incredible](https://storify.com/auchenberg/coldfront-conference-2015). But organizing a conference is an incredible time consuming thing, and combining it with a monthly meetup, is a bit too time consuming, if I also want to be able to do other things.
 
 So now that I’m back in Copenhagen I’ve decided to take a step back, and look at all the many projects I’m involved with, and revise how my commitment should be.
 
@@ -55,9 +55,9 @@ This means I’m now stepping down as [CopenhagenJS](http://copenhagenjs.dk) org
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </figure>
 
-Much has happened in Copenhagen the past 4 years. We now have an established tech & startup-scene with [CPHFTW](http://cphftw.org). We have a better meetup culture, and the rise of JavaScript has shown a need for a strong a united community.
+Much has happened in Copenhagen the past 4 years. We now have an established tech & startup-scene with [CPHFTW](http://cphftw.org). We have a better meetup culture, and the rise of JavaScript has shown a need for a strong united community.
 
-So going forward, I sincerely hope that new organizers and organizers of existing meetups like [cphfront](http://cphfront.com), will come together, collaborate, and maybe unite. So we, together, can show the world why Copenhagen should be on the international front-end map.
+So going forward, I sincerely hope that new organizers and organizers of existing meetups like [cphfront](http://cphfront.com), will come together, collaborate, and maybe even unite. So we, together, can show the world why Copenhagen should be on the international front-end map.
 
 
 Thanks for the ride.
