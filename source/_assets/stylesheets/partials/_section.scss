@@ -39,6 +39,17 @@ section {
   figure {
     text-align: center;
 
+    &.insta-grid {
+        height: 380px;
+        margin: 0 auto;
+        overflow: hidden;
+
+      .instagram-media {
+        width: 20% !important;
+        min-height: 300px !important
+      }
+    }
+
     &.codepen {
 
       iframe {
@@ -70,14 +81,16 @@ section {
       width: 100%;
 
       &:not(.twitter-tweet) {
-        min-height: 500px;      
-      }      
-    
+        min-height: 500px;
+      }
+
     }
 
     figcaption {
       font-size: 14px;
     }
+
+
   }
 
   ul {
@@ -89,10 +102,10 @@ section {
     }
   }
 
-  p, 
-  h2, 
-  h3, 
-  blockquote, 
+  p,
+  h2,
+  h3,
+  blockquote,
   ul,
   > section {
     max-width: $max-width;
