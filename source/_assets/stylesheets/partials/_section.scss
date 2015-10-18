@@ -217,6 +217,20 @@ section {
       }
     }
 
+    figure {
+
+      &.insta-grid {
+          height: auto;
+          margin: 0 auto;
+          overflow: hidden;
+
+        .instagram-media {
+          width: 100% !important;
+          min-height: 300px !important;
+        }
+      }
+
+    }
   }
 
 }

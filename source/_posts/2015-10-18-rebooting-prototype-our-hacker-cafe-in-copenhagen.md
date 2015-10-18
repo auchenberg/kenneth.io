@@ -8,7 +8,7 @@ categories:
 og_image: images/posts/rebooting-prototype/prototype.png
 ---
 
-Prototype started when [Jacob](https://twitter.com/boetter), back in April 2014, asked if I was interested sharing an office. He had gotten the opportunity to take over the coffee shop, Min Nye Kaffebar, and convert it into an office. Without much consideration I immediately said yes, since I had been looking for an office/hackerlab, to run experiments like [Helpmate](https://kenneth.io/blog/2013/04/01/introducing-helpmate/).
+Prototype started when [Jacob](https://twitter.com/boetter), back in April 2014, asked if I was interested sharing an office. He had gotten the opportunity to take over the coffee shop, Min Nye Kaffebar, and convert it into an office. Without much consideration I immediately said yes, as I had been looking for an office/hackerlab, to run experiments like [Helpmate](https://kenneth.io/blog/2013/04/01/introducing-helpmate/).
 
 {% img /images/posts/rebooting-prototype/prototype.png %}
 
@@ -52,7 +52,7 @@ We have been the temporally home of a few startups, like [Peakon](http://peakon.
 
 We have thrown a few parties (sorry neighbors), and most importantly we have been the home to brilliant minds from all around the world, who on and off, have been a part of little micro community.
 
-I think micro communites like Prototype are important, as they create the foundation where like-minded people to come, think and build together.
+I think micro communites like Prototype are important, as they create the foundation where like-minded people come, think and build together.
 
 We need more places like Prototype - all over the world.
 
