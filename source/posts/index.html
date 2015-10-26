@@ -6,13 +6,17 @@ footer: false
 
 <section class="blog-archives">
   {% for post in site.posts reverse %}
-  {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-  {% unless year == this_year %}
-    {% assign year = this_year %}
-    <h1>{{ year }}</h1>
-  {% endunless %}
-  <article>
-    {% include archive_post.html %}
-  </article>
+    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+    {% unless year == this_year %}
+      {% assign year = this_year %}
+      <h1>{{ year }}</h1>
+    {% endunless %}
+
+    {% unless post.draft == true %}
+      <article>
+        {% include archive_post.html %}
+      </article>
+    {% endunless %}
+
   {% endfor %}
 </section>
