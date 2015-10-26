@@ -68,6 +68,8 @@ The fun thing about Vancouver, or Canada for that matter, is that I never been. 
 	<iframe width="1280" height="500" src="https://www.youtube.com/embed/dNFrZNjs2ng" frameborder="0" allowfullscreen></iframe>
 </figure>
 
+So that probably means I'll be starting to explore the nature some more. Maybe it's time to mountain bike again, or maybe I should learn how to snowboard?. Canada and especially British Columbia looks truly amazing, a bit cold, but I'm kinda used to that here in Copenhagen.
+
 ## What will happen to RemoteDebug?
 
 [RemoteDebug](http://remotedebug.org) won’t become a Microsoft project, and will continue on it’s own. I hope to incorporate the ideas and concepts of [RemoteDebug](http://remotedebug.org) into the Microsoft products and projects I’ll be working on.
