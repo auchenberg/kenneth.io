@@ -68,7 +68,7 @@ The fun thing about Vancouver, or Canada for that matter, is that I never been. 
 	<iframe width="1280" height="500" src="https://www.youtube.com/embed/dNFrZNjs2ng" frameborder="0" allowfullscreen></iframe>
 </figure>
 
-So that probably means I'll be starting to explore the nature some more. Maybe it's time to mountain bike again, or maybe I should learn how to snowboard?. Canada and especially British Columbia looks truly amazing, a bit cold, but I'm kinda used to that here in Copenhagen.
+Living in Vancouver probably means I'll be starting to explore the nature some more. Maybe it's time to mountain bike again, or maybe time to learn how to snowboard?. Canada and especially British Columbia looks stunning, a bit cold, but I'm kinda used to that here in Copenhagen.
 
 ## What will happen to RemoteDebug?
 
@@ -85,7 +85,7 @@ Daniel and I are still wrapping up this year's [ColdFront](https://coldfrontconf
 
 So the next coming months I’ll be busy wrapping things up here in Copenhagen. This is why I recently [stepped down as CopenhagenJS organizer](/blog/2015/09/30/stepping-down-as-copenhagenjs-organizer/), and why I’m [not longer an active part of Prototype](/blog/2015/10/18/rebooting-prototype-our-hacker-cafe-in-copenhagen/), but that’s all for the greater good.
 
-There’s a new adventure ahead, and I’m looking so much forward to it.
+There’s a new adventure ahead, and it's gonna be great!
 
 /k
 
