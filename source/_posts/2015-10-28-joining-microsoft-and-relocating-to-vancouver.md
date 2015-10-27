@@ -18,7 +18,7 @@ It’s now almost a year ago I decided to [leave Citrix and take a break](/blog/
 
 ## 2015 has been amazing
 
-The past year has been an amazing adventure, where I’ve traveled and explored 14 new countries. I’ve had time to write more open source, and make more tooling-related experiments. I’ve spoken at [new conferences](http://jscamp.ro) and [communities](http://www.harbour-front.hk/). I’ve meet so many new wonderful people, through my travel adventures but also through new networks like [World Economic Forum](http://www.weforum.org/), where I’ve become one of the [Global Shaper's](http://www.weforum.org/community/global-shapers).
+The past year has been an amazing adventure, where I’ve traveled and explored 14 new countries. I’ve had time to write more open source, and make more tooling-related experiments. I’ve spoken at [new conferences](http://jscamp.ro) and gotten to know new [communities](http://www.harbour-front.hk/). I’ve meet so many new wonderful people, through my travel adventures but also through new networks like [World Economic Forum](http://www.weforum.org/), where I’ve become one of the [Global Shaper's](http://www.weforum.org/community/global-shapers).
 
 The most important thing during 2015 has been that I’ve had the time to take a step back and reflect on what I really wanted to do going forward.
 
@@ -26,7 +26,7 @@ The most important thing during 2015 has been that I’ve had the time to take a
 
 During this process it became clear that “my mission” since the early days been about empowering people to build software.
 
-Looking back, I joined [Podio](https://podio.com) to empower non-technical people to build their own work tools, by using Podio as the platform to build software. And when looking at the projects I’ve been doing in my spare time, and the talks I’ve given at a number of conferences, it became crystal clear to me, that the next thing I should be doing, had to be making it easier to build software.
+Looking back, I joined [Podio](https://podio.com) to empower non-technical people to build their own work tools, by using Podio as the platform to build software. And when looking at the projects I’ve been doing in my spare time, and the talks I’ve given at a number of conferences, it became crystal clear to me, that the next thing I should be doing, had to be about making it easier to build software.
 
 <figure>
 	<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">I want to make it easier to build for the web. &#10;&#10;That&#39;s my mission.</p>&mdash; Kenneth Auchenberg (@auchenberg) <a href="https://twitter.com/auchenberg/status/642772859518119936">September 12, 2015</a></blockquote>
@@ -41,7 +41,7 @@ This was the indicator that I was about time to return to “daily life” and f
 
 Every option was on the table, so I started reaching out to my network to explore each of them, and during this process I came to the conclusion that the best option was to join an established tooling vendor who already had a significant reach. This narrowed down my search, and after many interesting conversations with the majority of the browser and tooling vendors, I’m happy to announce that I’ll be **joining Microsoft as a Program Manager with a focus on DevTools and Remote Debugging**.
 
-In my role I’m going to focus on the overall web development workflow, that in real-life involves multiple tools from many vendors. My mission is to unbreak our daily [web development workflow](/blog/2013/05/21/our-web-development-workflow-is-completely-broken/), make it simpler and more efficient. When looking at the modern workflow I think there’s room for much improvement, as I don’t think our existing tooling has managed to solve some of the most fundamental issues, that I’m seeing developers face each and every day.
+In my role I’m going to focus on the overall web development workflow, which in real-life involves multiple tools from many vendors. My mission is to unbreak our daily [web development workflow](/blog/2013/05/21/our-web-development-workflow-is-completely-broken/), make it simpler and more efficient. When looking at the modern workflow I think there’s room for much improvement, as I don’t think our existing tooling has managed to solve some of the most fundamental issues, that I’m seeing developers face each and every day.
 
 I’m really excited to be joining [Microsoft](https://microsoft.com), who I think, after many years of unfocus, have re-invented itself under [Satya Nadella’s](https://en.wikipedia.org/wiki/Satya_Nadella) leadership, by finding it’s roots of focusing on empowering people to build things.
 
@@ -49,9 +49,9 @@ I’m really excited to be joining [Microsoft](https://microsoft.com), who I thi
 	<iframe width="1280" height="500" src="https://www.youtube.com/embed/UcoS9aQItgA" frameborder="0" allowfullscreen></iframe>
 </figure>
 
-With [Microsoft Edge](https://dev.modern.ie/), Microsoft has been quite clear about investing into the web again, and by joining Microsoft I’ll joining one of the world's most respected tooling vendors. When combining this re-investment into the web and the solid experience of building tools, I truly think Microsoft is the vendor, that’s in the best position to move our web tooling forward.
+With [Microsoft Edge](https://dev.modern.ie/), Microsoft has been quite clear about investing into the web again, and by joining Microsoft I’ll joining one of the world's most respected tooling vendors. When combining this re-investment into the web and the solid experience of building tools, I truly think Microsoft is the vendor in the best position to move our web tooling forward.
 
-I’ll be joining a team of brilliant people like [Rey Bango](https://twitter.com/reybango), [Andy Sterland](https://twitter.com/andysterland), [Christian Heilmann](https://twitter.com/codepo8), [Mads Kristensen](https://twitter.com/mkristensen) and many others who I'm exicited to be working with. I’m really looking forward to be spending most of my time making it easier to build for the web, **regardless of the used platform and browser**.
+I’ll be joining a team of brilliant people like [Rey Bango](https://twitter.com/reybango), [Andy Sterland](https://twitter.com/andysterland), [Christian Heilmann](https://twitter.com/codepo8), [Mads Kristensen](https://twitter.com/mkristensen) and many others who I'm exicited to work with. I’m really looking forward to spend my time making it easier to build for the web, **regardless of the used platform and browser**.
 
 
 ## What, wait, relocating to Vancouver?
