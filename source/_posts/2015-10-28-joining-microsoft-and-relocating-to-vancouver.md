@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Joining Microsoft, and relocating to Vancouver in Canada
-date: 2015-10-27 12:00
+date: 2015-10-28 15:00
 published: true
 comments: true
 draft: true
