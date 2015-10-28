@@ -56,7 +56,7 @@ I’ll be joining a team of brilliant people like [Rey Bango](https://twitter.co
 
 ## What, wait, relocating to Vancouver?
 
-As many of you know, the american visa situation is a bit of a mess, so in January 2016, I’ll be relocating to Vancouver, Canada, so I can be in the same timezone, and be close to the team in Seattle. Once I’ll get my american visa, I’ll be packing my things and be headed to the Microsoft HQ in Redmond.
+Yup. In January 2016, I’ll be relocating to Vancouver, Canada, so I can be in the same timezone, and be close to the team in Seattle. Once I’ll get my american visa, I’ll be packing my things and be headed to the Microsoft HQ in Redmond.
 
 {% img /images/posts/joining-microsoft/vancouver.jpg %}
 
