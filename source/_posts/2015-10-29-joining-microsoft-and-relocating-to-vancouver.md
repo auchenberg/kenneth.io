@@ -35,7 +35,7 @@ Back in June, I remember [sitting in Harajuku, Tokyo](https://instagram.com/p/4i
 
 This was the indicator that I was about time to return to “daily life” and find something more meaningful to do, so I started outlining potential scenarios for what “making it easier to build software” could look like. Could I do this in a startup? Could it be a grant-based open-source project like [DAT](http://dat-data.com/)? What about joining an established vendor? Maybe Something completely else?
 
-## Joining Microsoft to build the next gen of web tools
+## Joining Microsoft to build the next generation of DevTools
 
 Every option was on the table, so I started reaching out to my network to explore each of them, and during this process I came to the conclusion that the best option was to join an established tooling vendor who already had a significant reach. This narrowed down my search, and after many interesting conversations with the majority of the browser and tooling vendors, I’m happy to announce that I’ll be **joining Microsoft as a Program Manager with a focus on DevTools and Remote Debugging**.
 
