@@ -45,15 +45,7 @@ body > header {
 .is-opera {
 
   header h2 {
-    font-size: 1.1rem;
-  }
-
-  header .follow {
-    transform: rotate(5deg)
-  }
-
-  a[rel=full-article] {
-    transform: rotate(-5deg)
+    transform: rotate(10deg)
   }
 
 }
