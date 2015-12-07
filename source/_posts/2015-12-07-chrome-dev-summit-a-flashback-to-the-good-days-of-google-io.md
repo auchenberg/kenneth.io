@@ -6,7 +6,7 @@ published: true
 comments: true
 draft: false
 categories:
-#og_image: images/posts/chrome-dev-summit/keynote.jpg
+og_image: images/posts/chrome-dev-summit/keynote.jpg
 ---
 
 Three weeks ago I attended [Chrome Dev Summit 15](https://developer.chrome.com/devsummit) down at Google offices in Mountain View, and what an experience! It’s the second year Google is running Chrome Dev Summit, and this year you could really feel that the event is a new priority for Google.
