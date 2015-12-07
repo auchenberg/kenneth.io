@@ -63,8 +63,8 @@
             TWN: { fillKey: "beenTo" },
             JPN: { fillKey: "beenTo" },
             IND: { fillKey: "beenTo" },
-            PHL: { fillKey: "planned" },
-            PNG: { fillKey: "planned" },
+            ISL: { fillKey: "beenTo" },
+            CAN: { fillKey: "beenTo" },
         }
     });
 
