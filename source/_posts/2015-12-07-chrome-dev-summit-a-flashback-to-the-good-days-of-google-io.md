@@ -50,7 +50,7 @@ So an web-focused event from Google has been much needed, as they continuous to 
 
 Chrome Dev Summit was great, but the web is more than once vendor, and is built by multiple browsers, implementations and opinions coming together. I think it's important to have each vendor sharing it's vision for the web, but so far we mostly heard about Google's.
 
-So I going forward I hope to see all major browser vendors doing events similar to Chrome Dev Summit. Microsoft has already stepped up by doing it's first Edge Dev Summit last year, so let's see what the future brings.
+So I going forward I hope to see all major browser vendors doing events similar to Chrome Dev Summit. Microsoft has already stepped up by doing it's first [Edge Dev Summit](https://blogs.windows.com/msedgedev/2015/04/13/2015-microsoft-edge-web-summit/) last year, so let's see what the future brings.
 
 Maybe someday we can have all browsers vendors present at same event?
 
