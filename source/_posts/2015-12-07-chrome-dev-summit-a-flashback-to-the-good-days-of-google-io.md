@@ -15,7 +15,7 @@ Three weeks ago I attended [Chrome Dev Summit 15](https://developer.chrome.com/d
 
 <!--more-->
 
-Chrome DevSummit is rather small with roughtly 300 participants, mainly from browser vendors, web standards folks, influencers and of-course Googlers. This mix of people creates an unique atmosphere, much similar to [EdgeConf](https://edgeconf.com/), as everyone attending, are deeply involved with the web. This made the networking, dicussions and hall-way track at this years event simply fantastic.
+Chrome DevSummit is rather small with roughly 300 participants, mainly from browser vendors, web standards folks, influencers and of-course Googlers. This mix of people creates an unique atmosphere, much similar to [EdgeConf](https://edgeconf.com/), as everyone attending, are deeply involved with the web. This made the networking, dicussions and hall-way track at this years event simply fantastic.
 
 ## Google's vision for the Web
 
