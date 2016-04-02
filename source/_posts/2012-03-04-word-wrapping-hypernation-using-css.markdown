@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: "Word wrapping/hyphenation using CSS."
 date: 2012-03-04 14:34
 comments: true

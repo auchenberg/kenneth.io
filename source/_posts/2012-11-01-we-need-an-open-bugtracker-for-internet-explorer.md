@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: We need a open bug tracker for Internet Explorer
 date: 2012-11-01 11:00
 comments: true

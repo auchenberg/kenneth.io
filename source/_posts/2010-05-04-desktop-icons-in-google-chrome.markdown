@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: How to use desktop icons in Google Chrome - the HTML5 way.
 categories: Uncategorized
 ---

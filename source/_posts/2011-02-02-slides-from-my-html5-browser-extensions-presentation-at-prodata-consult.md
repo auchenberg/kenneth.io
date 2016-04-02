@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: Slides from my HTML5 & browser extensions presentation at ProData Consult
 categories: Uncategorized
 ---

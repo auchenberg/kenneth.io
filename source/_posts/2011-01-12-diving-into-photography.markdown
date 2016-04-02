@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: "Diving into photography. "
 categories: Uncategorized
 ---

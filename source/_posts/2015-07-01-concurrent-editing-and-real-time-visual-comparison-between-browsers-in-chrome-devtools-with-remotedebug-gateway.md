@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: Concurrent editing and real-time visual comparison in Chrome DevTools with RemoteDebug Gateway
 date: 2015-07-02 00:30
 published: true

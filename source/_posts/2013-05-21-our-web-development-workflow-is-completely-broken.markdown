@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: Our web development workflow is completely broken.
 date: 2013-05-21 15:30
 published: true

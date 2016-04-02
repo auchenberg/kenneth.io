@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: Taking Chrome DevTools outside of the browser.
 date: 2014-12-28 10:00
 published: true

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: The fundamental problem with vorlon.js and similar remote debugging solutions.
 date: 2015-06-26 23:00
 published: true

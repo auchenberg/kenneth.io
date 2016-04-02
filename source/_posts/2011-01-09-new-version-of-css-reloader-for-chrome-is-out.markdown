@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: New version of CSS Reloader for Chrome is out
 categories: Uncategorized
 ---

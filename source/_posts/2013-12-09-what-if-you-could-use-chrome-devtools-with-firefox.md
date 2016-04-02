@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: "What if you could use Chrome DevTools with Mozilla Firefox?"
 date: 2013-12-09 20:14
 published: true

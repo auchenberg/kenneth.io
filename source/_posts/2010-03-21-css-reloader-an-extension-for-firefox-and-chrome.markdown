@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post.html
 title: CSS Reloader - an extension for Firefox and Chrome
 categories: Uncategorized
 ---
