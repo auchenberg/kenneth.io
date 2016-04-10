@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: RemoteDebug and cross-browser DevTools. One year later.
 date: 2015-03-12 12:00
 published: true

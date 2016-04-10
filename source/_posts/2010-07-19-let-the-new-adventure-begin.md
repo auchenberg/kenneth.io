@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Let the new adventure begin...
 categories: Uncategorized
 ---

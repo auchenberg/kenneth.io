@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Safari isn’t the problem, but the lack of browser choice in iOS is.
 date: 2015-07-03 14:00
 published: true

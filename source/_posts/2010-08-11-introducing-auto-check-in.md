@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Introducing Auto-Check-in
 categories: Uncategorized
 ---

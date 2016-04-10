@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Use Chrome DevTools to debug your user’s browser remotely with BrowserRemote.
 date: 2015-06-16 18:00
 published: true

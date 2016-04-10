@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: How to disable accidentally text-zooming in browsers when using Magic Trackpad/Mouse in OSX
 categories: Uncategorized
 ---

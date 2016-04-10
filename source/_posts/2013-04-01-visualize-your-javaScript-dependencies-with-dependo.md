@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Visualize your JavaScript dependencies with dependo
 date: 2013-04-01 21:23
 comments: true

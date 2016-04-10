@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Slides and code from my ANUG jQuery CodeCamp at Vertica
 categories: Uncategorized
 ---

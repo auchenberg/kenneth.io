@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Playify - A tool to play your iTunes music in Spotify
 categories: Uncategorized
 ---

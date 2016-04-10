@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Chrome Dev Summit, a flashback to the good days of Google I/O
 date: 2015-12-07 12:00
 published: true

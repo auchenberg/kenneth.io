@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Internet Explorer User Agent revealed in Windows Phone 7
 categories: Uncategorized
 ---

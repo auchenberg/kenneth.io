@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: "The messy state of Web Notifications in Blink and Webkit"
 date: 2013-07-15 19:21
 published: true

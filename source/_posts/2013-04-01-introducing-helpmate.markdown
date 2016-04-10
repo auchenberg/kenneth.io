@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Introducing Helpmate.
 date: 2013-04-01 21:32
 comments: true

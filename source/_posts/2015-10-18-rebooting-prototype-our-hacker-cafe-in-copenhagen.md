@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Rebooting Prototype, our hacker-cafe in Copenhagen
 date: 2015-10-18 17:00
 published: true

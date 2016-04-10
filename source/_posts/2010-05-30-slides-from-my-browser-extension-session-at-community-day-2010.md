@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Slides from my Browser Extension session at Community Day 2010
 categories: Uncategorized
 ---

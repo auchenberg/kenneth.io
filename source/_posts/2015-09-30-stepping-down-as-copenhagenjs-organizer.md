@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post
 title: Stepping down as CopenhagenJS organizer
 date: 2015-09-30 11:00
 published: true
