@@ -1,0 +1,36 @@
+
+- title: "#CPHFTW"
+  place: "Copenhagen, Denmark"
+  description: "Initiative to unify the danish startup scene by creating an umbrella organization that's run and founded by the danish startups."
+  date: "May 2016"
+  url: "/projects/cphftw"
+  image: "cphftw.png"
+
+- title: "ColdFront Conference"
+  place: "Copenhagen, Denmark"
+  description: "The first dedicated front-end conference taking place in Copenhagen. First conference took place in 2014, 8 international speakers, and the conference was completely sold out."
+  date: "May 2016"
+  url: "/projects/coldfrontconf"
+  image: "coldfront.png"
+ 
+- title: "Prototype"
+  place: "Copenhagen, Denmark"
+  description: "A new place in town for hackers, designers, troublemakers and other disrupters. Co-working space in a former coffee shop in Copenhagen."
+  date: "May 2016"
+  url: "/projects/prototype"
+  image: "prototype.png"
+    
+- title: "RemoteDebug"
+  place: ""
+  description: "RemoteDebug is an intiative to unitfy remote debugging across browsers with the goal to enable better in-browser DevTools and better integrations between browsers and editors"
+  date: "May 2016"
+  url: "/projects/remotedebug"
+  image: "remotedebug.png"
+  
+- title: "CopenhagenJS"
+  place: "Copenhagen, Denmark"
+  description: "CopenhagenJS is a community for Javascript developers in the Copenhagen and area. We're more than 200 active members who enjoy meeting for presentations, network and learn from each other."
+  date: "May 2016"
+  url: "/projects/copenhagenjs"
+  image: "copenhagenjs.png"
+  

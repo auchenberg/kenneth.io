@@ -1,32 +1,83 @@
 ---
-layout: default
+layout: frontpage
 ---
 
-<section class="post blog-index">
-  {% assign index = true %}
-  {% for post in paginator.posts %}
-    {% unless post.draft == true %}
-      {% assign content = post.content %}
-      <article>
-        {% include article.html %}
-      </article>
-    {% endunless %}
-  {% endfor %}
-  <footer class="pagination">
-    <div class="inner">
-      {% if paginator.previous_page %}
+<div class="frontpage">
+      
+<section class="intro">
 
-        {% if paginator.previous_page == 1 %}
-          <a class="next" href="/">Newer Posts &rarr;</a>
-        {% else %}
-          <a class="next" href="/blog/page/{{paginator.previous_page}}">Newer Posts &rarr;</a>
-        {% endif %}
-
-      {% endif %}
-
-      {% if paginator.next_page %}
-        <a class="prev" href="/blog/page/{{paginator.next_page}}">&larr; Older Posts</a>
-      {% endif %}
+{% include navigation.html %}
+  
+  <div class="inner">
+    <h1>Hola, I'm Kenneth.</h1>
+    <h2>A danish open web advocate, community builder,</br> entrepreneur and keynote speaker.</h2>
+  
+    <div class="social">
+      <a href="https://twitter.com/auchenberg" class="twitter-follow-button" data-show-count="true" data-size="large">Follow @auchenberg</a>
     </div>
-  </footer>
+    
+  </div>
+  
 </section>
+
+<section class="section post blog-index">
+  
+  <div class="header">
+    <h2>Recent posts</h2>
+  </div>
+    
+  <div class="content">
+    {% for post in site.posts reverse limit:3 %}
+      {% unless post.draft == true %}
+        <article>
+          <h2><a href="{{ root_url }}{{ post.url }}">{{post.title}}</a></h2>
+          <p class="except">
+            {{ post.excerpt }}
+          </p>
+          <a class="more-link" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
+        </article>
+      {% endunless %}
+    {% endfor %}
+  </div>
+
+</section>
+
+<section class="section projects">
+  
+  <div class="header">
+    <h2>Featured projects</h2>
+  </div>
+    
+  <div class="content">
+    <ul>
+    {% for project in site.data.projects limit: 4 | sort: 'date' %}
+      <li>
+        <div class="inner">
+          <a rel="full-article" href="{{ root_url }}{{ project.url }}">          
+            {% capture image %}images/projects/{{ project.image }}{% endcapture %}
+          
+            <div class="image">
+              <div class="content">
+                <img src="{{ image | asset_path }}" alt="">
+              </div>
+            </div>
+          
+            <h4>{{ project.title }}</h4>
+            
+            <p class="description">
+              {{ project.description }}
+            </p>
+          </a>
+        </div>
+      </li>
+    {% endfor %}
+    </ul>
+    
+    <a class="more-link" href="/projects">See all my projects.</a>
+  </div>
+
+</section>
+
+
+
+</div>

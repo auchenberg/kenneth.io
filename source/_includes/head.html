@@ -12,7 +12,7 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  
   {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
   <link rel="canonical" href="{{ canonical }}">
 
@@ -25,6 +25,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@auchenberg">
   <meta name="twitter:creator" content="@auchenberg">
+  
 
 {% if page.url %}
   <meta content="{{ site.url }}{{ page.url }}" property="og:url">
@@ -58,7 +59,5 @@
   <meta name="twitter:image" content="{{ site.url }}{{ page.og_image | asset_path }}">
 {% endif %}
 
-  <script type="text/javascript" src="//use.typekit.net/zbi3gmu.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,600,300">
 </head>
