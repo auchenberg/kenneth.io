@@ -4,6 +4,13 @@
   date: "May 2016"
   url: "http://www.atthefrontend.dk/session/DevTools-for-the-Progressive-Web"
   slides: ""
+
+- event: "Keynote: #CPHFTW Towntall 4"
+  place: "Copenhagen, Denmark"
+  title: "The new web"
+  date: "December 2015"
+  url: "http://cphftw.org/"
+  slides: ""
   
 - event: "Øredev 2015"
   place: "Malmö, Sweden"
