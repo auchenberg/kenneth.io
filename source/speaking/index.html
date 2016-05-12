@@ -4,11 +4,14 @@ title: Speaking
 header: Speaking
 ---
 
+<p>I often speak in public; in communities, at conferences and in companies. Mostly I talk about the web platform, but you'll also hear me talk about things like architecture, minimalism and design, simply because I'm curious about how we, human beings, interpret and interact with the world.</p>
+
+<p>If you want me to speak at your event, please feel free to <a href="/contact/">contact me</a>, and let's see if it makes sense.</p>
+  
+{% img "" /images/me_full_frontal_web.jpg "Photo credits: <a href='http://www.flickr.com/photos/drewm/10757628855'>Drew McLellan</a>, Full Frontal 2013, Brigthon" %}
+
 <section class="speaking">
-
-  <p>I often speak in public; in communities, at conferences and in companies. Mostly I talk about front-end development, and the web platform, but you'll also hear me talk about things like architecture, minimalism and design, simply because I'm curious about how we, human beings, interpret and interact with the world.</p>
-  {% img "" /images/me_full_frontal_web.jpg "Photo credits: <a href='http://www.flickr.com/photos/drewm/10757628855'>Drew McLellan</a>, Full Frontal 2013, Brigthon" %}
-
+  
   {% assign curDate = site.time | date: '%s' %}
 
   <h2 class="block">Future talks</h2>
@@ -27,7 +30,7 @@ header: Speaking
   </ul>
 
 
-  <h2 class="block">My talks</h2>
+  <h2 class="block">Previous talks</h2>
     <ul class="speaking-list">
     {% for talk in site.data.speaking %}
       {% assign postStartDate = talk.date | date: '%s' %}
