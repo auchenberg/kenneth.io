@@ -1,9 +1,35 @@
 ---
 layout: page
-title: Experiments
+title: Projects
 header: Projects
 ---
 
-<section>
-...
+<section class="section projects">
+      
+  <div class="content">    
+    <ul>
+    {% for project in site.data.projects | sort: 'date' %}
+      <li>
+        <div class="inner">
+          <a rel="full-article" href="{{ root_url }}{{ project.url }}">          
+            {% capture image %}images/projects/{{ project.image }}{% endcapture %}
+          
+            <div class="image">
+              <div class="content">
+                <img src="{{ image | asset_path }}" alt="">
+              </div>
+            </div>
+          
+            <h4>{{ project.title }}</h4>
+            
+            <p class="description">
+              {{ project.description }}
+            </p>
+          </a>
+        </div>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+
 </section>

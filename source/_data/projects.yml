@@ -1,4 +1,11 @@
 
+- title: "Volkswagen"
+  place: "Copenhagen, Denmark"
+  description: "Node.js module to defeat unit tests. Viral open source joke on the Volkswagen emission scandal of 2015."
+  date: "May 2014"
+  url: "/projects/volkswagen"
+  image: "volkswagen.png"
+  
 - title: "#CPHFTW"
   place: "Copenhagen, Denmark"
   description: "Initiative to unify the danish startup scene by creating an umbrella organization that's run and founded by the danish startups."
@@ -8,21 +15,28 @@
 
 - title: "ColdFront Conference"
   place: "Copenhagen, Denmark"
-  description: "The first dedicated front-end conference taking place in Copenhagen. First conference took place in 2014, 8 international speakers, and the conference was completely sold out."
-  date: "May 2016"
+  description: "The first dedicated front-end conference taking place in Copenhagen. First conference took place in 2014."
+  date: "May 2014"
   url: "/projects/coldfrontconf"
   image: "coldfront.png"
  
+- title: "GoToMeeting Free (Hutt)"
+  place: "Copenhagen, Denmark / San Francisco, US"
+  description: "Build next generation of the video conference system GoToMeeting, by building a startup from the ground up inside Citrix."
+  date: "May 2016"
+  url: "/projects/gotomeeting-free"
+  image: "gotomeeting_free.png"
+   
 - title: "Prototype"
   place: "Copenhagen, Denmark"
-  description: "A new place in town for hackers, designers, troublemakers and other disrupters. Co-working space in a former coffee shop in Copenhagen."
+  description: "A new place in town for frackers, designers, troublemakers and other disrupters. Co-working space in a former coffee shop in Copenhagen."
   date: "May 2016"
   url: "/projects/prototype"
   image: "prototype.png"
     
 - title: "RemoteDebug"
   place: ""
-  description: "RemoteDebug is an intiative to unitfy remote debugging across browsers with the goal to enable better in-browser DevTools and better integrations between browsers and editors"
+  description: "RemoteDebug is an intiative to unitfy remote debugging across browsers to enable better cross-browser DevTools and integration between browsers and editors."
   date: "May 2016"
   url: "/projects/remotedebug"
   image: "remotedebug.png"
@@ -33,4 +47,18 @@
   date: "May 2016"
   url: "/projects/copenhagenjs"
   image: "copenhagenjs.png"
+ 
+- title: "Podio"
+  place: "Copenhagen, Denmark"
+  description: "Podio was a social collaboration platform"
+  date: "May 2012"
+  url: "/projects/podio"
+  image: "podio.png"
   
+- title: "ZYB"
+  place: "Copenhagen, Denmark"
+  description: "Social phone backup service for feature phones prior to Facebook and iPhone."
+  date: "May 2010"
+  url: "/projects/zyb"
+  image: "zyb.png"
+    
