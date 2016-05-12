@@ -35,7 +35,7 @@
             highlightBorderWidth: 2
         },
         data: {
-            DNK: { fillKey: "home" },
+            DNK: { fillKey: "beenTo" },
             USA: { fillKey: "beenTo" },
             DEU: { fillKey: "beenTo" },
             ITA: { fillKey: "beenTo" },
@@ -64,7 +64,12 @@
             JPN: { fillKey: "beenTo" },
             IND: { fillKey: "beenTo" },
             ISL: { fillKey: "beenTo" },
-            CAN: { fillKey: "beenTo" },
+            MEX: { fillKey: "beenTo" },
+            CUB: { fillKey: "beenTo" },
+            BGR: { fillKey: "beenTo" },
+            CHE: { fillKey: "beenTo" },
+            BEL: { fillKey: "beenTo" },
+            CAN: { fillKey: "home" },
         }
     });
 
