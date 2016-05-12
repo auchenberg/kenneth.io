@@ -2,8 +2,8 @@ nav {
   display: block;
   margin: 0 auto;
   overflow: hidden;
-  padding: 10px 0;
-  background: #f5f5f5;
+  padding: 50px 0 10px 0;
+
 
   clip: rect(0 0 0 0);
   overflow: hidden;
@@ -13,17 +13,41 @@ nav {
     text-align: left;
     margin: 0 auto;
     padding: 0;
-    width: 95%;
-    max-width: $max-width;
-
+    max-width: 900px;
+    text-align: center;
 
     li {
       display: inline-block;
       margin-right: 10px;
       width: auto;
+      margin-left: 30px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 1.2rem;      
+      
+      &:first-child {
+        margin-left: 0;
+      }
 
-      a,
+      &:last-child {
+        margin-right: 0;
+      }
+            
+      a:link, a:visited {
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
       a:visited,
+      a {
+        color: #fff;
+      }
+      
       a:hover {
         color: #AAA;
         font-weight: 400;

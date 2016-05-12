@@ -1,7 +1,10 @@
 body > header {
 
-  padding: 20px 0 20px 0;
-  background-color: #333;
+  padding: 0 0 20px 0;
+  background: #333;
+  background-image: url(asset_path('../images/cover.jpg'));
+  background-size: cover;  
+  background-position: 0px 0px;
 
   .inner {
     max-width: $max-width;
