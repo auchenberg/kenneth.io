@@ -9,7 +9,7 @@ layout: frontpage
 {% include navigation.html %}
   
   <div class="inner">
-    <h1>Hola, I'm Kenneth.</h1>
+    <h1>Hola, I'm Kenneth</h1>
     <h2>A danish open web advocate, toolsmith,</br>community builder and keynote speaker.</h2>
   
     <div class="social">
@@ -53,7 +53,7 @@ layout: frontpage
     {% for project in site.data.projects limit: 4 | sort: 'date' %}
       <li>
         <div class="inner">
-          <a rel="full-article" href="{{ root_url }}{{ project.url }}">          
+          <!--<a rel="full-article" href="{{ root_url }}{{ project.url }}">          -->
             {% capture image %}images/projects/{{ project.image }}{% endcapture %}
           
             <div class="image">
@@ -67,7 +67,7 @@ layout: frontpage
             <p class="description">
               {{ project.description }}
             </p>
-          </a>
+          <!--</a>-->
         </div>
       </li>
     {% endfor %}

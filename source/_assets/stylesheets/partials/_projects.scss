@@ -1,7 +1,9 @@
 .projects {
     
   ul {
-    clear: both;
+    overflow: hidden;
+    width: 95%;
+    margin-top: 35px;
   }
   
   li {
@@ -63,6 +65,23 @@
     display: block;
     max-width: 40%;
     margin: 0 auto;
+  }
+  
+  @media (max-width: 650px) { 
+    
+    li {
+      width: 100%;
+      
+      .inner {
+        margin: 0;
+      }
+    }
+    
+    .description {
+      height: auto;
+      min-height: 100px;
+    }
+    
   }
  
 }
