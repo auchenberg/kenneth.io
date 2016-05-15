@@ -1,3 +1,17 @@
+- event: "JSCONF China 2016"
+  place: "China"
+  title: "DevTools for the Progressive Web"
+  date: "September 2016"
+  url: ""
+  slides: ""
+
+- event: "ColdFront 2016"
+  place: "Copenhagen, Denmark"
+  title: "Host"
+  date: "September 2016"
+  url: ""
+  slides: ""
+
 - event: "AtTheFrontEnd 2016"
   place: "Copenhagen, Denmark"
   title: "DevTools for the Progressive Web"
@@ -5,6 +19,13 @@
   url: "http://www.atthefrontend.dk/session/DevTools-for-the-Progressive-Web"
   slides: ""
 
+- event: "DevTools Camp, Vancouver"
+  place: "Vancouver, Canada"
+  title: "Edge DevTools and the future of tooling"
+  date: "March 2016"
+  url: ""
+  slides: ""
+      
 - event: "Keynote: #CPHFTW Towntall 4"
   place: "Copenhagen, Denmark"
   title: "The new web"
