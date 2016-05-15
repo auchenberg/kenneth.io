@@ -15,15 +15,15 @@ header: Speaking
   {% assign curDate = site.time | date: '%s' %}
 
   <h2 class="block">Future talks</h2>
-    <ul class="speaking-list">
+    <ul class="list">
     {% for talk in site.data.speaking | sort: 'date' %}
       {% assign postStartDate = talk.date | date: '%s' %}
       {% if postStartDate >= curDate %}
       <li>
-        <h2><a href="{{ talk.url }}">{{ talk.event }}</a></h2>,
-        <h3>{{ talk.place}}</h3>,
-        <span class="date">{{ talk.date}}</span>
+        <h4><a href="{{ talk.url }}">{{ talk.event }}</a></h4>
+        <date>{{ talk.date | date: "%B %Y" }}</date>
         <h4>{{ talk.title}}</h4>
+        <p>{{ talk.place}}</p>
       </li>
       {% endif %}
     {% endfor %}
@@ -31,15 +31,15 @@ header: Speaking
 
 
   <h2 class="block">Previous talks</h2>
-    <ul class="speaking-list">
+    <ul class="list">
     {% for talk in site.data.speaking %}
       {% assign postStartDate = talk.date | date: '%s' %}
       {% if postStartDate <= curDate %}
       <li>
-        <h2><a href="{{ talk.url }}">{{ talk.event }}</a></h2>,
-        <h3>{{ talk.place}}</h3>,
-        <span class="date">{{ talk.date | date: "%B %Y" }}</span>
+        <h4><a href="{{ talk.url }}">{{ talk.event }}</a></h4>
+        <date>{{ talk.date | date: "%B %Y" }}</date>
         <h4>{{ talk.title}}</h4>
+        <p>{{ talk.place}}</p>
       </li>
       {% endif %}
     {% endfor %}

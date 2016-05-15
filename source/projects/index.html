@@ -11,7 +11,7 @@ header: Projects
     {% for project in site.data.projects | sort: 'date' %}
       <li>
         <div class="inner">
-          <a rel="full-article" href="{{ root_url }}{{ project.url }}">          
+          <!--<a rel="full-article" href="{{ root_url }}{{ project.url }}">          -->
             {% capture image %}images/projects/{{ project.image }}{% endcapture %}
           
             <div class="image">
@@ -25,7 +25,7 @@ header: Projects
             <p class="description">
               {{ project.description }}
             </p>
-          </a>
+          <!--</a>-->
         </div>
       </li>
     {% endfor %}
