@@ -1,12 +1,7 @@
 section {
 
   h1, h2, h3 {
-         // Non standard for webkit
-         word-break: break-word;
-
-    -webkit-hyphens: auto;
-       -moz-hyphens: auto;
-            hyphens: auto;
+    hyphens: auto;
   }
 
   h1 {
@@ -138,9 +133,8 @@ section {
     line-height: 1.5em;
     padding-left: 1em;
     border-left: 6px solid rgba($text-color-light, .5);
-    -webkit-hyphens: auto;
+    
     hyphens: auto;
-    -moz-hyphens: auto;
 
     &.big {
       p {
