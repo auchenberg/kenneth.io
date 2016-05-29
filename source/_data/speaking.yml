@@ -12,12 +12,19 @@
   url: ""
   slides: ""
 
+- event: "Web Rebels 2016"
+  place: "Oslo, Norway"
+  title: "DevTools for the Progressive Web"
+  date: "June 2016"
+  url: ""
+  slides: ""
+  
 - event: "AtTheFrontEnd 2016"
   place: "Copenhagen, Denmark"
   title: "DevTools for the Progressive Web"
   date: "May 2016"
   url: "http://www.atthefrontend.dk/session/DevTools-for-the-Progressive-Web"
-  slides: ""
+  slides: "https://speakerdeck.com/auchenberg/devtools-for-the-progressive-web"
 
 - event: "DevTools Camp, Vancouver"
   place: "Vancouver, Canada"
