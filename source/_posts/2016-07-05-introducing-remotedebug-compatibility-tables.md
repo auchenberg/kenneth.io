@@ -6,14 +6,14 @@ published: true
 comments: true
 draft: false
 categories:
-og_image: images/posts/remotedebug-compatibility-tables/head.jpg
+og_image: images/posts/remotedebug-compatibility-tables/head.png
 ---
 
 To continue the [RemoteDebug](https://remotedebug.org) effort on unifying today’s remote debugging debugging protocols and API’s for browsers and related runtimes, I spend the last time comparing the API's exposed over remote debugging protocols. 
 
 Today I'm happy to introduce the [RemoteDebug Compatibility Tables](https://compatibility.remotedebug.org/), which for the first time provides a full overview the API’s exposed by browsers and runtimes supporting the Chrome Debugging Protocol either natively or via adapter layers.
 
-{% img /images/posts/remotedebug-compatibility-tables/head.jpg "" %}
+{% img /images/posts/remotedebug-compatibility-tables/head.png "" %}
 
 <!--more-->
 
@@ -36,7 +36,7 @@ This approach is much similar to the excellent [Chrome Debugging Protocol Viewer
 
 Besides, to generating the compatibility tables themselves and permalinks for each object, I've also some simple API comparison which marks a given API as "common" when all the compared runtimes support's it. 
 
-{% img /images/posts/remotedebug-compatibility-tables/parity_highlight.png "" %}
+{% img /images/posts/remotedebug-compatibility-tables/common_highlight.png "" %}
 
 Getting an overview of common API's is the first step towards a RemoteDebug proposal as those API's would be the starting point for a common set of APIs, as they already are exposed. 
 
