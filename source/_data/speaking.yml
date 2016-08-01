@@ -1,3 +1,10 @@
+- event: "JSCONF Columbia 2016"
+  place: "Medellin, Columbia"
+  title: "DevTools for the Progressive Web"
+  date: "October 2016"
+  url: "https://jsconf.co/"
+  slides: ""
+
 - event: "JSCONF China 2016"
   place: "China"
   title: "DevTools for the Progressive Web"
