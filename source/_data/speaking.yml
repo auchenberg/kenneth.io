@@ -16,8 +16,8 @@
   place: "Oslo, Norway"
   title: "DevTools for the Progressive Web"
   date: "June 2016"
-  url: ""
-  slides: ""
+  url: "https://www.webrebels.org/"
+  slides: "https://speakerdeck.com/auchenberg/web-rebels-16-devtools-for-the-progressive-web"
   
 - event: "AtTheFrontEnd 2016"
   place: "Copenhagen, Denmark"
