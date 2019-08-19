@@ -37,7 +37,7 @@ That's why I'm beyond excited to be joining the mission of building global econo
 
 ## Opportunity to rethink the boundaries of business and to provide new abstractions for developers
 
-When I think of Stripe, I think of a platform for economic opportunity, that is built by long-term thinkers providing an abstraction, on top of a somewhat legacy financial system, and that abstraction layer is an intriguing proposition.
+When I think of Stripe, I think of a platform for economic opportunity, built by long-term thinkers to provide an abstraction, on top of a somewhat legacy financial system, and that abstraction layer is an intriguing proposition.
 
 It's an opportunity to rethink the boundaries of business and to provide new platform primitives (think lego bricks) to developers that will enable them to build the next generation of companies.
 
