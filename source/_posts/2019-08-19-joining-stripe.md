@@ -47,7 +47,7 @@ I am confident [Software 2.0](https://medium.com/@karpathy/software-2-0-a64152b3
 
 When looking at Stripe as a platform, I'm excited for the opportunities ahead, and the potential in the new abstractions we can provide this and the many generations (of developers) to come.
 
-At Stripe I will be joining our Developer Relations team (which we are scaling). I'll be based in Seattle, but often in San Francisco, and will (hopefully) be spending (most of) my brain-cycles obsessing about our tooling and developer experience.
+At Stripe I will be joining our relatively small Developer Relations team (which we are scaling). I'll be based in Seattle, but often in San Francisco, and will be spending my time working across product teams obsessing about our tooling and developer experience.
 
 And yes, we are expanding our presence here in Seattle, so take a look at [our careers page](https://stripe.com/jobs/search?l=seattle), and feel free to ping me if you wanna know more.
 
