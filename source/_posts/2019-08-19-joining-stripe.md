@@ -9,13 +9,13 @@ categories:
 og_image: images/posts/stripe/head.png
 ---
 
-About two months ago I announced that [I was leaving Microsoft](https://mobile.twitter.com/auchenberg/status/1144275090357407744) after a good stint of almost 4 years working on range of developer tools such as Edge DevTools and [Visual Studio Code](Studio) together with some amazing people
+About two months ago I announced that [I was leaving Microsoft](https://mobile.twitter.com/auchenberg/status/1144275090357407744) after a good stint of almost 4 years working on a range of developer tools such as Edge DevTools and [Visual Studio Code](Studio) together with some amazing people.
 
 It's been a fun adventure where I pivoted to product from engineering and a journey that took me to Pacific Northwest with stops in Vancouver, Canada and Seattle, WA.
 
 {% img /images/posts/stripe/head.png %}
 
-Today I'm excited to announce that I'm joining [**Stripe**](https://stripe.com/) to build the next generation of developer experiences for the economic infrastructure of the internet 🌍💰🛠
+Today I'm excited to announce that I'm joining [**Stripe**](https://stripe.com/) to build the next generation of developer experiences for the economic infrastructure of the internet. 🌍💰🛠
 
 Let me tell you why.
 
