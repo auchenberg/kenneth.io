@@ -33,7 +33,7 @@ I've always thought of Stripe as that "online payments company", but the more I 
 
 Having been an entrepreneur myself with [ColdFront](https://coldfront.co/), and been a part of several startups scaling from basement to offices around the world, I know how challenging is to build a business for a global connected world.
 
-That's why I'm beyond excited to be joining the mission of building global economic infrastructure for the internet, at a company that's always been pushing the boundaries of what's possible.
+That's why I'm beyond excited to be joining the mission of building global economic infrastructure for the internet, surrounded by some truely amazingly talented people, at a company that's always been pushing the boundaries of what's possible.
 
 ## Opportunity to rethink the boundaries of business and to provide new abstractions for developers
 
@@ -47,7 +47,7 @@ I am confident [Software 2.0](https://medium.com/@karpathy/software-2-0-a64152b3
 
 When looking at Stripe as a platform, I'm excited for the opportunities ahead, and the potential in the new abstractions we can provide this and the many generations (of developers) to come.
 
-At Stripe I will be joining our Developer Relations team (based in Seattle, but often in San Francisco) spending my brain-cycles obsessing about our developer experience and tooling.
+At Stripe I will be joining our Developer Relations team (which we are scaling). I'll be based in Seattle, but often in San Francisco, and will (hopefully) be spending (most of) my brain-cycles obsessing about our tooling and developer experience.
 
 And yes, we are expanding our presence here in Seattle, so take a look at [our careers page](https://stripe.com/jobs/search?l=seattle), and feel free to ping me if you wanna know more.
 
