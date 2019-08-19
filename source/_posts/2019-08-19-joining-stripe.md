@@ -41,7 +41,7 @@ When I think of Stripe, I think of a platform for economic opportunity, built by
 
 It's an opportunity to rethink the boundaries of business and to provide new platform primitives to developers that will enable them to build the next generation of companies.
 
-In the past years I have mainly been focused on building platform for software engineering through somewhat low-level primitives in [DevTools Protocols in W3C](https://github.com/WICG/devtools-protocol), JavaScript debuggers and editors like [Visual Studio Code](https://code.visualstudio.com/), but lately I've been spending quite some time studying the wave of [Software 2.0](https://medium.com/@karpathy/software-2-0-a64152b37c35) fueled by the commoditization of ML and AI.
+In the past years I have mainly been focused on building platform primitives for software engineering through somewhat low-level primitives in [DevTools Protocols in W3C](https://github.com/WICG/devtools-protocol), JavaScript debuggers and editors like [Visual Studio Code](https://code.visualstudio.com/), but lately I've been spending quite some time studying the wave of [Software 2.0](https://medium.com/@karpathy/software-2-0-a64152b37c35) fueled by the commoditization of ML and AI.
 
 I am confident [Software 2.0](https://medium.com/@karpathy/software-2-0-a64152b37c35) and the [raise of low-code/no-code](https://medium.com/@rrhoover/the-rise-of-no-code-e733d7c0944d) are indicators of an imminent paradigm shift that requires us to rethink the way we think and write software.
 
