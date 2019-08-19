@@ -31,7 +31,7 @@ I've always thought of Stripe as that "online payments company", but the more I 
     <iframe width="1280" height="500" src="https://www.youtube.com/embed/ck0u5OdyDdo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>
 
-Having been an entrepreneur myself with [ColdFront](https://coldfront.co/), and been a part of now several startups scaling from basement to offices around the world, I know how challenging is to build a business for a global connected world.
+Having been an entrepreneur myself with [ColdFront](https://coldfront.co/), and been a part of several startups scaling from basement to offices around the world, I know how challenging is to build a business for a global connected world.
 
 That's why I'm beyond excited to be joining the mission of building global economic infrastructure for the internet, at a company that's always been pushing the boundaries of what's possible.
 
